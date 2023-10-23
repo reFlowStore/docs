@@ -6,7 +6,7 @@ import { StoreIcon, AboutIcon, BridgeIcon, UnitTesting, NotifyIcon, MerchantIcon
 function useHead() {
   const { asPath } = useRouter();
   const { frontMatter, title } = useConfig();
-  const url = `http://docs.reflow-store.com${asPath}`;
+  const url = `https://docs.reflow-store.com${asPath}`;
   const description = frontMatter.description || "Documentation for reFlow";
 
   return (
