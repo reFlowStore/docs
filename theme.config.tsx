@@ -6,8 +6,8 @@ import { StoreIcon, AboutIcon, BridgeIcon, UnitTesting, NotifyIcon, MerchantIcon
 function useHead() {
   const { asPath } = useRouter();
   const { frontMatter, title } = useConfig();
-  const url = `https://docs.sloppydesigns.com${asPath}`;
-  const description = frontMatter.description || "Documentation for Sloppy Designs";
+  const url = `http://docs.reflow-store.com${asPath}`;
+  const description = frontMatter.description || "Documentation for reFlow";
 
   return (
     <>
@@ -25,7 +25,7 @@ function useHead() {
 function useNextSeoProps() {
   const { asPath } = useRouter();
   const arr = asPath.replace(/[-_]/g, ' ').split('/');
-  const category = (arr[1][0] !== '#' && arr[1]) || 'Sloppy Designs';
+  const category = (arr[1][0] !== '#' && arr[1]) || ' reFlow';
   const rawTitle = arr[arr.length - 1];
   const title = /[a-z]/.test(rawTitle) && /[A-Z]/.test(rawTitle) ? rawTitle : '%s';
 
@@ -56,14 +56,14 @@ const config: DocsThemeConfig = {
           fill="currentColor"
         />
       </svg>
-      <span style={{ marginLeft: '1em', fontWeight: 800 }}>Sloppy Designs</span>
+      <span style={{ marginLeft: '1em', fontWeight: 800 }}>reFlow</span>
     </>
   ),
   project: {
-    link: 'https://github.com/SloppyDesigns',
+    link: 'https://github.com/reFlowOrg',
   },
   chat: {
-    link: 'https://discord.gg/sloppydesigns',
+    link: 'https://discord.gg/reflow',
   },
   /*
   banner: {
@@ -75,13 +75,13 @@ const config: DocsThemeConfig = {
     ),
   },
   */
-  docsRepositoryBase: 'https://github.com/sloppydesigns/docs/tree/main',
+  docsRepositoryBase: 'https://github.com/reFlowOrg/docs/tree/main',
   footer: {
     text: (
       <span>
         {new Date().getFullYear()} ©{' '}
-        <a href="https://www.sloppydesigns.com/" target="_blank">
-          Sloppy Designs
+        <a href="https://reflow-store.com/" target="_blank">
+          reFlow
         </a>
       </span>
     ),
