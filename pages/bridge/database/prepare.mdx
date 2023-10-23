@@ -1,0 +1,35 @@
+import { Tab, Tabs } from 'nextra-theme-docs';
+
+# Prepare
+Prepare query for optimizing performance and frequently called queries
+
+```lua
+Database.prepare(query, data, cb)
+```
+
+- query: `string`
+- data?: `table`
+- cb?: `function(result)`
+
+returns: `table`
+
+<Tabs items={['Promise', 'Callback']}>
+  <Tab>
+
+    ```lua
+    local result = Database.prepare('SELECT `column1`, `column2` FROM `table` WHERE `column3` = ?', { 'value1' })
+
+    print(json.encode(result))
+    ```
+
+  </Tab>
+  <Tab>
+
+    ```lua
+    Database.prepare('SELECT `column1`, `column2` FROM `table` WHERE `column3` = ?', { 'value1' }, function(result)
+        print(json.encode(result))
+    end)
+    ```
+
+  </Tab>
+</Tabs>

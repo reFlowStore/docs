@@ -1,0 +1,69 @@
+# Framework Locale
+
+Language files are automatically loaded from the `locales` folder, the default language is `en`
+
+## Change The Language
+
+Add the following convar to your server.cfg to change the preferred language
+
+```lua
+setr bridge:locale en
+```
+
+## Loading Languages
+
+Add the following to your fxmanifest to load all locales
+
+```lua filename="fxmanifest.lua" copy {4}
+files {
+    'bridge/**/**/client.lua',
+    'bridge/**/*.lua',
+    'locales/*.json'
+}
+```
+
+## Create Locale
+
+```json filename="locales/en.json"
+{
+  "myname": "My Name Is {name}",
+}
+```
+
+Getting Specific Locale String
+```lua
+Framework.Locale('myname', {  name = 'Sloppy' })
+```
+
+Returns
+
+```lua
+My Name Is Sloppy
+```
+
+## Locale
+
+Get Specific Language String
+
+```lua
+Framework.Locale(key, params)
+```
+
+- key: `string`
+- params: `table`
+
+```lua
+Framework.Locale('mykey', {  myvalue = 'My Value' })
+```
+
+returns: `string`
+
+## Locales
+
+Get Language Table
+
+```lua
+Framework.Locales()
+```
+
+returns: `table`

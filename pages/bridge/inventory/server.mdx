@@ -1,0 +1,347 @@
+# Inventory Server
+
+## Items
+
+```lua
+Framework.Items
+```
+
+returns: [Item[]](/bridge/inventory/item)
+
+## AddItem
+
+Add Item To Inventory
+
+```lua
+Framework.AddItem(inventory, item, count, metadata, slot)
+```
+
+- inventory: `number | string`
+- item: `string`
+- count: `number`
+- metadata?: `table`
+- slot?: `number`
+
+returns: `boolean`
+
+Add item to inventory
+```lua
+-- To Player
+Framework.AddItem(source, 'water_bottle', 1, { quality = 100 })
+
+-- To Stash
+Framework.AddItem('mystash', 'water_bottle', 1, { quality = 100 })
+```
+
+## RemoveItem
+
+Remove Item From Inventory
+
+```lua
+Framework.RemoveItem(inventory, item, count, metadata, slot)
+```
+
+- inventory: `number | string`
+- item: `string`
+- count: `number`
+- metadata?: `table`
+- slot?: `number`
+
+returns: `boolean`
+
+Remove item from inventory
+```lua
+-- From Player
+Framework.RemoveItem(source, 'water_bottle', 1)
+
+-- From Stash
+Framework.RemoveItem('mystash', 'water_bottle', 1)
+```
+
+Remove item from inventory where metadata matches
+```lua
+-- From Player
+Framework.RemoveItem(source, 'water_bottle', 1, { quality = 50 })
+
+-- From Stash
+Framework.RemoveItem('mystash', 'water_bottle', 1, { quality = 50 })
+```
+
+Remove item from inventory from specific slot
+```lua
+-- From Player
+Framework.RemoveItem(source, 'water_bottle', 1, nil, 1)
+
+-- From Stash
+Framework.RemoveItem('mystash', 'water_bottle', 1, nil, 1)
+```
+
+## GetItem
+
+Get Item From Inventory
+
+```lua
+Framework.GetItem(inventory, item, metadata)
+```
+
+- inventory: `number | string`
+- item: `string`
+- metadata?: `table`
+
+returns: [Item[]](/bridge/inventory/item)
+
+```lua
+-- Get Item From Player Inventory
+Framework.GetItem(source, 'water_bottle')
+
+-- Get Item From Stash
+Framework.GetItem('mystash', 'water_bottle')
+```
+
+## GetItemCount
+
+Get Item Count From Inventory
+
+```lua
+Framework.GetItemCount(inventory, item, metadata)
+```
+
+- inventory: `number | string`
+- item: `string`
+- metadata?: `table`
+
+returns: `number`
+
+```lua
+-- Get Item Count From Player Inventory
+Framework.GetItemCount(source, 'water_bottle')
+
+-- Get Item Count From Stash
+Framework.GetItemCount('mystash', 'water_bottle')
+```
+
+## HasItem
+
+Check if a player or a stash has an item
+
+```lua
+Framework.HasItem(inventory, items, count, metadata)
+```
+
+- inventory: `number | string`
+- items: `string | string[] | table<string, number>`
+- count?: `number`
+- metadata?: `table`
+
+returns: `boolean`
+
+Check if inventory has item
+```lua
+-- Player
+Framework.HasItem(source, 'water_bottle', 1)
+
+-- Stash
+Framework.HasItem('mystash', 'water_bottle', 1)
+```
+
+Check if inventory has item with metadata
+```lua
+-- Player
+Framework.HasItem(source, 'water_bottle', 1, { quality = 100 })
+
+-- Stash
+Framework.HasItem('mystash', 'water_bottle', 1, { quality = 100 })
+```
+
+Check if inventory has multiple items
+```lua
+-- Player
+Framework.HasItem(source, {'water_bottle', 'burger' }, 1)
+
+-- Stash
+Framework.HasItem('mystash', {'water_bottle', 'burger' }, 1)
+```
+
+Check if inventory has multiple with different quantity
+```lua
+-- Player
+Framework.HasItem(source, {['water_bottle'] = 1, ['burger'] = 2})
+
+-- Stash
+Framework.HasItem('mystash', {['water_bottle'] = 1, ['burger'] = 2})
+```
+
+## GetItemMetadata
+
+Get Item Metadata
+
+```lua
+Framework.GetItemMetadata(inventory, slot)
+```
+
+- inventory: `number | string`
+- slot: `number`
+
+returns: `table`
+
+```lua
+-- Player
+Framework.GetItemMetadata(source, 1)
+
+-- Stash
+Framework.GetItemMetadata('mystash', 1)
+```
+
+## SetItemMetadata
+
+Set Item Metadata
+
+```lua
+Framework.SetItemMetadata(inventory, slot, metadata)
+```
+
+- inventory: `number | string`
+- slot: `number`
+- metadata: `table`
+
+```lua
+-- Player
+Framework.SetItemMetadata(source, 1, { quality = 100 })
+
+-- Stash
+Framework.SetItemMetadata('mystash', 1, { quality = 100 })
+```
+
+## GetInventory
+
+Returns Inventory
+
+```lua
+Framework.GetInventory(inventory)
+```
+
+- inventory: `number | string`
+
+returns: [Item[]](/bridge/inventory/item)
+
+```lua
+-- Player
+Framework.GetInventory(source)
+
+-- Stash
+Framework.GetInventory('mystash')
+```
+
+## ClearInventory
+
+Clear Inventory
+
+```lua
+Framework.ClearInventory(inventory, keep)
+```
+
+- inventory: `number | string`
+- keep: `string | string[]`
+
+```lua
+-- Player
+Framework.ClearInventory(source)
+
+Framework.ClearInventory(source, 'water_bottle')
+
+Framework.ClearInventory(source, { 'water_bottle', 'tosti' })
+
+-- Stash
+Framework.ClearInventory('mystash')
+
+Framework.ClearInventory('mystash', 'water_bottle')
+
+Framework.ClearInventory('mystash', { 'water_bottle', 'tosti' })
+```
+
+## RegisterStash
+
+Register Stash
+
+```lua
+Framework.RegisterStash(name, slots, weight, owner, groups)
+```
+
+- name: `string`
+- slots: `number`
+- weight: `number`
+- owner?: `string | boolean`
+- groups?: `table`
+
+Register stash without owner or groups
+```lua
+Framework.RegisterStash('mystash', 10, 5000)
+```
+
+Register stash unique to each player
+```lua
+Framework.RegisterStash('mystash', 10, 5000, true)
+```
+
+Register stash with player as the owner
+```lua
+Framework.RegisterStash('mystash', 10, 5000, 'ZWZ34061')
+```
+
+Register stash with groups
+```lua
+Framework.RegisterStash('mystash', 10, 5000, nil, { ['police'] = 0, ['ambulance'] = 0 })
+
+Framework.RegisterStash('mystash', 10, 5000, nil, { ['mygang'] = 0 })
+```
+
+## RegisterShop
+
+Register Shop
+
+```lua
+Framework.RegisterShop(name, data)
+```
+
+- name: `string`
+- data: `table`
+    - name: `string`
+    - items: `table[]`
+        - name: `string`
+        - price: `number`
+        - count?: `number`
+        - metadata?: `table`
+    - groups?: `string | string[] | table<string, number>`
+
+```lua
+Framework.RegisterShop('myshop', {
+    name = 'My Shop',
+    items = {
+        { name = 'water_bottle', price = 10, count = 99, metadata = { quality = 50 }}
+    },
+    groups = {
+        police = 0,
+        mygang = 0
+    }
+})
+```
+
+## ConfiscateInventory
+
+Clears a players inventory and saves it to return later
+
+```lua
+Framework.ConfiscateInventory(source)
+```
+
+- source: `number`
+
+## ReturnInventory
+
+Returns players confiscated inventory
+
+```lua
+Framework.ReturnInventory(source)
+```
+
+- source: `number`

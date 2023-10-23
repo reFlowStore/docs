@@ -1,0 +1,51 @@
+# Menu
+
+## Options
+
+- disabled: `boolean`
+    - Set Option Disabled (Doesn't Work On All Menus)
+- header: `string`
+    - Set Header Text
+- txt: `string`
+    - Set Description Text
+- icon: `string`
+    - Set FontAwesome Icon
+- params: `table`
+    - server: `boolean`
+        - Is Server Event
+    - event: `string`
+        - Set Trigger Event
+    - args: `any`
+        - Set Arguments
+
+## Example
+
+```lua
+exports['Your-Resource-Name']:CreateMenu({
+    {
+        disabled = true,                                        
+        header = "Header Text",                               
+        icon = "fa-solid fa-question",
+    },
+    {
+        disabled = true,                                        
+        header = "Header Text",                               
+        icon = "fa-solid fa-question",                       
+        txt = "Description Text",                                
+        params = {                                              
+            server = true,                                     
+            event = "your-event",                         
+            args = {                                            
+                'MyFirstArg',
+                'MySecondArg',
+                true   
+            }                         
+        }
+    },
+})
+
+RegisterNetEvent('your-event', function(arg1, arg2, arg3)
+    print(arg1, arg2, arg3)
+    -- Result:  MyFirstArg  MySecondArg true
+end)
+```

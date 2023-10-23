@@ -1,0 +1,71 @@
+---
+title: SD-KeyPad
+---
+
+import { Callout } from 'nextra-theme-docs';
+
+<br />
+
+<iframe src="https://www.youtube.com/embed/asXzYQeNhW8?ecver=1&amp;iv_load_policy=3&amp;rel=0&amp;showinfo=0&amp;yt:stretch=16:9&amp;autohide=1&amp;color=red&amp;width=560&amp;width=560" width="100%" height="420" allowtransparency="true" frameborder="0"></iframe>
+<br />
+
+# SD-KeyPad
+
+Safe keypad that was created for Store Robbery but decided to separate it and release the keypad for free.
+
+
+## Example
+
+<Callout type="warning" emoji="⚠️">
+  Always verify the code using a callback to the server to prevent altering
+</Callout>
+
+```lua
+local confirmed, code = exports['sd-keypad']:OpenKeyPad()
+if confirmed then
+    if code == '1234' then
+        exports['sd-keypad']:Accept()
+    else
+        exports['sd-keypad']:Reject()
+    end
+end
+```
+
+## OpenKeyPad
+
+Open the keypad UI
+
+```lua
+exports['sd-keypad']:OpenKeyPad()
+```
+
+returns: `boolean`, `string`
+
+```lua
+local confirmed, code = exports['sd-keypad']:OpenKeyPad()
+```
+
+## CloseKeyPad
+
+Force Close Key Pad
+
+```lua
+exports['sd-keypad']:CloseKeyPad()
+```
+
+## Accept
+
+Accept Code
+
+```lua
+exports['sd-keypad']:Accept()
+```
+
+## Reject
+
+Reject Code
+
+```lua
+exports['sd-keypad']:Reject()
+```
+

@@ -1,0 +1,9 @@
+{
+  "insert": "Insert",
+  "prepare": "Prepare",
+  "query": "Query",
+  "scalar": "Scalar",
+  "single": "Single",
+  "transaction": "Transaction",
+  "update": "Update"
+}

@@ -1,0 +1,19 @@
+# Zone BoxZone
+
+Creates BoxZone
+
+```lua
+Zone.BoxZone(data)
+```
+
+- data: `table`
+    - debug?: `boolean`
+    - coords: `vector3`
+    - size?: `vector3`
+        - Default: `vector3(4, 4, 4)`
+    - rotation?: `number`
+    - onEnter: `function(self: CZone)`
+    - onExit: `function(self: CZone)`
+    - inside: `function(self: CZone)`
+
+returns: [CZone](/bridge/zone/czone)

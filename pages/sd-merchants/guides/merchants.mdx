@@ -1,0 +1,227 @@
+---
+title: Merchants
+---
+
+import { Tab, Tabs, Callout } from 'nextra-theme-docs';
+
+# Merchants
+
+Merchants are located in the merchants folder, you can create any custom merchant by creating a new lua file and following the guide below.
+
+## Getting Started
+
+Create a merchant by creating a new lua file and name it anything you want.
+
+`merchants/YourMerchantName.lua`
+
+```lua
+Config.Merchants['YourMerchantName'] = {
+
+}
+```
+
+## Merchant Types
+
+<Tabs items={['Server', 'Client']}>
+  <Tab>
+    Creates Wandering Ped
+    ```lua copy
+    Config.Merchants['YourMerchantName'] = {
+        type = "server",
+    }
+    ```
+  </Tab>
+  <Tab>
+    Creates Static Ped
+    ```lua copy
+    Config.Merchants['YourMerchantName'] = {
+        type = "client",
+    }
+    ```
+  </Tab>
+</Tabs>
+
+- type: `string`
+    - server:
+        - `ped`
+    - client: 
+        - `ped`
+        - `model`
+        - `zone`
+
+
+### Ped (Server)
+
+<Tabs items={['Single', 'Random']}>
+  <Tab>
+
+    Merchant Walks The Single Path
+    
+    - model: `hash`
+    - coords: `vector3[]`
+
+    ```lua copy
+    ['ped'] = {
+        model = `ped_model`,
+        coords = {
+            vector3(0.0, 0.0, 0.0),
+            vector3(0.0, 0.0, 0.0),
+            vector3(0.0, 0.0, 0.0),
+            vector3(0.0, 0.0, 0.0),
+        }
+    },
+    ```
+  </Tab>
+  <Tab>
+
+    Merchant Walks Random Path 
+
+    - model: `hash`
+    - coords: `table<vector3[]>`
+
+    ```lua copy
+    ['ped'] = {
+        model = `ped_model`,
+        coords = {
+            {
+                vector3(0.0, 0.0, 0.0),
+                vector3(0.0, 0.0, 0.0),
+                vector3(0.0, 0.0, 0.0),
+                vector3(0.0, 0.0, 0.0),
+            },
+            {
+                vector3(0.0, 0.0, 0.0),
+                vector3(0.0, 0.0, 0.0),
+                vector3(0.0, 0.0, 0.0),
+                vector3(0.0, 0.0, 0.0),
+            },
+            {
+                vector3(0.0, 0.0, 0.0),
+                vector3(0.0, 0.0, 0.0),
+                vector3(0.0, 0.0, 0.0),
+                vector3(0.0, 0.0, 0.0),
+            } 
+        }
+    },
+    ```
+  </Tab>
+</Tabs>
+
+#### Weapons (Server)
+
+You can give the ped merchant a weapon either visible or hidden but only works on server ped
+
+- visible?: `boolean`
+- model: `hash`
+- accuracy: `number`
+- armor?: `number`
+
+```lua
+['weapon'] = {
+    visible = true,
+    model = `weapon_model`,
+    accuracy = 100,
+    armor = 100,
+},
+```
+
+### Ped (Client)
+
+<Tabs items={['Single', 'Random']}>
+  <Tab>
+
+    Static Merchant
+    
+    - model: `hash`
+    - coords: `vector4[]`
+    - scenario?: `string`
+    - animation?: `table`
+        - name: `string`
+        - dictionary: `string`
+
+    ```lua copy
+    ['ped'] = {
+        model = `ped_model`,
+        coords = vector4(0.0, 0.0, 0.0, 0.0),
+        scenario = 'scenario_name',
+        animation = { name = 'animation_name', dictionary = 'animation_dictionary' } 
+    },
+    ```
+  </Tab>
+  <Tab>
+
+    Static Merchant At Random Location 
+
+    - model: `hash`
+    - coords: `vector4[]`
+    - scenario?: `string`
+    - animation?: `table`
+        - name: `string`
+        - dictionary: `string`
+
+    ```lua copy
+    ['ped'] = {
+        model = `ped_model`,
+        coords = {
+            vector4(0.0, 0.0, 0.0, 0.0),
+            vector4(0.0, 0.0, 0.0, 0.0),
+            vector4(0.0, 0.0, 0.0, 0.0),
+            vector4(0.0, 0.0, 0.0, 0.0),
+        },
+        scenario = 'scenario_name',
+        animation = { name = 'animation_name', dictionary = 'animation_dictionary' } 
+    },
+    ```
+  </Tab>
+</Tabs>
+
+### Zone (Client)
+
+<Tabs items={['BoxZone', 'PolyZone']}>
+  <Tab>
+
+    BoxZone Target
+    
+    - coords: `vector4`
+    - length: `number`
+    - width: `number`
+    - minZ: `number`
+    - maxZ: `number`
+
+    ```lua copy
+    ['zone'] = {
+        coords = vector4(0.0, 0.0, 0.0, 0.0),
+        length = 0,
+        width = 0,
+        minZ = 0.0,
+        maxZ = 0.0,
+    },
+    ```
+  </Tab>
+  <Tab>
+
+    PolyZone Target
+
+    - coords: `vector2[]`
+    - minZ: `number`
+    - maxZ: `number
+
+    ```lua copy
+    ['zone'] = {
+        coords = {
+            vector2(0.0, 0.0),
+        },
+        minZ = 0.0,
+        maxZ = 0.0,
+    },
+    ```
+  </Tab>
+</Tabs>
+
+## Shop Types
+
+Check out [Shop](/sd-merchants/merchants/shop) for more details
+
+## Blips
+
+Check out [Blips](/sd-merchants/merchants/blips) for more details

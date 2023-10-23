@@ -1,0 +1,71 @@
+---
+title: Config
+---
+
+```lua
+-- Enable Notifcation Sound
+Config.EnableNotifcationSound = true
+
+-- Set Notifcation Sound Volume (1.0 = 100% / 0.0 = 0%)
+Config.NotifcationSoundVolume = 1.0
+
+-- Enable Promise Sound
+Config.EnablePromiseSound = true
+
+-- Set Promise Sound Volume (1.0 = 100% / 0.0 = 0%)
+Config.PromiseSoundVolume = 1.0
+
+-- top-left | top-right | top-center | bottom-left | bottom-right | bottom-center | right-center | left-center
+Config.DefaultPosition = 'right-center'
+
+-- bounce | slide | zoom | flip
+Config.Transition = 'bounce'
+
+-- light | dark | colored | custom
+Config.Theme = 'dark'
+
+-- Hide ProgressBar
+Config.HideProgressBar = false
+
+-- Notification Limits
+Config.NotifcationLimit = 5
+
+-- Add Custom Types
+Config.Notifcations = {
+    ['primary'] = {
+        icon = 'fa-solid fa-comment fa-lg',
+        color = '#87838a',
+        type = 'info',
+    },
+    ['info'] = {
+        icon = 'fa-solid fa-circle-info fa-lg',
+        color = '#59C2DA',
+        type = 'info',
+    },
+    ['success'] = {
+        icon = 'fa-solid fa-circle-check fa-lg',
+        color = '#58D96E',
+        type = 'success',
+    },
+    ['error'] = {
+        icon = 'fa-solid fa-circle-xmark fa-lg',
+        color = '#E64A63',
+        type = 'error',
+    },
+    ['warning'] = {
+        icon = 'fa-solid fa-triangle-exclamation fa-lg',
+        color = '#f1c40f',
+        type = 'warning',
+    },
+    ['phone'] = {
+        icon = 'fa-solid fa-phone fa-lg',
+        color = '#ebae34',
+        type = 'default',
+    },
+    ['announce'] = {
+        icon = 'fa-solid fa-bullhorn',
+        color = '#f1c40f',
+        type = 'warning',
+    },
+}
+```

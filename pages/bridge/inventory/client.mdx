@@ -1,0 +1,87 @@
+# Inventory Client
+
+## Items
+
+```lua
+Framework.Items
+```
+
+returns: [Item[]](/bridge/inventory/item)
+
+## OpenStash
+
+Opens stash registered using [RegisterStash](/bridge/inventory/server#registerstash)
+
+```lua
+Framework.OpenStash(name)
+```
+
+- name: `string`
+
+```lua
+Framework.OpenStash('mystash')
+```
+
+## OpenShop
+
+Open named shop registered using [RegisterShop](/bridge/inventory/server#registershop)
+
+```lua
+Framework.OpenShop(name)
+```
+
+- name: `string`
+
+```lua
+Framework.OpenShop('myshop')
+```
+
+## HasItem
+
+Check if a player has an item or items
+
+```lua
+Framework.HasItem(items, count, metadata)
+```
+
+- items: `string | string[] | table<string, number>`
+- count?: `number`
+- metadata?: `table`
+
+returns: `boolean`
+
+Checking a single item
+```lua
+Framework.HasItem('water_bottle', 1)
+```
+
+Checking a single item with metadata
+```lua
+Framework.HasItem('water_bottle', 1, { quality = 100 })
+```
+
+Checking multiple items
+```lua
+Framework.HasItem({'water_bottle', 'burger' }, 1)
+```
+
+Checking multiple items with different quantity
+```lua
+Framework.HasItem({['water_bottle'] = 1, ['burger'] = 2})
+```
+
+## LockInventory
+
+Locks Inventory
+
+```lua
+Framework.LockInventory()
+```
+
+## UnlockInventory
+
+Unlocks Inventory
+
+```lua
+Framework.UnlockInventory()
+```

@@ -1,0 +1,37 @@
+{
+  "store": {
+    "title": "Tebex",
+    "href": "https://www.sloppydesigns.com/",
+    "newWindow": true
+  },
+  "index": {
+    "title": "About",
+    "theme": {
+      "pagination": false
+    }
+  },
+  "---": {
+    "type": "separator"
+  },
+  "bridge": {
+    "title": "Bridge",
+    "theme": {
+      "pagination": false
+    }
+  },
+  "unit": {
+    "title": "Unit",
+    "theme": {
+      "pagination": false
+    }
+  },
+  "sd-notify": {
+    "title": "SD-Notify"
+  },
+  "sd-merchants": {
+    "title": "SD-Merchants"
+  },
+  "free": {
+    "title": "Free Releases"
+  }
+}

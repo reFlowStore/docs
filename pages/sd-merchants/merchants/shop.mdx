@@ -1,0 +1,98 @@
+import { Tab, Tabs, Callout } from 'nextra-theme-docs';
+
+# Shop
+
+## Type
+
+The type of shop you want to use, you can choose one of the following options
+
+### Market
+
+Market is a shop where players can list there items for sale and other players can buy it.
+
+### Buy
+
+Buy is a shop where you can list items for sale that a player can purchase.
+
+### Sell
+
+Sell is a shop where players can sell items to the merchants that are listed in the [Items](/sd-merchants/merchants/items)
+
+## Options
+
+### Type
+
+The type of shop `market`, `buy`, `sell`
+
+### Title
+
+The title of the shop
+
+### Collect
+
+Make players collect the currency when sold or when right away ([Market Only](/sd-merchants/merchants/shop#market))
+
+### Empty
+
+Allow players to see empty shop even when no items are in stock
+
+### Random Item Amount
+
+<Callout type="warning" emoji="⚠️">
+  Random item amount needs to be lower then the amount of items you have configured as it will select items until it reached the configured amount
+</Callout>
+
+Select a random amount of items to put in the shop
+
+### Requirement
+
+#### Currency
+
+The currency to use for the required currency to open the shop
+
+#### Item
+
+Item name when using `item` currency
+
+#### Amount
+
+The amount needed
+
+#### Remove
+
+Remove the currency when opening the shop
+
+### Close After Transaction
+
+Close the shop after a single transaction has been made
+
+## Example
+
+- type: `string`
+- title: `title`
+- collect?: `boolean`
+- empty?: `boolean`
+- random_item_amount?: `number`
+- requirement?: `table`
+    - currency : `string`
+    - item: `string`
+    - amount: `number`
+    - remove: `boolean`
+- close_after_transaction?: `boolean`
+
+```lua
+['shop'] = {
+    type = "market",
+    title = "Shop Title",
+    collect = false,
+    empty = false,
+    random_item_amount = 1,
+    requirement = {
+        currency = "currency",
+        item = "item_name",
+        amount = 1,
+        remove = false,
+    },
+    close_after_transaction = false
+}
+```

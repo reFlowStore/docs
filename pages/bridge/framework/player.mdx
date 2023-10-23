@@ -1,0 +1,665 @@
+import { Tab, Tabs } from 'nextra-theme-docs';
+
+# Framework Player
+
+## source
+
+Player source
+
+returns: `number`
+
+<Tabs items={['Server']}>
+  <Tab>
+
+    ```lua
+    local player = Framework.GetPlayer(source)
+    print(player.source)
+    ```
+  </Tab>
+</Tabs>
+
+## Identifier
+
+Player identifier
+
+returns: `string`
+
+<Tabs items={['Client', 'Server']}>
+  <Tab>
+
+    ```lua
+    Framework.Player.Identifier
+    ```
+  </Tab>
+  <Tab>
+
+    ```lua
+    local player = Framework.GetPlayer(source)
+    player.Identifier
+    ```
+  </Tab>
+</Tabs>
+
+## Name
+
+Player name
+
+returns: `string`
+
+<Tabs items={['Client', 'Server']}>
+  <Tab>
+
+    ```lua
+    Framework.Player.Name
+    ```
+  </Tab>
+  <Tab>
+
+    ```lua
+    local player = Framework.GetPlayer(source)
+    player.Name
+    ```
+  </Tab>
+</Tabs>
+
+## Firstname
+
+Player firstname
+
+returns: `string`
+
+<Tabs items={['Client', 'Server']}>
+  <Tab>
+
+    ```lua
+    Framework.Player.Firstname
+    ```
+  </Tab>
+  <Tab>
+
+    ```lua
+    local player = Framework.GetPlayer(source)
+    player.Firstname
+    ```
+  </Tab>
+</Tabs>
+
+## Lastname
+
+Player lastname
+
+returns: `string`
+
+<Tabs items={['Client', 'Server']}>
+  <Tab>
+
+    ```lua
+    Framework.Player.Lastname
+    ```
+  </Tab>
+  <Tab>
+
+    ```lua
+    local player = Framework.GetPlayer(source)
+    player.Lastname
+    ```
+  </Tab>
+</Tabs>
+
+## Date Of Birth
+
+Player Date Of Birth
+
+returns: `string`
+
+<Tabs items={['Client', 'Server']}>
+  <Tab>
+
+    ```lua
+    Framework.Player.DateOfBirth
+    ```
+  </Tab>
+  <Tab>
+
+    ```lua
+    local player = Framework.GetPlayer(source)
+    player.DateOfBirth
+    ```
+  </Tab>
+</Tabs>
+
+## Gender
+
+Player Gender
+
+returns: `string`
+
+<Tabs items={['Client', 'Server']}>
+  <Tab>
+
+    ```lua
+    Framework.Player.Gender
+    ```
+  </Tab>
+  <Tab>
+
+    ```lua
+    local player = Framework.GetPlayer(source)
+    player.Gender
+    ```
+  </Tab>
+</Tabs>
+
+## Job
+
+Player job
+
+returns: `table`
+- Name: `string`
+- Label: `string`
+- Duty: `boolean`
+- Boss: `boolean`
+- Grade: `table`
+    - Name: `string`
+    - Level: `number`
+
+<Tabs items={['Client', 'Server']}>
+  <Tab>
+
+    ```lua
+    Framework.Player.Job
+    -- returns: {"Boss":false,"Duty":false,"Grade":{"Level":1,"Name":"Officer"},"Label":"Law Enforcement","Name":"police"}
+
+    Framework.Player.Job.Name
+    -- returns: police 
+
+    Framework.Player.Job.Label
+    -- returns: Law Enforcement 
+
+    Framework.Player.Job.Duty
+    -- returns: false 
+
+    Framework.Player.Job.Boss
+    -- returns: false 
+
+    Framework.Player.Job.Grade
+    -- returns: {"Level":1,"Name":"Officer"}
+
+    Framework.Player.Job.Grade.Name
+    -- returns: Officer
+
+    Framework.Player.Job.Grade.Level
+    -- returns: 1
+    ```
+  </Tab>
+  <Tab>
+
+    ```lua
+    local player = Framework.GetPlayer(source)
+    
+    player.Job
+    -- returns: {"Boss":false,"Duty":false,"Grade":{"Level":1,"Name":"Officer"},"Label":"Law Enforcement","Name":"police"}
+
+    player.Job.Name
+    -- returns: police 
+
+    player.Job.Label
+    -- returns: Law Enforcement 
+
+    player.Job.Duty
+    -- returns: false 
+
+    player.Job.Boss
+    -- returns: false 
+
+    player.Job.Grade
+    -- returns: {"Level":1,"Name":"Officer"}
+
+    player.Job.Grade.Name
+    -- returns: Officer
+
+    player.Job.Grade.Level
+    -- returns: 1 
+    ```
+  </Tab>
+</Tabs>
+
+## Gang
+
+Player gang
+
+returns: `table`
+- Name: `string`
+- Label: `string`
+- Boss: `boolean`
+- Grade: `table`
+    - Name: `string`
+    - Level: `number`
+
+<Tabs items={['Client', 'Server']}>
+  <Tab>
+
+    ```lua
+    Framework.Player.Gang
+    -- returns: {"Boss":false,"Grade":{"Level":1,"Name":"Enforcer"},"Label":"My Gang Name","Name":"mygang"}
+
+    Framework.Player.Gang.Name
+    -- returns: mygang 
+
+    Framework.Player.Gang.Label
+    -- returns: My Gang Name
+
+    Framework.Player.Gang.Boss
+    -- returns: false 
+
+    Framework.Player.Gang.Grade
+    -- returns: {"Level":1,"Name":"Enforcer"}
+
+    Framework.Player.Gang.Grade.Name
+    -- returns: Enforcer
+
+    Framework.Player.Gang.Grade.Level
+    -- returns: 1
+    ```
+  </Tab>
+  <Tab>
+
+    ```lua
+    local player = Framework.GetPlayer(source)
+    
+    player.Gang
+    -- returns: {"Boss":false,"Grade":{"Level":1,"Name":"Enforcer"},"Label":"My Gang Name","Name":"mygang"}
+
+    player.Gang.Name
+    -- returns: mygang 
+
+    player.Gang.Label
+    -- returns: My Gang Name
+
+    player.Gang.Boss
+    -- returns: false 
+
+    player.Gang.Grade
+    -- returns: {"Level":1,"Name":"Enforcer"}
+
+    player.Gang.Grade.Name
+    -- returns: Enforcer
+
+    player.Gang.Grade.Level
+    -- returns: 1 
+    ```
+  </Tab>
+</Tabs>
+
+## Metadata
+
+Player Metadata
+
+returns: `table`
+
+<Tabs items={['Client', 'Server']}>
+  <Tab>
+
+    ```lua
+    Framework.Player.Metadata
+    ```
+  </Tab>
+  <Tab>
+
+    ```lua
+    local player = Framework.GetPlayer(source)
+    player.Metadata
+    ```
+  </Tab>
+</Tabs>
+
+## SetJob
+
+Set Player job
+
+```lua
+Player.SetJob(job, grade)
+```
+
+- job: `string`
+- grade `number | string`
+
+returns: `boolean`
+
+<Tabs items={['Server']}>
+  <Tab>
+
+    ```lua
+    local player = Framework.GetPlayer(source)
+    player.SetJob('police', 0)
+    ```
+  </Tab>
+</Tabs>
+
+## SetGang
+
+Set Player gang
+
+```lua
+Player.SetGang(gang, grade)
+```
+
+- gang: `string`
+- grade `number | string`
+
+returns: `boolean`
+
+<Tabs items={['Server']}>
+  <Tab>
+
+    ```lua
+    local player = Framework.GetPlayer(source)
+    player.SetGang('mygang', 0)
+    ```
+  </Tab>
+</Tabs>
+
+## HasJob
+
+Check if player has job and or grade
+
+```lua
+Framework.HasJob(job, player)
+```
+
+- job: `string | table`
+- player: [Player](/bridge/framework/player)
+
+returns: `boolean`
+
+```lua
+Framework.HasJob('police', Framework.Player)
+
+Framework.HasJob({ ['police'] = 1 }, Framework.Player)
+```
+
+## HasGang
+
+Check if player has gang and or grade
+
+```lua
+Framework.HasGang(gang, player)
+```
+
+- gang: `string | table`
+- player: [Player](/bridge/framework/player)
+
+returns: `boolean`
+
+```lua
+Framework.HasGang('mygang', Framework.Player)
+
+Framework.HasGang({ ['mygang'] = 1 }, Framework.Player)
+```
+
+## AddMoney
+
+Add Player Money
+
+```lua
+Player.AddMoney(type, amount)
+```
+
+- type: `cash | bank | other` 
+- amount `number`
+
+returns: `boolean`
+
+<Tabs items={['Server']}>
+  <Tab>
+
+    ```lua
+    local player = Framework.GetPlayer(source)
+    player.AddMoney('cash', 100)
+    ```
+  </Tab>
+</Tabs>
+
+## RemoveMoney
+
+Remove Player Money
+
+```lua
+Player.RemoveMoney(type, amount)
+```
+
+- type: `cash | bank | other` 
+- amount `number`
+
+returns: `boolean`
+
+<Tabs items={['Server']}>
+  <Tab>
+
+    ```lua
+    local player = Framework.GetPlayer(source)
+    player.RemoveMoney('cash', 100)
+    ```
+  </Tab>
+</Tabs>
+
+## GetMoney
+
+Get Player Money
+
+```lua
+Player.GetMoney(type)
+```
+
+- type: `cash | bank | other` 
+
+returns: `number`
+
+<Tabs items={['Server']}>
+  <Tab>
+
+    ```lua
+    local player = Framework.GetPlayer(source)
+    player.GetMoney('cash')
+    ```
+  </Tab>
+</Tabs>
+
+## Accounts
+
+Gets Player Account Balance
+
+```lua
+Player.Accounts[name]
+```
+
+- name: `string`
+
+returns: `number`
+
+<Tabs items={['Client']}>
+  <Tab>
+
+    ```lua
+    -- Cash
+    Framework.Player.Accounts['cash']
+
+    -- Bank
+    Framework.Player.Accounts['bank']
+
+    -- Other
+    Framework.Player.Accounts['crypto']
+    ```
+  </Tab>
+</Tabs>
+
+## GetStatus
+
+Get Player Status
+
+```lua
+Player.GetStatus(key)
+```
+
+- key: `string` 
+
+returns: `number`
+
+<Tabs items={['Server']}>
+  <Tab>
+
+    ```lua
+    local player = Framework.GetPlayer(source)
+    player.GetStatus('hunger')
+    ```
+  </Tab>
+</Tabs>
+
+## SetStatus
+
+Set Player Status
+
+```lua
+Player.SetStatus(key, value)
+```
+
+- key: `string` 
+- value: `number` 
+
+<Tabs items={['Server']}>
+  <Tab>
+
+    ```lua
+    local player = Framework.GetPlayer(source)
+    player.SetStatus('hunger', 100)
+    ```
+  </Tab>
+</Tabs>
+
+## GetMetaData
+
+Get Player Metadata
+
+```lua
+Player.GetMetaData(key)
+```
+
+- key?: `string` 
+
+<Tabs items={['Server']}>
+  <Tab>
+
+    ```lua
+    local player = Framework.GetPlayer(source)
+
+    -- Get All Metadata
+    player.GetMetaData()
+
+    -- Get Specific Metadata key
+    player.GetMetaData('mykey')
+    ```
+  </Tab>
+</Tabs>
+
+## SetMetaData
+
+Set Player Metadata
+
+```lua
+Player.SetMetaData(key, value)
+```
+
+- key: `string`
+- value: `any` 
+
+<Tabs items={['Server']}>
+  <Tab>
+
+    ```lua
+    local player = Framework.GetPlayer(source)
+    player.SetMetaData('mykey', 'myvalue')
+    ```
+  </Tab>
+</Tabs>
+
+## HasLicense
+
+Check If Player Has License
+
+```lua
+Player.HasLicense(name)
+```
+
+- name: `string`
+
+returns: `boolean`
+ 
+<Tabs items={['Server']}>
+  <Tab>
+
+    ```lua
+    local player = Framework.GetPlayer(source)
+    player.HasLicense('driver')
+    ```
+  </Tab>
+</Tabs>
+
+## GetLicenses
+
+Get Player Licenses
+
+```lua
+Player.GetLicenses()
+```
+
+returns: `table<string, boolean>`
+ 
+<Tabs items={['Server']}>
+  <Tab>
+
+    ```lua
+    local player = Framework.GetPlayer(source)
+    player.GetLicenses()
+    ```
+  </Tab>
+</Tabs>
+
+## AddLicense
+
+Add License To Player
+
+```lua
+Player.AddLicense(name)
+```
+
+- name: `string`
+ 
+<Tabs items={['Server']}>
+  <Tab>
+
+    ```lua
+    local player = Framework.GetPlayer(source)
+    player.AddLicense('driver')
+    ```
+  </Tab>
+</Tabs>
+
+## RemoveLicense
+
+Remove License From Player
+
+```lua
+Player.RemoveLicense(name)
+```
+
+- name: `string`
+ 
+<Tabs items={['Server']}>
+  <Tab>
+
+    ```lua
+    local player = Framework.GetPlayer(source)
+    player.RemoveLicense('driver')
+    ```
+  </Tab>
+</Tabs>

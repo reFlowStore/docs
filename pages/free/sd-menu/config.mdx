@@ -1,0 +1,43 @@
+# Config File
+
+The following Config Options are mapped by default
+
+## Auto Detect
+
+Auto Detect will find what Menu & Input you are running, Default: false [Optional]
+
+```lua
+Config.SDAutoVersion = true
+```
+
+## Menu Version
+
+Set the Menu Version required if you are not using Auto Detect
+
+| option       | resource          |
+|:-------------|:------------------|
+| v1           | nh-context v1 
+| v2           | nh-context v2
+| zf           | zf_context
+| qb           | qb-menu 
+| ox           | ox_lib 
+
+```lua
+Config.SDMenuVersion = 'ox'
+```
+
+## Input Version
+
+Set the Input Version required if you are not using Auto Detect
+
+| option       | resource          |
+|:-------------|:------------------|
+| v1           | nh-keyboard v1 
+| v2           | nh-keyboard v2
+| zf           | zf_dialog
+| qb           | qb-input 
+| ox           | ox_lib 
+
+```lua
+Config.SDInputVersion = 'ox'
+```

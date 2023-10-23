@@ -1,0 +1,40 @@
+---
+title: Framework
+---
+
+import { Tab, Tabs } from 'nextra-theme-docs';
+
+<Tabs items={['QBCore', 'ESX']}>
+  <Tab>
+    1. Open **qb-core/client/functions.lua**
+    2. Search for **QBCore.Functions.Notify**
+    3. Replace with the code below.
+    ```lua copy
+    function QBCore.Functions.Notify(text, texttype, length)
+        if type(text) == "table" then
+            local ttext = text.text or 'Placeholder'
+            local caption = text.caption or 'Placeholder'
+            texttype = texttype or 'primary'
+            length = length or 5000
+            exports['sd-notify']:Notify(caption, ttext, length, texttype)
+        else
+            texttype = texttype or 'primary'
+            length = length or 5000
+            exports['sd-notify']:Notify('', text, length, texttype)
+        end
+    end
+    ```
+  </Tab>
+  <Tab>
+    1. Open **es_extended/client/functions.lua**
+    2. Search for **ESX.ShowNotification**
+    3. Replace with the code below.
+    ```lua copy
+    function ESX.ShowNotification(message, texttype, length)
+        if type(texttype) ~= "string" then texttype = 'info' end
+        length = length or 5000
+        exports['sd-notify']:Notify('', message, length, texttype)
+    end
+    ```
+  </Tab>
+</Tabs>

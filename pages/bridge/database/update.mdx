@@ -1,0 +1,35 @@
+import { Tab, Tabs } from 'nextra-theme-docs';
+
+# Update
+Returns the number of rows affected by the query
+
+```lua
+Database.update(query, data, cb)
+```
+
+- query: `string`
+- data?: `table`
+- cb?: `function(result)`
+
+returns: `number`
+
+<Tabs items={['Promise', 'Callback']}>
+  <Tab>
+
+    ```lua
+    local result = Database.update('UPDATE `table` SET `column1` = ? WHERE `column2` = ?' , { 'value1', 'value2' })
+
+    print(result)
+    ```
+
+  </Tab>
+  <Tab>
+
+    ```lua
+    Database.update('UPDATE `table` SET `column1` = ? WHERE `column2` = ?' , { 'value1', 'value2' }, function(result)
+        print(result)
+    end)
+    ```
+
+  </Tab>
+</Tabs>

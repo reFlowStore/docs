@@ -1,0 +1,10 @@
+{
+  "installation": "Installation",
+  "core": "Core",
+  "database": "Database",
+  "framework": "Framework",
+  "inventory": "Inventory",
+  "target": "Target",
+  "zone": "Zone",
+  "utilities": "Utilities"
+}

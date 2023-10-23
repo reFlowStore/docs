@@ -1,0 +1,108 @@
+---
+title: SD-Notify
+---
+
+import { Tab, Tabs } from 'nextra-theme-docs';
+
+<br />
+
+<iframe src="https://www.youtube.com/embed/p4fk_fKc0IM?ecver=1&amp;iv_load_policy=3&amp;rel=0&amp;showinfo=0&amp;yt:stretch=16:9&amp;autohide=1&amp;color=red&amp;width=560&amp;width=560" width="100%" height="420" allowtransparency="true" frameborder="0"></iframe>
+<br />
+Next Generation Notification System
+
+## Notify
+
+Simple Notification
+
+<Tabs items={['Client', 'Server']}>
+  <Tab>
+    ```lua copy
+    exports['sd-notify']:Notify(title, message, time, type, position, hideprogressbar, sound)
+    ```
+  </Tab>
+  <Tab>
+    ```lua copy
+    TriggerClientEvent('sd-notify:Notify', source, title, message, time, type, position, hideprogressbar, sound)
+    ```
+  </Tab>
+</Tabs>
+
+- title: `string`
+- message: `string`
+- time: `number`
+- type: [Types](/sd-notify/types)
+- position?: [Position](/sd-notify/positions)
+- hideprogressbar?: `boolean`
+- sound?: `boolean`
+
+returns: `string`
+
+## Promise
+
+Notification That Can Be Updated
+
+<Tabs items={['Client']}>
+  <Tab>
+    ```lua copy
+    exports['sd-notify']:Promise(title, message, type, position, sound)
+    ```
+  </Tab>
+</Tabs>
+
+- title: `string`
+- message: `string`
+- type: [Types](/sd-notify/types)
+- position?: [Position](/sd-notify/positions)
+- sound?: `boolean`
+
+returns: `string`
+
+## Update
+
+Update A Promise Notification
+
+<Tabs items={['Client']}>
+  <Tab>
+    ```lua copy
+    exports['sd-notify']:Update(id, title, message, time, type, position, hideprogressbar, sound)
+    ```
+  </Tab>
+</Tabs>
+
+- title: `string`
+- message: `string`
+- time: `number`
+- type: [Types](/sd-notify/types)
+- position?: [Position](/sd-notify/positions)
+- hideprogressbar?: `boolean`
+- sound?: `boolean`
+
+returns: `string`
+
+## Remove All
+
+Remove All Notifications On Screen
+
+<Tabs items={['Client']}>
+  <Tab>
+    ```lua copy
+    exports['sd-notify']:RemoveAll()
+    ```
+  </Tab>
+</Tabs>
+
+## Remove
+
+Remove An Specific Notification
+
+<Tabs items={['Client']}>
+  <Tab>
+    ```lua copy
+    exports['sd-notify']:Remove(id)
+    ```
+  </Tab>
+</Tabs>
+
+- id: `string`
+
+

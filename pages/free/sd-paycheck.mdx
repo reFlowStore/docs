@@ -1,0 +1,178 @@
+---
+title: SD-Paycheck
+---
+
+import { Tab, Tabs } from 'nextra-theme-docs';
+import ResourceLinks from '@components/ResourceLinks';
+
+<ResourceLinks repo="https://github.com/SloppyDesigns/sd-paycheck" download="https://github.com/SloppyDesigns/sd-paycheck" />
+
+# SD-Paycheck
+
+Simple Resource to add Paycheck System to your Server without all the hassle.
+
+## Features
+- Use Ped Or BoxZone
+- Pay Paycheck In Cash Or Bank
+- Set Paycheck Collection to a specific day of the week
+
+## Install
+
+To intercept the framework paycheck system we have to make the following changes:
+
+<Tabs items={['QBCore', 'ESX']}>
+  <Tab>
+    1. Open `qb-core/server/functions.lua`
+    2. Search for `PaycheckInterval()`
+    3. Replace the highlighted `Player.Functions.AddMoney('bank', payment, 'paycheck'){:lua}`
+    4. Replace with `TriggerEvent('sd-paycheck:server:AddPaycheck', payment, Player.PlayerData.source){:lua}`
+
+    ```lua /Player.Functions.AddMoney('bank', payment, 'paycheck')/
+    function PaycheckInterval()
+        if next(QBCore.Players) then
+            for _, Player in pairs(QBCore.Players) do
+                if Player then
+                    local payment = QBShared.Jobs[Player.PlayerData.job.name]['grades'][tostring(Player.PlayerData.job.grade.level)].payment
+                    if not payment then payment = Player.PlayerData.job.payment end
+                    if Player.PlayerData.job and payment > 0 and (QBShared.Jobs[Player.PlayerData.job.name].offDutyPay or Player.PlayerData.job.onduty) then
+                        if QBCore.Config.Money.PayCheckSociety then
+                            local account = exports['qb-management']:GetAccount(Player.PlayerData.job.name)
+                            if account ~= 0 then -- Checks if player is employed by a society
+                                if account < payment then -- Checks if company has enough money to pay society
+                                    TriggerClientEvent('QBCore:Notify', Player.PlayerData.source, Lang:t('error.company_too_poor'), 'error')
+                                else
+                                    Player.Functions.AddMoney('bank', payment, 'paycheck')
+                                    exports['qb-management']:RemoveMoney(Player.PlayerData.job.name, payment)
+                                    TriggerClientEvent('QBCore:Notify', Player.PlayerData.source, Lang:t('info.received_paycheck', {value = payment}))
+                                end
+                            else
+                                Player.Functions.AddMoney('bank', payment, 'paycheck')
+                                TriggerClientEvent('QBCore:Notify', Player.PlayerData.source, Lang:t('info.received_paycheck', {value = payment}))
+                            end
+                        else
+                            Player.Functions.AddMoney('bank', payment, 'paycheck')
+                            TriggerClientEvent('QBCore:Notify', Player.PlayerData.source, Lang:t('info.received_paycheck', {value = payment}))
+                        end
+                    end
+                end
+            end
+        end
+        SetTimeout(QBCore.Config.Money.PayCheckTimeOut * (60 * 1000), PaycheckInterval)
+    end
+    ```
+  </Tab>
+  <Tab>
+    1. Open `es_extended/server/paycheck.lua`
+    2. Search for `StartPayCheck()`
+    3. Replace the highlighted `xPlayer.addAccountMoney('bank', salary, "Paycheck"){:lua}` and `xPlayer.addAccountMoney('bank', salary, "Welfare Check"){:lua}` 
+    4. Replace with `TriggerEvent('sd-paycheck:server:AddPaycheck', salary, xPlayer.source){:lua}`
+    ```lua /xPlayer.addAccountMoney('bank', salary, "Paycheck")/ /xPlayer.addAccountMoney('bank', salary, "Welfare Check")/
+    function StartPayCheck()
+        CreateThread(function()
+            while true do
+            Wait(Config.PaycheckInterval)
+            for player, xPlayer in pairs(ESX.Players) do
+                local jobLabel = xPlayer.job.label
+                local job = xPlayer.job.grade_name
+                local salary = xPlayer.job.grade_salary
+
+                if salary > 0 then
+                if job == 'unemployed' then -- unemployed
+                    xPlayer.addAccountMoney('bank', salary, "Welfare Check")
+                    TriggerClientEvent('esx:showAdvancedNotification', player, TranslateCap('bank'), TranslateCap('received_paycheck'), TranslateCap('received_help', salary),
+                    'CHAR_BANK_MAZE', 9)
+                    if Config.LogPaycheck then
+                    ESX.DiscordLogFields("Paycheck", "Paycheck - Unemployment Benefits", "green", {
+                        { name = "Player", value = xPlayer.name,   inline = true },
+                        { name = "ID",     value = xPlayer.source, inline = true },
+                        { name = "Amount", value = salary,         inline = true }
+                    })
+                    end
+                elseif Config.EnableSocietyPayouts then -- possibly a society
+                    TriggerEvent('esx_society:getSociety', xPlayer.job.name, function(society)
+                    if society ~= nil then              -- verified society
+                        TriggerEvent('esx_addonaccount:getSharedAccount', society.account, function(account)
+                        if account.money >= salary then -- does the society money to pay its employees?
+                            xPlayer.addAccountMoney('bank', salary, "Paycheck")
+                            account.removeMoney(salary)
+                            if Config.LogPaycheck then
+                            ESX.DiscordLogFields("Paycheck", "Paycheck - " .. jobLabel, "green", {
+                                { name = "Player", value = xPlayer.name,   inline = true },
+                                { name = "ID",     value = xPlayer.source, inline = true },
+                                { name = "Amount", value = salary,         inline = true }
+                            })
+                            end
+
+                            TriggerClientEvent('esx:showAdvancedNotification', player, TranslateCap('bank'), TranslateCap('received_paycheck'),
+                            TranslateCap('received_salary', salary), 'CHAR_BANK_MAZE', 9)
+                        else
+                            TriggerClientEvent('esx:showAdvancedNotification', player, TranslateCap('bank'), '', TranslateCap('company_nomoney'), 'CHAR_BANK_MAZE', 1)
+                        end
+                        end)
+                    else -- not a society
+                        xPlayer.addAccountMoney('bank', salary, "Paycheck")
+                        if Config.LogPaycheck then
+                        ESX.DiscordLogFields("Paycheck", "Paycheck - " .. jobLabel, "green", {
+                            { name = "Player", value = xPlayer.name,   inline = true },
+                            { name = "ID",     value = xPlayer.source, inline = true },
+                            { name = "Amount", value = salary,         inline = true }
+                        })
+                        end
+                        TriggerClientEvent('esx:showAdvancedNotification', player, TranslateCap('bank'), TranslateCap('received_paycheck'), TranslateCap('received_salary', salary),
+                        'CHAR_BANK_MAZE', 9)
+                    end
+                    end)
+                else -- generic job
+                    xPlayer.addAccountMoney('bank', salary, "Paycheck")
+                    if Config.LogPaycheck then
+                    ESX.DiscordLogFields("Paycheck", "Paycheck - Generic", "green", {
+                        { name = "Player", value = xPlayer.name,   inline = true },
+                        { name = "ID",     value = xPlayer.source, inline = true },
+                        { name = "Amount", value = salary,         inline = true }
+                    })
+                    end
+                    TriggerClientEvent('esx:showAdvancedNotification', player, TranslateCap('bank'), TranslateCap('received_paycheck'), TranslateCap('received_salary', salary),
+                    'CHAR_BANK_MAZE', 9)
+                end
+                end
+            end
+            end
+        end)
+        end
+    ```
+  </Tab>
+</Tabs>
+
+## Config
+```lua
+Config = {}
+Config.Debug = false
+Config.Target = 'qb-target' -- qb-target / qtarget
+
+-- Pay Paycheck in Cash other wise deposited to bank
+Config.CashOut = false
+
+-- Collect Paycheck on a specific Day
+-- -1 = Disabled
+--  0 = Sunday  
+--  1 = Monday  
+--  2 = Tuesday  
+--  3 = Wednesday  
+--  4 = Thursday  
+--  5 = Friday  
+--  6 = Saturday
+Config.PayCheckDay = -1
+
+-- Using Ped
+Config.UsePed = true
+Config.Ped = 'ig_lifeinvad_02'
+Config.PedCoords = vector4(-1078.77, -244.78, 36.76, 163.08)
+
+-- Using BoxZone
+Config.BoxZone = vector3(-1082.73, -246.56, 37.76)
+Config.BoxZoneLength = 5
+Config.BoxZoneWidth = 2
+Config.BoxZoneHeading = 300
+Config.BoxZoneMaxZ = 36.76
+Config.BoxZoneMinZ = 38.76
+```

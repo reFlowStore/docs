@@ -1,0 +1,35 @@
+import { Tab, Tabs } from 'nextra-theme-docs';
+
+# Scalar
+Returns the first column for a single row
+
+```lua
+Database.scalar(query, data, cb)
+```
+
+- query: `string`
+- data?: `table`
+- cb?: `function(result)`
+
+returns: `any`
+
+<Tabs items={['Promise', 'Callback']}>
+  <Tab>
+
+    ```lua
+    local column1 = Database.scalar('SELECT `column1` FROM `table` WHERE `column3` = ? LIMIT 1' , { 'value1' })
+
+    print(column1)
+    ```
+
+  </Tab>
+  <Tab>
+
+    ```lua
+    Database.scalar('SELECT `column1` FROM `table` WHERE `column3` = ? LIMIT 1' , { 'value1' }, function(columm1)
+        print(column1)
+    end)
+    ```
+
+  </Tab>
+</Tabs>

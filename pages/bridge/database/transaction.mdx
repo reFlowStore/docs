@@ -1,0 +1,44 @@
+import { Tab, Tabs } from 'nextra-theme-docs';
+
+# Transaction
+Transaction executes multiple queries and commits them only if all succeed
+
+```lua
+Database.transaction(query, data, cb)
+```
+
+- query: `table`
+- cb?: `function(result)`
+
+returns: `boolean`
+
+<Tabs items={['Promise', 'Callback']}>
+  <Tab>
+
+    ```lua
+    local queries = {
+        { 'INSERT INTO `table` (column1) VALUES (?)', { 'value1' } },
+        { 'INSERT INTO `table` (column1, column2) VALUES (?, ?)', { 'value1', 'value2' } },
+    }
+
+    local result = Database.transaction(queries)
+
+    print(result)
+    ```
+
+  </Tab>
+  <Tab>
+
+    ```lua
+    local queries = {
+        { 'INSERT INTO `table` (column1) VALUES (?)', { 'value1' } },
+        { 'INSERT INTO `table` (column1, column2) VALUES (?, ?)', { 'value1', 'value2' } },
+    }
+
+    Database.transaction(queries, function(result)
+        print(result)
+    end)
+    ```
+
+  </Tab>
+</Tabs>

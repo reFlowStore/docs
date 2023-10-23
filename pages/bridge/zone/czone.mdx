@@ -1,0 +1,144 @@
+# Zone CZone
+
+## id
+
+Zone Id
+
+returns: `number`
+
+```lua
+local zone = Zone.PolyZone({ ... })
+
+zone.id
+```
+
+## coords
+
+Zone Coords
+
+returns: `vector3`
+
+```lua
+local zone = Zone.PolyZone({ ... })
+
+zone.coords()
+```
+
+## distance
+
+Zone Distance
+
+returns: `number`
+
+```lua
+local zone = Zone.PolyZone({ ... })
+
+-- Updates depending on player position
+zone.distance()
+```
+
+## remove
+
+Remove the zone
+
+```lua
+local zone = Zone.PolyZone({ ... })
+
+zone.remove()
+```
+
+## contains
+
+Check if a vector3 is inside the zone
+
+returns: `boolean`
+
+```lua
+local zone = Zone.PolyZone({ ... })
+
+zone.contains(vector3(0, 0, 0))
+```
+
+## onEnter
+
+Called when the player enters the zone
+
+```lua
+Zone.PolyZone({
+    points = {
+        vec(413.8, -1026.1, 29),
+        vec(411.6, -1023.1, 29),
+        vec(412.2, -1018.0, 29),
+        vec(417.2, -1016.3, 29),
+        vec(422.3, -1020.0, 29),
+        vec(426.8, -1015.9, 29),
+        vec(431.8, -1013.0, 29),
+        vec(437.3, -1018.4, 29),
+        vec(432.4, -1027.2, 29),
+        vec(424.7, -1023.5, 29),
+        vec(420.0, -1030.2, 29),
+        vec(409.8, -1028.4, 29),
+    },
+    height = 2,
+    debug = true,
+    onEnter = function(data)
+        print('Player Just Entered Zone' .. data.id)
+    end
+})
+```
+
+## onExit
+
+Called when the player leaves the zone
+
+```lua
+Zone.PolyZone({
+    points = {
+        vec(413.8, -1026.1, 29),
+        vec(411.6, -1023.1, 29),
+        vec(412.2, -1018.0, 29),
+        vec(417.2, -1016.3, 29),
+        vec(422.3, -1020.0, 29),
+        vec(426.8, -1015.9, 29),
+        vec(431.8, -1013.0, 29),
+        vec(437.3, -1018.4, 29),
+        vec(432.4, -1027.2, 29),
+        vec(424.7, -1023.5, 29),
+        vec(420.0, -1030.2, 29),
+        vec(409.8, -1028.4, 29),
+    },
+    height = 2,
+    debug = true,
+    onExit = function(data)
+        print('Player Just Left Zone ' .. data.id)
+    end
+})
+```
+
+## inside
+
+Called as long as the player is inside the zone
+
+```lua
+Zone.PolyZone({
+    points = {
+        vec(413.8, -1026.1, 29),
+        vec(411.6, -1023.1, 29),
+        vec(412.2, -1018.0, 29),
+        vec(417.2, -1016.3, 29),
+        vec(422.3, -1020.0, 29),
+        vec(426.8, -1015.9, 29),
+        vec(431.8, -1013.0, 29),
+        vec(437.3, -1018.4, 29),
+        vec(432.4, -1027.2, 29),
+        vec(424.7, -1023.5, 29),
+        vec(420.0, -1030.2, 29),
+        vec(409.8, -1028.4, 29),
+    },
+    height = 2,
+    debug = true,
+    inside = function(data)
+        print('Player Is Inside Zone ' .. data.id)
+    end
+})
+```

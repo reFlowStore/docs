@@ -1,0 +1,29 @@
+# Input
+
+## Options
+
+- header: `string`
+    - Set Header Text
+- inputs: `table`
+    - text: `string`
+        - Set Description Text
+
+## Example
+
+```lua
+local input, input1, input2 = exports['Your-Resource-Name']:CreateInput({
+    header = 'Header Text',
+    inputs = {
+        {
+            text = 'Input 1'
+        },
+        {
+            text = 'Input 2'
+        }
+    }
+})
+
+if input then -- Confirm Input Submit
+    print(input1, input2)
+end
+```
