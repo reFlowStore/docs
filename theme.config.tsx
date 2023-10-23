@@ -12,7 +12,7 @@ function useHead() {
   return (
     <>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="icon" type="image/x-icon" href="/static/sd.ico" />
+      <link rel="icon" type="image/x-icon" href="/static/reflow.ico" />
       <meta httpEquiv="Content-Language" content="en" />
       <meta name="description" content={description} />
       <meta name="og:title" content={title} />
