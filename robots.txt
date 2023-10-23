@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://docs.sloppydesigns.com/
+
+# Sitemaps
+Sitemap: https://docs.sloppydesigns.com/sitemap.xml
