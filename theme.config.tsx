@@ -91,7 +91,7 @@ const config: DocsThemeConfig = {
         );
       }
 
-      if (title === 'About') {
+      if (title === 'Welcome') {
         return (
           <>
             <div style={{ display: 'flex' }}>
