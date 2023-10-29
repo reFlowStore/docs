@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://docs.sloppydesigns.com/',
+  siteUrl: 'https://docs.reflow-store.com/',
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   outDir: './out',
