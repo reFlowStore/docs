@@ -2,6 +2,1239 @@
 title: Installation
 ---
 
+import { Callout } from 'nextra-theme-docs';
+import { Tab, Tabs } from 'nextra-theme-docs';
+import { Warning } from '@components/Icons';
+import { Steps } from 'nextra/components'
+ 
 # Installation
 
-Guide to installation of reFlow Vanilla Unicorn.
+Guide to install reFlow Pizzaria.
+
+
+<Steps>
+### Download Resource
+ 
+To get started first download your asset previously purchased from [reflow-store.com](https://reflow-store.com/) login into [keymaster](keymaster.fivem.net) and you will find your resource under the option **Granted Assets**
+ 
+### Installation
+ 
+Open the downloaded resource zip file and drag the folder into your servers resources folder
+
+### Starting Order
+
+<Callout type="warning" emoji={<Warning className="pt-1" />}>
+In order for the bridge to detect your resources and start correctly, you must start the resources before running the script
+</Callout>
+
+```lua
+-- Any Supported Framework, Inventory, Target
+ensure framework
+ensure inventory
+ensure target
+
+
+-- Start Script After
+ensure reFlow-Pizzaria
+```
+
+### Add Items
+
+<Tabs items={['qb-inventory', 'qs-inventory', 'ox_inventory']}>
+  <Tab>
+    ```lua filename="qb-core/shared/items.lua" copy
+    ['waterjug'] = {
+        ['name'] = "waterjug", 
+        ['label'] = "Jug Of Water", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "waterjug.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Water With Great pH Level" 
+    }, 
+    ['mozzarella'] = {
+        ['name'] = "mozzarella", 
+        ['label'] = "Mozzarella Cheese", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "mozzarella.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Great on Pizza's" 
+    }, 
+    ['basil'] = {
+        ['name'] = "basil", 
+        ['label'] = "Basil", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "basil.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Basil" 
+    }, 
+    ['garlic'] = {
+        ['name'] = "garlic", 
+        ['label'] = "Garlic", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "garlic.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Garlic" 
+    }, 
+    ['yeast'] = {
+        ['name'] = "yeast", 
+        ['label'] = "Yeast", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "yeast.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Yeast for dough" 
+    }, 
+    ['flour'] = {
+        ['name'] = "flour", 
+        ['label'] = "Flour", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "flour.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Flour for baking" 
+    }, 
+    ['vegetables'] = {
+        ['name'] = "vegetables", 
+        ['label'] = "Assorted Vegetables", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "vegetables.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Assorted Vegetables" 
+    }, 
+    ['zuccini'] = {
+        ['name'] = "zuccini", 
+        ['label'] = "Zuccini", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "zuccini.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Zuccini" 
+    }, 
+    ['oregano'] = {
+        ['name'] = "oregano", 
+        ['label'] = "Oregano", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "oregano.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Oregano" 
+    }, 
+    ['wholeham'] = {
+        ['name'] = "wholeham", 
+        ['label'] = "Unsliced Ham", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "wholeham.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Whole Ham" 
+    }, 
+    ['slicedham'] = {
+        ['name'] = "slicedham", 
+        ['label'] = "Sliced Ham", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "slicedham.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Ham for use with pizza" 
+    }, 
+    ['mushroom'] = {
+        ['name'] = "mushroom", 
+        ['label'] = "Mushroom", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "mushroom.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Mushroom for use with pizza" 
+    }, 
+    ['marinarasauce'] = {
+        ['name'] = "marinarasauce", 
+        ['label'] = "Marinara Sauce", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "marinarasauce.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Marinara Sauce for use with pizza" 
+    }, 
+    ['mushroompizza'] = {
+        ['name'] = "mushroompizza", 
+        ['label'] = "Prosciutto E Funghi", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "mushroompizza.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "A Mushroom Pizza" 
+    }, 
+    ['cheesepizza'] = {
+        ['name'] = "cheesepizza", 
+        ['label'] = "Cheese Pizza", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "cheesepizza.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "A Cheese Pizza" 
+    }, 
+    ['pepperonipizza'] = {
+        ['name'] = "pepperonipizza", 
+        ['label'] = "Pepperoni Pizza", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "pepperonipizza.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "A Pepperoni Pizza" 
+    }, 
+    ['margheritapizza'] = {
+        ['name'] = "margheritapizza", 
+        ['label'] = "Margherita Pizza", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "margheritapizza.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "A Margherita Pizza" 
+    }, 
+    ['marinarapizza'] = {
+        ['name'] = "marinarapizza", 
+        ['label'] = "Marinara Pizza", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "marinarapizza.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "A Marinara Pizza" 
+    }, 
+    ['vegetarinapizza'] = {
+        ['name'] = "vegetarinapizza", 
+        ['label'] = "Vegetarina Pizza", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "vegetarinapizza.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "A Vegetarian Pizza" 
+    }, 
+    ['wholepepperoni'] = {
+        ['name'] = "wholepepperoni", 
+        ['label'] = "Unsliced Pepperoni", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "wholepepperoni.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Unsliced" 
+    }, 
+    ['slicedpepperoni'] = {
+        ['name'] = "slicedpepperoni", 
+        ['label'] = "Sliced Pepperoni's", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "slicedpepperoni.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Useful as a pizza topping" 
+    }, 
+    ['wholetomato'] = {
+        ['name'] = "wholetomato", 
+        ['label'] = "Tomato", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "wholetomato.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Useful for making sauces" 
+    }, 
+    ['tomatosauce'] = {
+        ['name'] = "tomatosauce", 
+        ['label'] = "Tomato Sauce", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "tomatosauce.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "For saucing up some pizza" 
+    }, 
+    ['rawdough'] = {
+        ['name'] = "rawdough", 
+        ['label'] = "Raw Pizza Dough", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "rawdough.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Roll to get pizza dough ready" 
+    }, 
+    ['pizzadough'] = {
+        ['name'] = "pizzadough", 
+        ['label'] = "Pizza Dough", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "pizzadough.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Ready to top pizza dough" 
+    }, 
+    ['ecola'] = {
+        ['name'] = "ecola", 
+        ['label'] = "E Cola", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "ecola.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "E Cola Soda Drink" 
+    }, 
+    ['sprunk'] = {
+        ['name'] = "sprunk", 
+        ['label'] = "Sprunk", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "sprunk.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Sprunk Soda Drink" 
+    }, 
+    ['deliverybox'] = {
+        ['name'] = "deliverybox", 
+        ['label'] = "Pizza Delivery Box", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "deliverybox.png", 
+        ['unique'] = true, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "For Delivering Pizzas" 
+    }, 
+    ['burnedpizza'] = {
+        ['name'] = "burnedpizza", 
+        ['label'] = "Burned Pizza", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "burnedpizza.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Looks like it got a little  to hot" 
+    }, 
+    ['pibwasser'] = {
+        ['name'] = "pibwasser", 
+        ['label'] = "Pibwasser", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "pibwasser.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Pibwasser Beer" 
+    }, 
+    ['ambeer'] = {
+        ['name'] = "ambeer", 
+        ['label'] = "AM", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "ambeer.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "AM Beer" 
+    }, 
+    ['tronza'] = {
+        ['name'] = "tronza", 
+        ['label'] = "Tronza", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "tronza.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Tronza Beer" 
+    }, 
+    ['patriot'] = {
+        ['name'] = "patriot", 
+        ['label'] = "Patriot", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "patriot.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "The Taste Of Freedom" 
+    }, 
+    ['milkcreamer'] = {
+        ['name'] = "milkcreamer", 
+        ['label'] = "Milk Creamer", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "milkcreamer.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Milk Creamer" 
+    }, 
+    ['blackcoffee'] = {
+        ['name'] = "blackcoffee", 
+        ['label'] = "Black Coffee", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "blackcoffee.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Black Coffee" 
+    }, 
+    ['lattecoffee'] = {
+        ['name'] = "lattecoffee", 
+        ['label'] = "Coffee Latte", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "lattecoffee.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Coffee Latte" 
+    }, 
+    ```
+  </Tab>
+  <Tab>
+    <Callout type="warning" emoji={<Warning className="pt-1" />}>
+    If you are running `qs-inventory` on QBCore you should add the items to `qb-core/shared/items.lua`
+    </Callout>
+    ```lua filename="qs-inventory/shared/items.lua" copy
+    ['waterjug'] = {
+        ['name'] = "waterjug", 
+        ['label'] = "Jug Of Water", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "waterjug.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Water With Great pH Level" 
+    }, 
+    ['mozzarella'] = {
+        ['name'] = "mozzarella", 
+        ['label'] = "Mozzarella Cheese", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "mozzarella.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Great on Pizza's" 
+    }, 
+    ['basil'] = {
+        ['name'] = "basil", 
+        ['label'] = "Basil", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "basil.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Basil" 
+    }, 
+    ['garlic'] = {
+        ['name'] = "garlic", 
+        ['label'] = "Garlic", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "garlic.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Garlic" 
+    }, 
+    ['yeast'] = {
+        ['name'] = "yeast", 
+        ['label'] = "Yeast", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "yeast.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Yeast for dough" 
+    }, 
+    ['flour'] = {
+        ['name'] = "flour", 
+        ['label'] = "Flour", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "flour.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Flour for baking" 
+    }, 
+    ['vegetables'] = {
+        ['name'] = "vegetables", 
+        ['label'] = "Assorted Vegetables", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "vegetables.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Assorted Vegetables" 
+    }, 
+    ['zuccini'] = {
+        ['name'] = "zuccini", 
+        ['label'] = "Zuccini", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "zuccini.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Zuccini" 
+    }, 
+    ['oregano'] = {
+        ['name'] = "oregano", 
+        ['label'] = "Oregano", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "oregano.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Oregano" 
+    }, 
+    ['wholeham'] = {
+        ['name'] = "wholeham", 
+        ['label'] = "Unsliced Ham", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "wholeham.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Whole Ham" 
+    }, 
+    ['slicedham'] = {
+        ['name'] = "slicedham", 
+        ['label'] = "Sliced Ham", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "slicedham.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Ham for use with pizza" 
+    }, 
+    ['mushroom'] = {
+        ['name'] = "mushroom", 
+        ['label'] = "Mushroom", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "mushroom.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Mushroom for use with pizza" 
+    }, 
+    ['marinarasauce'] = {
+        ['name'] = "marinarasauce", 
+        ['label'] = "Marinara Sauce", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "marinarasauce.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Marinara Sauce for use with pizza" 
+    }, 
+    ['mushroompizza'] = {
+        ['name'] = "mushroompizza", 
+        ['label'] = "Prosciutto E Funghi", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "mushroompizza.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "A Mushroom Pizza" 
+    }, 
+    ['cheesepizza'] = {
+        ['name'] = "cheesepizza", 
+        ['label'] = "Cheese Pizza", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "cheesepizza.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "A Cheese Pizza" 
+    }, 
+    ['pepperonipizza'] = {
+        ['name'] = "pepperonipizza", 
+        ['label'] = "Pepperoni Pizza", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "pepperonipizza.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "A Pepperoni Pizza" 
+    }, 
+    ['margheritapizza'] = {
+        ['name'] = "margheritapizza", 
+        ['label'] = "Margherita Pizza", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "margheritapizza.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "A Margherita Pizza" 
+    }, 
+    ['marinarapizza'] = {
+        ['name'] = "marinarapizza", 
+        ['label'] = "Marinara Pizza", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "marinarapizza.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "A Marinara Pizza" 
+    }, 
+    ['vegetarinapizza'] = {
+        ['name'] = "vegetarinapizza", 
+        ['label'] = "Vegetarina Pizza", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "vegetarinapizza.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "A Vegetarian Pizza" 
+    }, 
+    ['wholepepperoni'] = {
+        ['name'] = "wholepepperoni", 
+        ['label'] = "Unsliced Pepperoni", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "wholepepperoni.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Unsliced" 
+    }, 
+    ['slicedpepperoni'] = {
+        ['name'] = "slicedpepperoni", 
+        ['label'] = "Sliced Pepperoni's", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "slicedpepperoni.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Useful as a pizza topping" 
+    }, 
+    ['wholetomato'] = {
+        ['name'] = "wholetomato", 
+        ['label'] = "Tomato", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "wholetomato.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Useful for making sauces" 
+    }, 
+    ['tomatosauce'] = {
+        ['name'] = "tomatosauce", 
+        ['label'] = "Tomato Sauce", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "tomatosauce.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "For saucing up some pizza" 
+    }, 
+    ['rawdough'] = {
+        ['name'] = "rawdough", 
+        ['label'] = "Raw Pizza Dough", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "rawdough.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Roll to get pizza dough ready" 
+    }, 
+    ['pizzadough'] = {
+        ['name'] = "pizzadough", 
+        ['label'] = "Pizza Dough", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "pizzadough.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Ready to top pizza dough" 
+    }, 
+    ['ecola'] = {
+        ['name'] = "ecola", 
+        ['label'] = "E Cola", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "ecola.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "E Cola Soda Drink" 
+    }, 
+    ['sprunk'] = {
+        ['name'] = "sprunk", 
+        ['label'] = "Sprunk", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "sprunk.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Sprunk Soda Drink" 
+    }, 
+    ['deliverybox'] = {
+        ['name'] = "deliverybox", 
+        ['label'] = "Pizza Delivery Box", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "deliverybox.png", 
+        ['unique'] = true, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "For Delivering Pizzas" 
+    }, 
+    ['burnedpizza'] = {
+        ['name'] = "burnedpizza", 
+        ['label'] = "Burned Pizza", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "burnedpizza.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Looks like it got a little  to hot" 
+    }, 
+    ['pibwasser'] = {
+        ['name'] = "pibwasser", 
+        ['label'] = "Pibwasser", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "pibwasser.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Pibwasser Beer" 
+    }, 
+    ['ambeer'] = {
+        ['name'] = "ambeer", 
+        ['label'] = "AM", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "ambeer.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "AM Beer" 
+    }, 
+    ['tronza'] = {
+        ['name'] = "tronza", 
+        ['label'] = "Tronza", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "tronza.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Tronza Beer" 
+    }, 
+    ['patriot'] = {
+        ['name'] = "patriot", 
+        ['label'] = "Patriot", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "patriot.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "The Taste Of Freedom" 
+    }, 
+    ['milkcreamer'] = {
+        ['name'] = "milkcreamer", 
+        ['label'] = "Milk Creamer", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "milkcreamer.png", 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Milk Creamer" 
+    }, 
+    ['blackcoffee'] = {
+        ['name'] = "blackcoffee", 
+        ['label'] = "Black Coffee", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "blackcoffee.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Black Coffee" 
+    }, 
+    ['lattecoffee'] = {
+        ['name'] = "lattecoffee", 
+        ['label'] = "Coffee Latte", 
+        ['weight'] = 0, 
+        ['type'] = "item", 
+        ['image'] = "lattecoffee.png", 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = "Coffee Latte" 
+    }, 
+    ```
+  </Tab>
+  <Tab>
+    ```lua filename="ox_inventory/data/items.lua" copy
+    ['waterjug'] = {
+        label = "Jug Of Water", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "Water With Great pH Level" 
+    }, 
+    ['mozzarella'] = {
+        label = "Mozzarella Cheese", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "Great on Pizza's" 
+    }, 
+    ['basil'] = {
+        label = "Basil", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "Basil" 
+    }, 
+    ['garlic'] = {
+        label = "Garlic", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "Garlic" 
+    }, 
+    ['yeast'] = {
+        label = "Yeast", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "Yeast for dough" 
+    }, 
+    ['flour'] = {
+        label = "Flour", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "Flour for baking" 
+    }, 
+    ['vegetables'] = {
+        label = "Assorted Vegetables", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "Assorted Vegetables" 
+    }, 
+    ['zuccini'] = {
+        label = "Zuccini", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "Zuccini" 
+    }, 
+    ['oregano'] = {
+        label = "Oregano", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "Oregano" 
+    }, 
+    ['wholeham'] = {
+        label = "Unsliced Ham", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "Whole Ham" 
+    }, 
+    ['slicedham'] = {
+        label = "Sliced Ham", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "Ham for use with pizza" 
+    }, 
+    ['mushroom'] = {
+        label = "Mushroom", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "Mushroom for use with pizza" 
+    }, 
+    ['marinarasauce'] = {
+        label = "Marinara Sauce", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "Marinara Sauce for use with pizza" 
+    }, 
+    ['mushroompizza'] = {
+        label = "Prosciutto E Funghi", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "A Mushroom Pizza" 
+    }, 
+    ['cheesepizza'] = {
+        label = "Cheese Pizza", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "A Cheese Pizza" 
+    }, 
+    ['pepperonipizza'] = {
+        label = "Pepperoni Pizza", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "A Pepperoni Pizza" 
+    }, 
+    ['margheritapizza'] = {
+        label = "Margherita Pizza", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "A Margherita Pizza" 
+    }, 
+    ['marinarapizza'] = {
+        label = "Marinara Pizza", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "A Marinara Pizza" 
+    }, 
+    ['vegetarinapizza'] = {
+        label = "Vegetarina Pizza", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "A Vegetarian Pizza" 
+    }, 
+    ['wholepepperoni'] = {
+        label = "Unsliced Pepperoni", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "Unsliced" 
+    }, 
+    ['slicedpepperoni'] = {
+        label = "Sliced Pepperoni's", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "Useful as a pizza topping" 
+    }, 
+    ['wholetomato'] = {
+        label = "Tomato", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "Useful for making sauces" 
+    }, 
+    ['tomatosauce'] = {
+        label = "Tomato Sauce", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "For saucing up some pizza" 
+    }, 
+    ['rawdough'] = {
+        label = "Raw Pizza Dough", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "Roll to get pizza dough ready" 
+    }, 
+    ['pizzadough'] = {
+        label = "Pizza Dough", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "Ready to top pizza dough" 
+    }, 
+    ['ecola'] = {
+        label = "E Cola", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "E Cola Soda Drink" 
+    }, 
+    ['sprunk'] = {
+        label = "Sprunk", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "Sprunk Soda Drink" 
+    }, 
+    ['deliverybox'] = {
+        label = "Pizza Delivery Box", 
+        weight = 0, 
+        stack = false, 
+        close = true, 
+        description = "For Delivering Pizzas" 
+    }, 
+    ['burnedpizza'] = {
+        label = "Burned Pizza", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "Looks like it got a little  to hot" 
+    }, 
+    ['pibwasser'] = {
+        label = "Pibwasser", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "Pibwasser Beer" 
+    }, 
+    ['ambeer'] = {
+        label = "AM", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "AM Beer" 
+    }, 
+    ['tronza'] = {
+        label = "Tronza", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "Tronza Beer" 
+    }, 
+    ['patriot'] = {
+        label = "Patriot", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "The Taste Of Freedom" 
+    }, 
+    ['milkcreamer'] = {
+        label = "Milk Creamer", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "Milk Creamer" 
+    }, 
+    ['blackcoffee'] = {
+        label = "Black Coffee", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "Black Coffee" 
+    }, 
+    ['lattecoffee'] = {
+        label = "Coffee Latte", 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = "Coffee Latte" 
+    }, 
+    ```
+  </Tab>
+</Tabs>
+
+### Add Images
+<Tabs items={['qb-inventory', 'qs-inventory', 'ox_inventory']}>
+  <Tab>
+  `qb-inventory/html/images/`
+  </Tab>
+  
+  <Tab>
+  `qs-inventory/html/images/`
+  </Tab>
+  <Tab>
+  `ox_inventory/web/images/`
+  </Tab>
+</Tabs>
+
+Once you've added the items to your inventory, the next step is to drag and drop the images into the path mentioned above. 
+You can find these images in the resource you downloaded from Keymaster inside the `images` folder.
+
+### Add Job
+<Tabs items={['QBCore', 'ESX', 'QBox']}>
+    <Tab>
+        ```lua filename="qb-core/shared/jobs.lua" copy
+        ['pizzaria'] = { 
+            label = 'Pizzaria', 
+            defaultDuty = true, 
+            offDutyPay = false,
+            grades = {
+                ['0'] = { name = 'Cashier', payment = 50 },
+                ['1'] = { name = 'Courier', payment = 75 },
+                ['2'] = { name = 'Sous Chef', payment = 100 },
+                ['3'] = { name = 'Head Chef', payment = 125 },
+                ['4'] = { name = 'Owner', isboss = true, payment = 150 },
+            },
+        },
+        ```
+    </Tab>
+    <Tab>
+        ```sql filename="database" copy
+        INSERT INTO `jobs` (`name`, `label`, `whitelisted`) VALUES ('pizzaria', 'Pizzaria', 0);
+
+        INSERT INTO `job_grades` (job_name, grade, name, label, salary, skin_male, skin_female) VALUES ('pizzaria', 0, 'cashier', 'Cashier', 50, '{}', '{}');
+        INSERT INTO `job_grades` (job_name, grade, name, label, salary, skin_male, skin_female) VALUES ('pizzaria', 1, 'courier', 'Courier', 75, '{}', '{}');
+        INSERT INTO `job_grades` (job_name, grade, name, label, salary, skin_male, skin_female) VALUES ('pizzaria', 2, 'souschef', 'Sous Chef', 100, '{}', '{}');
+        INSERT INTO `job_grades` (job_name, grade, name, label, salary, skin_male, skin_female) VALUES ('pizzaria', 3, 'headchef', 'Head Chef', 125, '{}', '{}');
+        INSERT INTO `job_grades` (job_name, grade, name, label, salary, skin_male, skin_female) VALUES ('pizzaria', 4, 'boss', 'Owner', 150, '{}', '{}');
+        ```
+    </Tab>
+    <Tab>
+        ```lua filename="qbx_core/shared/jobs.lua" copy
+        ['pizzaria'] = { 
+            label = 'Pizzaria', 
+            defaultDuty = true, 
+            offDutyPay = false,
+            grades = {
+                ['0'] = { name = 'Cashier', payment = 50 },
+                ['1'] = { name = 'Courier', payment = 75 },
+                ['2'] = { name = 'Sous Chef', payment = 100 },
+                ['3'] = { name = 'Head Chef', payment = 125 },
+                ['4'] = { name = 'Owner', isboss = true, payment = 150 },
+            },
+        },
+        ```
+    </Tab>
+</Tabs>
+</Steps>
