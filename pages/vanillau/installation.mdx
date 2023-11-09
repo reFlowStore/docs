@@ -1,0 +1,1365 @@
+---
+title: Installation
+---
+
+import { Callout } from 'nextra-theme-docs';
+import { Tab, Tabs } from 'nextra-theme-docs';
+import { Warning } from '@components/Icons';
+import { Steps } from 'nextra/components'
+ 
+# Installation
+
+Guide to install reFlow Vanilla Unicorn.
+
+
+<Steps>
+### Download Resource
+ 
+To get started first download your asset previously purchased from [reflow-store.com](https://reflow-store.com/) login into [keymaster](keymaster.fivem.net) and you will find it under the option **Granted Assets**
+ 
+### Installation
+ 
+Open the downloaded resource zip file and drag the folder into your folders resources folder
+
+### Starting Order
+
+<Callout type="warning" emoji={<Warning className="pt-1" />}>
+In order for the bridge to detect your resources and start correctly, you must start the resources before running the script
+</Callout>
+
+```lua
+-- Any Supported Framework, Inventory, Target
+ensure framework
+ensure inventory
+ensure target
+
+
+-- Start Script After
+ensure reFlow-VanillaU
+```
+
+### Add Items
+
+<Tabs items={['qb-inventory', 'qs-inventory', 'ox_inventory']}>
+  <Tab>
+    ```lua filename="qb-core/shared/items.lua" copy
+    ['vuicecubes'] = {
+        ['name'] = 'vuicecubes', 
+        ['label'] = 'Ice Cubes', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'vuicecubes.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Cold Ice Cubes With A Sexual Flavor' 
+    }, 
+    ['vucrushedice'] = {
+        ['name'] = 'vucrushedice', 
+        ['label'] = 'Crushed Ice', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'vucrushedice.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Crushed Ice Like Your Heart' 
+    }, 
+    ['pibwasser'] = {
+        ['name'] = 'pibwasser', 
+        ['label'] = 'Pibwasser', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'pibwasser.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Pibwasser Beer' 
+    }, 
+    ['ambeer'] = {
+        ['name'] = 'ambeer', 
+        ['label'] = 'AM', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'ambeer.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'AM Beer' 
+    }, 
+    ['tronza'] = {
+        ['name'] = 'tronza', 
+        ['label'] = 'Tronza', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'tronza.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Tronza Beer' 
+    }, 
+    ['patriot'] = {
+        ['name'] = 'patriot', 
+        ['label'] = 'Patriot', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'patriot.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'The Taste Of Freedom' 
+    }, 
+    ['sexonbeach'] = {
+        ['name'] = 'sexonbeach', 
+        ['label'] = 'Sex On The Beach', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'sexonbeach.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'A Blend of Vodka, Schnapps & Juices' 
+    }, 
+    ['vodka'] = {
+        ['name'] = 'vodka', 
+        ['label'] = 'Vodka', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'vodka.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Its Vodka Comrade' 
+    }, 
+    ['orangejuice'] = {
+        ['name'] = 'orangejuice', 
+        ['label'] = 'Orange Juice', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'orangejuice.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Fresh Squeezed' 
+    }, 
+    ['cranberryjuice'] = {
+        ['name'] = 'cranberryjuice', 
+        ['label'] = 'Cranberry Juice', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'cranberryjuice.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Fresh Squeezed' 
+    }, 
+    ['peachschnapps'] = {
+        ['name'] = 'peachschnapps', 
+        ['label'] = 'Peach Schnapps', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'peachschnapps.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Peach Schnapps' 
+    }, 
+    ['french75'] = {
+        ['name'] = 'french75', 
+        ['label'] = 'French 75', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'french75.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Gin, Champagne, Juice & Dreams' 
+    }, 
+    ['gin'] = {
+        ['name'] = 'gin', 
+        ['label'] = 'Gin', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'gin.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Bland Gin' 
+    }, 
+    ['champagne'] = {
+        ['name'] = 'champagne', 
+        ['label'] = 'Champagne', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'champagne.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Cheap Champagne' 
+    }, 
+    ['lemonjuice'] = {
+        ['name'] = 'lemonjuice', 
+        ['label'] = 'Lemon Juice', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'lemonjuice.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Fresh Squeezed' 
+    }, 
+    ['pinacalada'] = {
+        ['name'] = 'pinacalada', 
+        ['label'] = 'Pinacalada', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'pinacalada.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Taste Of The Tropics' 
+    }, 
+    ['rum'] = {
+        ['name'] = 'rum', 
+        ['label'] = 'Rum', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'rum.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Aged Rum' 
+    }, 
+    ['bitters'] = {
+        ['name'] = 'bitters', 
+        ['label'] = 'Bitters', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'bitters.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Whiskey Bitters' 
+    }, 
+    ['coconutcream'] = {
+        ['name'] = 'coconutcream', 
+        ['label'] = 'Coconut Cream', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'coconutcream.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'When The Coconut Busts' 
+    }, 
+    ['vucard'] = {
+        ['name'] = 'vucard', 
+        ['label'] = 'Vanilla Unicorn Card', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'vucard.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Normal Membership Card' 
+    }, 
+    ['vipvucard'] = {
+        ['name'] = 'vipvucard', 
+        ['label'] = 'VIP Vanilla Unicorn Card', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'vipvucard.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Premium Membership Card' 
+    }, 
+    ['whiskey'] = {
+        ['name'] = 'whiskey', 
+        ['label'] = 'Whiskey', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'whiskey.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Aged Whiskey' 
+    }, 
+    ['manhattan'] = {
+        ['name'] = 'manhattan', 
+        ['label'] = 'Manhattan', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'manhattan.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Tastes Like Old Men' 
+    }, 
+    ['vermouth'] = {
+        ['name'] = 'vermouth', 
+        ['label'] = 'Vermouth', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'vermouth.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Vermouth' 
+    }, 
+    ['darkandstormy'] = {
+        ['name'] = 'darkandstormy', 
+        ['label'] = 'Dark & Stormy', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'darkandstormy.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Rum, Freedom & Lime' 
+    }, 
+    ['limejuice'] = {
+        ['name'] = 'limejuice', 
+        ['label'] = 'Lime Juice', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'limejuice.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Fresh Squeezed' 
+    }, 
+    ['orange'] = {
+        ['name'] = 'orange', 
+        ['label'] = 'Orange', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'orange.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Orange' 
+    }, 
+    ['lemon'] = {
+        ['name'] = 'lemon', 
+        ['label'] = 'Lemon', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'lemon.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Lemon' 
+    }, 
+    ['lime'] = {
+        ['name'] = 'lime', 
+        ['label'] = 'Lime', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'lime.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Lime' 
+    }, 
+    ['cranberrys'] = {
+        ['name'] = 'cranberrys', 
+        ['label'] = 'Cranberrys', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'cranberrys.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Cranberrys' 
+    }, 
+    ['pineapple'] = {
+        ['name'] = 'pineapple', 
+        ['label'] = 'Pineapple', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'pineapple.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Pineapple' 
+    }, 
+    ['pineapplejuice'] = {
+        ['name'] = 'pineapplejuice', 
+        ['label'] = 'Pineapple Juice', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'pineapplejuice.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Pineapple Juice' 
+    }, 
+    ['orangeslushy'] = {
+        ['name'] = 'orangeslushy', 
+        ['label'] = 'Orange Slushy', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'orangeslushy.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Orange Slushy' 
+    }, 
+    ['redslushy'] = {
+        ['name'] = 'redslushy', 
+        ['label'] = 'Red Slushy', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'redslushy.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Red Slushy' 
+    }, 
+    ['rainbowslushy'] = {
+        ['name'] = 'rainbowslushy', 
+        ['label'] = 'Rainbow Slushy', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'rainbowslushy.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Rainbow Slushy' 
+    }, 
+    ['blackcoffee'] = {
+        ['name'] = 'blackcoffee', 
+        ['label'] = 'Black Coffee', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'blackcoffee.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Black Coffee' 
+    }, 
+    ['lattecoffee'] = {
+        ['name'] = 'lattecoffee', 
+        ['label'] = 'Coffee Latte', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'lattecoffee.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Coffee Latte' 
+    }, 
+    ['icecoffee'] = {
+        ['name'] = 'icecoffee', 
+        ['label'] = 'Iced Coffee', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'icecoffee.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Iced Coffee' 
+    }, 
+    ['milkcreamer'] = {
+        ['name'] = 'milkcreamer', 
+        ['label'] = 'Milk Creamer', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'milkcreamer.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Milk Creamer' 
+    }, 
+    ['coffeebeans'] = {
+        ['name'] = 'coffeebeans', 
+        ['label'] = 'Coffee Beans', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'coffeebeans.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'High Quality Coffee Beans' 
+    }, 
+    ```
+  </Tab>
+  <Tab>
+    <Callout type="warning" emoji={<Warning className="pt-1" />}>
+    If you are running `qs-inventory` on QBCore you should add the items to `qb-core/shared/items.lua`
+    </Callout>
+    ```lua filename="qs-inventory/shared/items.lua" copy
+    ['vuicecubes'] = {
+        ['name'] = 'vuicecubes', 
+        ['label'] = 'Ice Cubes', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'vuicecubes.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Cold Ice Cubes With A Sexual Flavor' 
+    }, 
+    ['vucrushedice'] = {
+        ['name'] = 'vucrushedice', 
+        ['label'] = 'Crushed Ice', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'vucrushedice.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Crushed Ice Like Your Heart' 
+    }, 
+    ['pibwasser'] = {
+        ['name'] = 'pibwasser', 
+        ['label'] = 'Pibwasser', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'pibwasser.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Pibwasser Beer' 
+    }, 
+    ['ambeer'] = {
+        ['name'] = 'ambeer', 
+        ['label'] = 'AM', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'ambeer.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'AM Beer' 
+    }, 
+    ['tronza'] = {
+        ['name'] = 'tronza', 
+        ['label'] = 'Tronza', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'tronza.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Tronza Beer' 
+    }, 
+    ['patriot'] = {
+        ['name'] = 'patriot', 
+        ['label'] = 'Patriot', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'patriot.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'The Taste Of Freedom' 
+    }, 
+    ['sexonbeach'] = {
+        ['name'] = 'sexonbeach', 
+        ['label'] = 'Sex On The Beach', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'sexonbeach.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'A Blend of Vodka, Schnapps & Juices' 
+    }, 
+    ['vodka'] = {
+        ['name'] = 'vodka', 
+        ['label'] = 'Vodka', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'vodka.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Its Vodka Comrade' 
+    }, 
+    ['orangejuice'] = {
+        ['name'] = 'orangejuice', 
+        ['label'] = 'Orange Juice', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'orangejuice.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Fresh Squeezed' 
+    }, 
+    ['cranberryjuice'] = {
+        ['name'] = 'cranberryjuice', 
+        ['label'] = 'Cranberry Juice', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'cranberryjuice.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Fresh Squeezed' 
+    }, 
+    ['peachschnapps'] = {
+        ['name'] = 'peachschnapps', 
+        ['label'] = 'Peach Schnapps', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'peachschnapps.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Peach Schnapps' 
+    }, 
+    ['french75'] = {
+        ['name'] = 'french75', 
+        ['label'] = 'French 75', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'french75.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Gin, Champagne, Juice & Dreams' 
+    }, 
+    ['gin'] = {
+        ['name'] = 'gin', 
+        ['label'] = 'Gin', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'gin.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Bland Gin' 
+    }, 
+    ['champagne'] = {
+        ['name'] = 'champagne', 
+        ['label'] = 'Champagne', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'champagne.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Cheap Champagne' 
+    }, 
+    ['lemonjuice'] = {
+        ['name'] = 'lemonjuice', 
+        ['label'] = 'Lemon Juice', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'lemonjuice.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Fresh Squeezed' 
+    }, 
+    ['pinacalada'] = {
+        ['name'] = 'pinacalada', 
+        ['label'] = 'Pinacalada', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'pinacalada.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Taste Of The Tropics' 
+    }, 
+    ['rum'] = {
+        ['name'] = 'rum', 
+        ['label'] = 'Rum', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'rum.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Aged Rum' 
+    }, 
+    ['bitters'] = {
+        ['name'] = 'bitters', 
+        ['label'] = 'Bitters', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'bitters.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Whiskey Bitters' 
+    }, 
+    ['coconutcream'] = {
+        ['name'] = 'coconutcream', 
+        ['label'] = 'Coconut Cream', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'coconutcream.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'When The Coconut Busts' 
+    }, 
+    ['vucard'] = {
+        ['name'] = 'vucard', 
+        ['label'] = 'Vanilla Unicorn Card', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'vucard.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Normal Membership Card' 
+    }, 
+    ['vipvucard'] = {
+        ['name'] = 'vipvucard', 
+        ['label'] = 'VIP Vanilla Unicorn Card', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'vipvucard.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Premium Membership Card' 
+    }, 
+    ['whiskey'] = {
+        ['name'] = 'whiskey', 
+        ['label'] = 'Whiskey', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'whiskey.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Aged Whiskey' 
+    }, 
+    ['manhattan'] = {
+        ['name'] = 'manhattan', 
+        ['label'] = 'Manhattan', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'manhattan.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Tastes Like Old Men' 
+    }, 
+    ['vermouth'] = {
+        ['name'] = 'vermouth', 
+        ['label'] = 'Vermouth', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'vermouth.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Vermouth' 
+    }, 
+    ['darkandstormy'] = {
+        ['name'] = 'darkandstormy', 
+        ['label'] = 'Dark & Stormy', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'darkandstormy.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Rum, Freedom & Lime' 
+    }, 
+    ['limejuice'] = {
+        ['name'] = 'limejuice', 
+        ['label'] = 'Lime Juice', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'limejuice.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Fresh Squeezed' 
+    }, 
+    ['orange'] = {
+        ['name'] = 'orange', 
+        ['label'] = 'Orange', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'orange.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Orange' 
+    }, 
+    ['lemon'] = {
+        ['name'] = 'lemon', 
+        ['label'] = 'Lemon', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'lemon.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Lemon' 
+    }, 
+    ['lime'] = {
+        ['name'] = 'lime', 
+        ['label'] = 'Lime', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'lime.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Lime' 
+    }, 
+    ['cranberrys'] = {
+        ['name'] = 'cranberrys', 
+        ['label'] = 'Cranberrys', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'cranberrys.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Cranberrys' 
+    }, 
+    ['pineapple'] = {
+        ['name'] = 'pineapple', 
+        ['label'] = 'Pineapple', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'pineapple.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Pineapple' 
+    }, 
+    ['pineapplejuice'] = {
+        ['name'] = 'pineapplejuice', 
+        ['label'] = 'Pineapple Juice', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'pineapplejuice.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Pineapple Juice' 
+    }, 
+    ['orangeslushy'] = {
+        ['name'] = 'orangeslushy', 
+        ['label'] = 'Orange Slushy', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'orangeslushy.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Orange Slushy' 
+    }, 
+    ['redslushy'] = {
+        ['name'] = 'redslushy', 
+        ['label'] = 'Red Slushy', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'redslushy.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Red Slushy' 
+    }, 
+    ['rainbowslushy'] = {
+        ['name'] = 'rainbowslushy', 
+        ['label'] = 'Rainbow Slushy', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'rainbowslushy.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Rainbow Slushy' 
+    }, 
+    ['blackcoffee'] = {
+        ['name'] = 'blackcoffee', 
+        ['label'] = 'Black Coffee', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'blackcoffee.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Black Coffee' 
+    }, 
+    ['lattecoffee'] = {
+        ['name'] = 'lattecoffee', 
+        ['label'] = 'Coffee Latte', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'lattecoffee.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Coffee Latte' 
+    }, 
+    ['icecoffee'] = {
+        ['name'] = 'icecoffee', 
+        ['label'] = 'Iced Coffee', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'icecoffee.png', 
+        ['unique'] = false, 
+        ['useable'] = true, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Iced Coffee' 
+    }, 
+    ['milkcreamer'] = {
+        ['name'] = 'milkcreamer', 
+        ['label'] = 'Milk Creamer', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'milkcreamer.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'Milk Creamer' 
+    }, 
+    ['coffeebeans'] = {
+        ['name'] = 'coffeebeans', 
+        ['label'] = 'Coffee Beans', 
+        ['weight'] = 0, 
+        ['type'] = 'item', 
+        ['image'] = 'coffeebeans.png', 
+        ['unique'] = false, 
+        ['useable'] = false, 
+        ['shouldClose'] = true, 
+        ['combinable'] = nil, 
+        ['description'] = 'High Quality Coffee Beans' 
+    }, 
+    ```
+  </Tab>
+  <Tab>
+    ```lua filename="ox_inventory/data/items.lua" copy
+    ['vuicecubes'] = {
+        label = 'Ice Cubes', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Cold Ice Cubes With A Sexual Flavor' 
+    }, 
+    ['vucrushedice'] = {
+        label = 'Crushed Ice', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Crushed Ice Like Your Heart' 
+    }, 
+    ['pibwasser'] = {
+        label = 'Pibwasser', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Pibwasser Beer' 
+    }, 
+    ['ambeer'] = {
+        label = 'AM', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'AM Beer' 
+    }, 
+    ['tronza'] = {
+        label = 'Tronza', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Tronza Beer' 
+    }, 
+    ['patriot'] = {
+        label = 'Patriot', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'The Taste Of Freedom' 
+    }, 
+    ['sexonbeach'] = {
+        label = 'Sex On The Beach', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'A Blend of Vodka, Schnapps & Juices' 
+    }, 
+    ['vodka'] = {
+        label = 'Vodka', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Its Vodka Comrade' 
+    }, 
+    ['orangejuice'] = {
+        label = 'Orange Juice', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Fresh Squeezed' 
+    }, 
+    ['cranberryjuice'] = {
+        label = 'Cranberry Juice', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Fresh Squeezed' 
+    }, 
+    ['peachschnapps'] = {
+        label = 'Peach Schnapps', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Peach Schnapps' 
+    }, 
+    ['french75'] = {
+        label = 'French 75', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Gin, Champagne, Juice & Dreams' 
+    }, 
+    ['gin'] = {
+        label = 'Gin', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Bland Gin' 
+    }, 
+    ['champagne'] = {
+        label = 'Champagne', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Cheap Champagne' 
+    }, 
+    ['lemonjuice'] = {
+        label = 'Lemon Juice', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Fresh Squeezed' 
+    }, 
+    ['pinacalada'] = {
+        label = 'Pinacalada', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Taste Of The Tropics' 
+    }, 
+    ['rum'] = {
+        label = 'Rum', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Aged Rum' 
+    }, 
+    ['bitters'] = {
+        label = 'Bitters', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Whiskey Bitters' 
+    }, 
+    ['coconutcream'] = {
+        label = 'Coconut Cream', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'When The Coconut Busts' 
+    }, 
+    ['vucard'] = {
+        label = 'Vanilla Unicorn Card', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Normal Membership Card' 
+    }, 
+    ['vipvucard'] = {
+        label = 'VIP Vanilla Unicorn Card', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Premium Membership Card' 
+    }, 
+    ['whiskey'] = {
+        label = 'Whiskey', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Aged Whiskey' 
+    }, 
+    ['manhattan'] = {
+        label = 'Manhattan', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Tastes Like Old Men' 
+    }, 
+    ['vermouth'] = {
+        label = 'Vermouth', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Vermouth' 
+    }, 
+    ['darkandstormy'] = {
+        label = 'Dark & Stormy', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Rum, Freedom & Lime' 
+    }, 
+    ['limejuice'] = {
+        label = 'Lime Juice', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Fresh Squeezed' 
+    }, 
+    ['orange'] = {
+        label = 'Orange', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Orange' 
+    }, 
+    ['lemon'] = {
+        label = 'Lemon', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Lemon' 
+    }, 
+    ['lime'] = {
+        label = 'Lime', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Lime' 
+    }, 
+    ['cranberrys'] = {
+        label = 'Cranberrys', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Cranberrys' 
+    }, 
+    ['pineapple'] = {
+        label = 'Pineapple', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Pineapple' 
+    }, 
+    ['pineapplejuice'] = {
+        label = 'Pineapple Juice', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Pineapple Juice' 
+    }, 
+    ['orangeslushy'] = {
+        label = 'Orange Slushy', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Orange Slushy' 
+    }, 
+    ['redslushy'] = {
+        label = 'Red Slushy', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Red Slushy' 
+    }, 
+    ['rainbowslushy'] = {
+        label = 'Rainbow Slushy', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Rainbow Slushy' 
+    }, 
+    ['blackcoffee'] = {
+        label = 'Black Coffee', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Black Coffee' 
+    }, 
+    ['lattecoffee'] = {
+        label = 'Coffee Latte', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Coffee Latte' 
+    }, 
+    ['icecoffee'] = {
+        label = 'Iced Coffee', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Iced Coffee' 
+    }, 
+    ['milkcreamer'] = {
+        label = 'Milk Creamer', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'Milk Creamer' 
+    }, 
+    ['coffeebeans'] = {
+        label = 'Coffee Beans', 
+        weight = 0, 
+        stack = true, 
+        close = true, 
+        description = 'High Quality Coffee Beans' 
+    }, 
+    ```
+  </Tab>
+</Tabs>
+
+### Add Images
+<Tabs items={['qb-inventory', 'qs-inventory', 'ox_inventory']}>
+  <Tab>
+  `qb-inventory/html/images/`
+  </Tab>
+  
+  <Tab>
+  `qs-inventory/html/images/`
+  </Tab>
+  <Tab>
+  `ox_inventory/web/images/`
+  </Tab>
+</Tabs>
+
+Once you've added the items to your inventory, the next step is to drag and drop the images into the path mentioned above. 
+You can find these images in the resource you downloaded from Keymaster inside the `images` folder.
+
+### Add Job
+<Tabs items={['QBCore', 'ESX', 'QBox']}>
+    <Tab>
+        ```lua filename="qb-core/shared/jobs.lua" copy
+        ['unicorn'] = { 
+            label = 'Vanilla Unicorn', 
+            defaultDuty = true, 
+            offDutyPay = false,
+            grades = {
+                ['0'] = { name = 'Recruit', payment = 50 },
+                ['1'] = { name = 'Waitress ', payment = 75 },
+                ['2'] = { name = 'DJ', payment = 100 },
+                ['3'] = { name = 'Bartender', payment = 125 },
+                ['4'] = { name = 'Owner', isboss = true, payment = 150 },
+            },
+        },
+        ```
+    </Tab>
+    <Tab>
+        ```sql filename="database" copy
+        INSERT INTO `jobs` (`name`, `label`, `whitelisted`) VALUES ('unicorn', 'Vanilla Unicorn', 0);
+
+        INSERT INTO `job_grades` (job_name, grade, name, label, salary, skin_male, skin_female) VALUES ('unicorn', 0, 'recruit', 'Recruit', 50, '{}', '{}');
+        INSERT INTO `job_grades` (job_name, grade, name, label, salary, skin_male, skin_female) VALUES ('unicorn', 1, 'waitress', 'Waitress', 75, '{}', '{}');
+        INSERT INTO `job_grades` (job_name, grade, name, label, salary, skin_male, skin_female) VALUES ('unicorn', 2, 'dj', 'DJ', 100, '{}', '{}');
+        INSERT INTO `job_grades` (job_name, grade, name, label, salary, skin_male, skin_female) VALUES ('unicorn', 3, 'bartender', 'Bartender', 125, '{}', '{}');
+        INSERT INTO `job_grades` (job_name, grade, name, label, salary, skin_male, skin_female) VALUES ('unicorn', 4, 'boss', 'Owner', 150, '{}', '{}');
+        ```
+    </Tab>
+    <Tab>
+        ```lua filename="qbx_core/shared/jobs.lua" copy
+        ['unicorn'] = { 
+            label = 'Vanilla Unicorn', 
+            defaultDuty = true, 
+            offDutyPay = false,
+            grades = {
+                ['0'] = { name = 'Recruit', payment = 50 },
+                ['1'] = { name = 'Waitress ', payment = 75 },
+                ['2'] = { name = 'DJ', payment = 100 },
+                ['3'] = { name = 'Bartender', payment = 125 },
+                ['4'] = { name = 'Owner', isboss = true, payment = 150 },
+            },
+        },
+        ```
+    </Tab>
+</Tabs>
+</Steps>
+

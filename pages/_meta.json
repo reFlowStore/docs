@@ -12,5 +12,11 @@
   },
   "---": {
     "type": "separator"
+  },
+  "vanillau": {
+    "title": "Vanilla Unicorn"
+  },
+  "pizzaria": {
+    "title": "Pizzaria"
   }
 }

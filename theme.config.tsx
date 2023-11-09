@@ -1,7 +1,7 @@
 import React from 'react';
 import { DocsThemeConfig, useConfig } from 'nextra-theme-docs';
 import { useRouter } from 'next/router';
-import { StoreIcon, AboutIcon, BridgeIcon, UnitTesting, NotifyIcon, MerchantIcon, FreeIcon, PayCheckIcon, StashesIcon, MenuIcon, KeyPadIcon } from '@components/Icons';
+import { StoreIcon, AboutIcon, Unicorn, Pizza } from '@components/Icons';
 
 function useHead() {
   const { asPath } = useRouter();
@@ -117,6 +117,29 @@ const config: DocsThemeConfig = {
           </>
         );
       }
+
+      if (title === 'Vanilla Unicorn') {
+        return (
+          <>
+            <div style={{ display: 'flex' }}>
+              <span>{Unicorn}</span>
+              <span style={{ marginLeft: '1em' }}>{title}</span>
+            </div>
+          </>
+        );
+      }
+
+      if (title === 'Pizzaria') {
+        return (
+          <>
+            <div style={{ display: 'flex' }}>
+              <span>{Pizza}</span>
+              <span style={{ marginLeft: '1em' }}>{title}</span>
+            </div>
+          </>
+        );
+      }
+
 
       return <>{title}</>;
     },
