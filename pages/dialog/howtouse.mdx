@@ -1,0 +1,178 @@
+---
+title: How To Use
+---
+
+## Export
+
+Using The Dialog Export Function
+
+```lua
+OpenDialog(target, data)
+```
+
+- target: `number | vector4`
+- data: `table`
+    - title: `string`
+    - text: `string`
+    - animate?: `boolean`
+    - dialog?: `table`
+    - buttons: `table[]`
+        - text: `string`
+        - client?: `string`
+        - server?: `string`
+        - export?: `function(args)`
+    - tags?: `table[]`
+        - text: `string`
+
+## Example Linked To A Ped
+
+```lua
+exports['reFlow-Dialog']:OpenDialog(entity, {
+    title = 'My Title',
+    text = "This is your text field with multiple lines when animate is set to true the text will animate",
+    animate = true,
+    buttons = {
+        {
+            text = "Button 1",
+            client = 'myclientevent',
+        },
+        {
+            text = "Close Dialog",
+            client = '',
+        },
+    },
+    tags = {
+        {
+            text = 'Tag 1'
+        },
+        {
+            text = 'Tag 2'
+        },
+    },
+})
+```
+
+## Example By Using Coords
+
+The vector4 will be the camera position
+
+```lua
+exports['reFlow-Dialog']:OpenDialog(vector4(0, 0, 0, 0), {
+    title = 'My Title',
+    text = "This is your text field with multiple lines when animate is set to true the text will animate",
+    animate = true,
+    buttons = {
+        {
+            text = "Button 1",
+            client = 'myclientevent',
+        },
+        {
+            text = "Close Dialog",
+            client = '',
+        },
+    },
+    tags = {
+        {
+            text = 'Tag 1'
+        },
+        {
+            text = 'Tag 2'
+        },
+    },
+})
+```
+
+## Example By Linking Dialogs
+
+```lua
+local Dialog1 = {
+    title = 'My Dialog 1',
+    text = "Looks like you choose Dialog 1",
+    animate = true,
+    buttons = {
+        {
+            text = "Close Dialog",
+            client = '',
+        },
+    }
+}
+
+local Dialog2 = {
+    title = 'My Dialog 2',
+    text = "Looks like you choose Dialog 2",
+    animate = true,
+    buttons = {
+        {
+            text = "Close Dialog",
+            client = '',
+        },
+    },
+}
+
+exports['reFlow-Dialog']:OpenDialog(entity, {
+    title = 'My Title',
+    text = "This is your text field with multiple lines when animate is set to true the text will animate",
+    animate = true,
+    buttons = {
+        {
+            text = "Dialog 1",
+            dialog = Dialog1
+        },
+        {
+            text = "Dialog 2",
+            dialog = Dialog2
+        },
+        {
+            text = "Close Dialog",
+            client = '',
+        },
+    }
+})
+```
+
+## Example Args
+
+```lua
+exports['reFlow-Dialog']:OpenDialog(entity, {
+    title = 'My Title',
+    text = "This is your text field with multiple lines when animate is set to true the text will animate",
+    animate = true,
+    buttons = {
+        {
+            text = "Client Event",
+            args = {
+                myoption = "Passing Args Client Side",
+            },
+            client = 'myclientevent',
+        },
+        {
+            text = "Server Event",
+            args = {
+                myoption = "Passing Args Server Side",
+            },
+            client = 'myserverevent',
+        },
+        {
+            text = "Export Event",
+            args = {
+                myoption = "Passing Args To Export",
+            },
+            export = function(data)
+                print(data.myoption)
+                -- Prints: Passing Args To Export
+            end,
+        }
+    }
+})
+
+RegisterNetEvent('myclientevent', function(data)
+    print(data.myoption)
+    -- Prints: Passing Args Client Side
+end)
+
+RegisterNetEvent('myserverevent', function(data)
+    print(data.myoption)
+    -- Prints: Passing Args Server Side
+end)
+
+```

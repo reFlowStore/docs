@@ -18,5 +18,8 @@
   },
   "pizzaria": {
     "title": "Pizzaria"
+  },
+  "dialog": {
+    "title": "Dialog"
   }
 }
