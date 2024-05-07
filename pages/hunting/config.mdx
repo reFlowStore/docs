@@ -3,6 +3,7 @@ title: Config
 ---
 
 import Image from 'next/image'
+import { Callout } from 'nextra-theme-docs';
 
 <br />
 # Config Preview
@@ -11,6 +12,14 @@ import Image from 'next/image'
 <Image src="/static/hunting_banner.png" alt="Hello" width={1248} height={0} style={{ borderRadius: '8px' }} />
 <br />
 
+<Callout type="warning" emoji="⚠️">
+- **WEAPON_SNIPERRIFLE** 
+- **ammo-sniper**
+</Callout>
+
+<Callout type="info" emoji="ℹ️">
+This items are framework/inventory specific make sure to change them to what your framework or inventory uses.
+</Callout>
 
 ```lua
 Config = {}
@@ -111,7 +120,7 @@ Config.NPCShop = {
     { name = 'deercall',        price = 450 },
     { name = 'boarcall',        price = 500 },
     { name = 'birdcall',        price = 500 },
-    { name = 'ammo-sniper',           price = 10 },
+    { name = 'ammo-sniper',     price = 10 },
 
 
     { name = 'WEAPON_SNIPERRIFLE', price = 1000 }, -- MAKE SURE TO CHANGE THIS IF YOU USE A DIFFERENT WEAPON
