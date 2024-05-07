@@ -66,9 +66,7 @@ const config: DocsThemeConfig = {
       </svg>
     </>
   ),
-  editLink: {
-    component: null
-  },
+  
   /*
   project: {
     link: 'https://github.com/reFlowOrg',
@@ -90,6 +88,9 @@ const config: DocsThemeConfig = {
   docsRepositoryBase: 'https://github.com/reFlowOrg/docs/tree/main',
   feedback: {
     content: null
+  },
+  editLink: {
+    component: null
   },
   footer: {
     text: (
@@ -192,6 +193,7 @@ const config: DocsThemeConfig = {
         );
       }
 
+      /*
       if (title === 'reFlowOS') {
         return (
           <>
@@ -202,7 +204,7 @@ const config: DocsThemeConfig = {
           </>
         );
       }
-      
+      */
 
 
       return <>{title}</>;
