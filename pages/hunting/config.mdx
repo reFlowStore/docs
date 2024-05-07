@@ -1,0 +1,212 @@
+---
+title: Config
+---
+
+# Config Preview
+
+```lua
+Config = {}
+
+Config.SellerBlip = true -- If false, no blip for HUNTING SHOP
+
+Config.AimProtect = true                    -- If true, you CAN NOT SHOOT PLAYERS WITH THE SNIPER RIFLE
+Config.HuntingWeapon = `WEAPON_SNIPERRIFLE` -- The weapon which you will only be able to shoot animals with
+
+-- Hunting Zones (Areas, The Animals Table is what animals CAN spawn inside that specific zone)
+Config.Zones = {
+    {
+        Name = 'LumberMillZone',
+        Coords = {
+            vector3(-967.0176, 5305.3359, 74.2573),
+            vector3(-623.9359, 5299.0840, 74.2573),
+            vector3(-596.6943, 5044.7632, 138.8192),
+            vector3(-875.3819, 5110.7007, 145.2346),
+
+
+        },
+        Animals = { 'rabbit', 'bear', 'boar', 'lion', 'coyote', 'skunk', 'deer', 'panther' } -- Can Spawn All Animals
+    },
+    {
+        Name = 'EastMilBase',
+        Coords = {
+            vector3(-1372.9933, 2701.8196, 5.1621),
+            vector3(-1301.2987, 2567.1882, 5.1621),
+            vector3(-686.0999, 2840.5591, 5.1621),
+            vector3(-577.9531, 3026.2307, 5.1621),
+            vector3(-883.8337, 3025.5503, 5.1621),
+        },
+        Animals = { 'rabbit', 'lion', 'coyote', 'deer', 'boar' } -- Will Only Spawn These Five Animals
+    },
+    {
+        Name = 'NearChilliadBridge',
+        Coords = {
+            vector3(-22.3590, 4430.9766, 25.1181),
+            vector3(-137.5660, 4574.7539, 25.1181),
+            vector3(-622.6632, 4520.6929, 25.1181),
+            vector3(-510.6378, 4291.6973, 25.1181),
+            vector3(-242.4046, 4196.9297, 25.1181),
+
+        },
+        Animals = { 'rabbit', 'bear', 'coyote', 'deer', 'skunk' } -- Will Only Spawn These Five Animals
+    },
+    {
+        Name = 'RedwoodLightsTrack',
+        Coords = {
+            vector3(1197.6035, 2047.1824, 50.6572),
+            vector3(1250.7877, 2295.3145, 50.6572),
+            vector3(1643.1753, 1775.6738, 50.6572),
+            vector3(1333.7817, 1678.9667, 50.6572),
+
+        },
+        Animals = { 'rabbit', 'deer', 'boar' } -- Will Only Spawn These Three Animals
+    },
+
+    {
+        Name = 'VinewoodHills',
+        Coords = {
+            vector3(-474.6810, 1673.3149, 300.9642),
+            vector3(-245.8063, 1587.8610, 300.9642),
+            vector3(-422.8751, 1486.4860, 300.9642),
+            vector3(-605.5573, 1407.7772, 300.9642),
+
+        },
+        Animals = { 'rabbit', 'lion', 'coyote' } -- Will Only Spawn These Three Animals
+    },
+
+
+}
+
+-- Animals here, if adding custom just follow same format.
+Config.Animals = {
+    ['bear'] = { Model = `BrnBear`, Size = 1, Tracks = `bear_track`, HeadingOffset = 270, Sound = 'default.ogg', MinWeight = 500, MaxWeight = 1500 },
+    ['boar'] = { Model = `a_c_boar`, Size = 2, Tracks = `boar_track`, HeadingOffset = 90, Call = 'boarcall.mp3', Sound = 'boarreply.mp3', MinWeight = 200, MaxWeight = 450 },
+    ['deer'] = { Model = `a_c_deer`, Size = 2, Tracks = `deer_track`, HeadingOffset = 270, Call = 'deercall.wav', Sound = 'deerreply.wav', MinWeight = 80, MaxWeight = 160 },
+    ['lion'] = { Model = `a_c_mtlion`, Size = 2, Tracks = `deer_track`, HeadingOffset = 270, Sound = 'default.ogg', MinWeight = 90, MaxWeight = 175 },
+    ['panther'] = { Model = `a_c_panther`, Size = 2, Tracks = `deer_track`, HeadingOffset = 270, Sound = 'default.ogg', MinWeight = 90, MaxWeight = 175 },
+    ['rabbit'] = { Model = `a_c_rabbit_01`, Size = 3, Tracks = `rabbit_track`, HeadingOffset = 270, Sound = 'default.ogg', MinWeight = 4, MaxWeight = 15 },
+    ['coyote'] = { Model = `a_c_coyote`, Size = 3, Tracks = `rabbit_track`, HeadingOffset = 270, Sound = 'default.ogg', MinWeight = 15, MaxWeight = 46 },
+    ['skunk'] = { Model = `Skunk`, Size = 3, Tracks = `skunk_track`, HeadingOffset = 270, Sound = 'default.ogg', MinWeight = 3, MaxWeight = 12 },
+    ['cormorant'] = { Model = `a_c_cormorant`, Size = 4, Tracks = nil, HeadingOffset = 270, Call = 'birdcall.mp3', Sound = 'birdcall.mp3', MinWeight = 2, MaxWeight = 6 },
+}
+
+-- Where the Shop Keeper is located
+Config.NPCLocation = vector4(-1117.2538, 2692.1638, 17.5542, 312.5643)
+-- The Shop Keeper & His Inventory/Prices
+Config.NPCShop = {
+    { name = 'animaltag',       price = 25 }, -- You can add ",count = 100" after price to make it so only 100 will be sold, can change the number and add to all
+    { name = 'scentremover',    price = 50 },
+    { name = 'huntingbrochure', price = 75 },
+    { name = 'bearspray',       price = 100 },
+    { name = 'hbait',           price = 250 },
+    { name = 'cbait',           price = 300 },
+
+    { name = 'deercall',        price = 450 },
+    { name = 'boarcall',        price = 500 },
+    { name = 'birdcall',        price = 500 },
+    { name = 'ammo-sniper',           price = 10 },
+
+
+    { name = 'WEAPON_SNIPERRIFLE', price = 1000 }, -- MAKE SURE TO CHANGE THIS IF YOU USE A DIFFERENT WEAPON
+
+}
+-- How much the items sell for
+Config.SellPrices = {
+
+
+    ['poorbirdcarcass'] = 30,
+    ['poorpeltsmall'] = 50,
+    ['poorpeltmedium'] = 100,
+    ['poorpeltlarge'] = 150,
+
+    ['birdcarcass'] = 50,
+    ['peltsmall'] = 100,
+    ['peltmedium'] = 150,
+    ['peltlarge'] = 200,
+
+    ['goodbirdcarcass'] = 100,
+    ['goodpeltsmall'] = 150,
+    ['goodpeltmedium'] = 200,
+    ['goodpeltlarge'] = 250,
+
+    ['meat'] = 5
+}
+
+
+
+Config.GiveMeat = true -- Set to True if you want Animals to also give Meat
+
+Config.Size = {
+    [1] = { Item = 'peltlarge' },
+    [2] = { Item = 'peltmedium' },
+    [3] = { Item = 'peltsmall' },
+    [4] = { Item = 'birdcarcass' },
+
+}
+-- Levels determine the consistent quality of the pelt. Level 1 will get
+Config.Levels = {
+    [1] = { Xp = 0, Poor = 80, Normal = 15, Good = 5 },
+    [2] = { Xp = 500, Poor = 50, Normal = 45, Good = 5 },
+    [3] = { Xp = 1500, Poor = 20, Normal = 60, Good = 20 },
+    [4] = { Xp = 3000, Poor = 5, Normal = 40, Good = 55 },
+}
+
+-- XP Per Kill
+Config.XPGain = 35
+
+-- Shooting an animal anywhere other than these bones will result in a chance of a worse pelt
+Config.Bones = {
+    [31086] = true,       -- Skel Head
+    [39317] = true,       -- Skel Neck
+    [12844] = true,       -- IK Head
+}
+Config.PeltDeduction = 20 -- -20% Chance of a Good Pelt
+
+
+-- Below is used for the Brochure, it will display information about the hunting zones.
+
+Config.Brochure = {
+    {
+        Label = "Lago Zancudo",
+        Coords = vector3(-1031.7825, 2843.2234, 4.8613),
+        Image = "./imgs/lagozancudo.png",
+        Description =
+        "Lago Zancudo is voted top 10 best hunting spots in Los Santos every year. Come see what all the fuss is about! Fun Guarenteed!",
+        Animals = { "boar", "deer", "bear" }
+    },
+    {
+        Label = "Lumber Mill",
+        Coords = vector3(-742.5831, 5181.3257, 0),
+        Image = "./imgs/lumbermill.png",
+        Description =
+        "The Old Lumber Mill is great for catching a diverse amount of game. From Rabbit to Bear, you always need to watch your back.",
+        Animals = { 'rabbit', 'bear', 'boar', 'lion', 'coyote', 'skunk', 'deer', 'panther' }
+    },
+    {
+        Label = "Calafia Bridge",
+        Coords = vector3(-304.3768, 4308.2603, 0),
+        Image = "./imgs/calafiabridge.png",
+        Description =
+        "Beautiful scenery. The perfect getaway for the lone hunter. Lushes environment is the breeding ground of success for the animal kingdom.",
+        Animals = { 'rabbit', 'bear', 'coyote', 'deer', 'skunk' }
+    },
+    {
+        Label = "Senora Desert Road",
+        Coords = vector3(1424.0288, 1918.9899, 0),
+        Image = "./imgs/senoraroad.png",
+        Description =
+        "Off the beaten path but no stranger to danger. Bear's & Wild Boar's have been known to be extremely aggressive in this area, with the odd Deer.",
+        Animals = { 'rabbit', 'deer', 'boar' }
+    },
+    {
+        Label = "Vinewood Hills",
+        Coords = vector3(-435.5207, 1576.4772, 358.0282),
+        Image = "./imgs/vinewoodhills.png",
+        Description =
+        "A popular tourist area, The Mountain Overseeing Vinewood Hills is home to many dangerous predators as well as rabbits.",
+        Animals = { 'lion', 'rabbit', 'coyote' }
+    },
+
+    -- Add more entries as needed like maybe Sloppy's Bedroom if you want to hunt a tiger, or Serraz Closet if you're looking for an emu
+}
+
+```

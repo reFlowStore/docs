@@ -1,7 +1,7 @@
 import React from 'react';
 import { DocsThemeConfig, useConfig } from 'nextra-theme-docs';
 import { useRouter } from 'next/router';
-import { StoreIcon, AboutIcon, Unicorn, Pizza, Dialog } from '@components/Icons';
+import { StoreIcon, AboutIcon, Unicorn, Pizza, Dialog, Discord, reFlowOS, Hunting, BridgeIcon } from '@components/Icons';
 
 function useHead() {
   const { asPath } = useRouter();
@@ -66,9 +66,14 @@ const config: DocsThemeConfig = {
       </svg>
     </>
   ),
+  editLink: {
+    component: null
+  },
+  /*
   project: {
     link: 'https://github.com/reFlowOrg',
   },
+  */
   chat: {
     link: 'https://discord.gg/reflow',
   },
@@ -83,6 +88,9 @@ const config: DocsThemeConfig = {
   },
   */
   docsRepositoryBase: 'https://github.com/reFlowOrg/docs/tree/main',
+  feedback: {
+    content: null
+  },
   footer: {
     text: (
       <span>
@@ -107,11 +115,33 @@ const config: DocsThemeConfig = {
         );
       }
 
+      if (title === 'Discord') {
+        return (
+          <>
+            <div style={{ display: 'flex' }}>
+              <span>{Discord}</span>
+              <span style={{ marginLeft: '1em' }}>{title}</span>
+            </div>
+          </>
+        );
+      }
+
       if (title === 'Welcome') {
         return (
           <>
             <div style={{ display: 'flex' }}>
               <span>{AboutIcon}</span>
+              <span style={{ marginLeft: '1em' }}>{title}</span>
+            </div>
+          </>
+        );
+      }
+
+      if (title === 'Bridge') {
+        return (
+          <>
+            <div style={{ display: 'flex' }}>
+              <span>{BridgeIcon}</span>
               <span style={{ marginLeft: '1em' }}>{title}</span>
             </div>
           </>
@@ -150,6 +180,29 @@ const config: DocsThemeConfig = {
           </>
         );
       }
+
+      if (title === 'Hunting') {
+        return (
+          <>
+            <div style={{ display: 'flex' }}>
+              <span>{Hunting}</span>
+              <span style={{ marginLeft: '1em' }}>{title}</span>
+            </div>
+          </>
+        );
+      }
+
+      if (title === 'reFlowOS') {
+        return (
+          <>
+            <div style={{ display: 'flex' }}>
+              <span>{reFlowOS}</span>
+              <span style={{ marginLeft: '1em' }}>{title}</span>
+            </div>
+          </>
+        );
+      }
+      
 
 
       return <>{title}</>;

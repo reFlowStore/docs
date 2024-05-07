@@ -1,0 +1,751 @@
+---
+title: Installation
+---
+
+import { Callout } from 'nextra-theme-docs';
+import { Tab, Tabs } from 'nextra-theme-docs';
+import { Warning } from '@components/Icons';
+import { Steps } from 'nextra/components'
+ 
+# Installation
+
+Guide to install reFlow Hunting.
+
+
+<Steps>
+### Download Resource
+ 
+To get started first download your asset previously purchased from [reflow-store.com](https://reflow-store.com/) login into [keymaster](keymaster.fivem.net) and you will find your resource under the option **Granted Assets**
+ 
+### Installation
+ 
+Open the downloaded resource zip file and drag the folder into your servers resources folder
+
+### Starting Order
+
+```lua
+ensure reFlow-Bridge
+
+ensure reFlow-Hunting
+```
+
+### Add Items
+
+<Tabs items={['qb-inventory', 'qs-inventory', 'ox_inventory']}>
+  <Tab>
+    ```lua filename="qb-core/shared/items.lua" copy
+    ['scentremover'] = {
+        ['name'] = 'scentremover',
+        ['label'] = 'Scent Remover',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'scentremover.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'Removes Your Scent'
+    },
+    ['poorpeltsmall'] = {
+        ['name'] = 'poorpeltsmall',
+        ['label'] = 'Poor Small Pelt',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'poorpeltsmall.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Small Pelt in Bad Quality'
+    },
+    ['poorpeltmedium'] = {
+        ['name'] = 'poorpeltmedium',
+        ['label'] = 'Poor Medium Pelt',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'poorpeltmedium.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Medium Pelt in Bad Quality'
+    },
+    ['poorpeltlarge'] = {
+        ['name'] = 'poorpeltlarge',
+        ['label'] = 'Poor Large Pelt',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'poorpeltlarge.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Large Pelt in Bad Quality'
+    },
+    ['peltsmall'] = {
+        ['name'] = 'peltsmall',
+        ['label'] = 'Small Pelt',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'peltsmall.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Small Pelt'
+    },
+    ['peltmedium'] = {
+        ['name'] = 'peltmedium',
+        ['label'] = 'Medium Pelt',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'peltmedium.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Medium Pelt'
+    },
+    ['peltlarge'] = {
+        ['name'] = 'peltlarge',
+        ['label'] = 'Large Pelt',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'peltlarge.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Large Pelt'
+    },
+    ['goodpeltsmall'] = {
+        ['name'] = 'goodpeltsmall',
+        ['label'] = 'Exceptional Small Pelt',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'goodpeltsmall.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Small Pelt in Exceptional Quality'
+    },
+    ['goodpeltmedium'] = {
+        ['name'] = 'goodpeltmedium',
+        ['label'] = 'Exceptional Medium Pelt',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'goodpeltmedium.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Medium Pelt in Exceptional Quality'
+    },
+    ['goodpeltlarge'] = {
+        ['name'] = 'goodpeltlarge',
+        ['label'] = 'Exceptional Large Pelt',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'goodpeltlarge.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Large Pelt in Exceptional Quality'
+    },
+    ['poorbirdcarcass'] = {
+        ['name'] = 'poorbirdcarcass',
+        ['label'] = 'Poor Bird Carcass',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'poorbirdcarcass.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Bird Carcass in Bad Quality'
+    },
+    ['birdcarcass'] = {
+        ['name'] = 'birdcarcass',
+        ['label'] = 'Bird Carcass',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'birdcarcass.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Bird Carcass'
+    },
+    ['goodbirdcarcass'] = {
+        ['name'] = 'goodbirdcarcass',
+        ['label'] = 'Exceptional Bird Carcass',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'goodbirdcarcass.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Bird Carcass in Exceptional Quality'
+    },
+    ['meat'] = {
+        ['name'] = 'meat',
+        ['label'] = 'Meat',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'meat.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'Meat'
+    },
+    ['huntingbrochure'] = {
+        ['name'] = 'huntingbrochure',
+        ['label'] = 'Hunting Brochure',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'huntingbrochure.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Hunting Brochure'
+    },
+    ['hbait'] = {
+        ['name'] = 'hbait',
+        ['label'] = 'Herbivore Bait',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'hbait.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'Herbivore Bait'
+    },
+    ['deercall'] = {
+        ['name'] = 'deercall',
+        ['label'] = 'Deer Call',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'deercall.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Deer Call'
+    },
+    ['birdcall'] = {
+        ['name'] = 'birdcall',
+        ['label'] = 'Bird Call',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'birdcall.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Bird Call'
+    },
+    ['boarcall'] = {
+        ['name'] = 'boarcall',
+        ['label'] = 'Boar Call',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'boarcall.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Boar Call'
+    },
+    ['cbait'] = {
+        ['name'] = 'cbait',
+        ['label'] = 'Carnivore Bait',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'cbait.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'Carnivore Bait'
+    },
+    ['animaltag'] = {
+        ['name'] = 'animaltag',
+        ['label'] = 'Hunting Tag',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'animaltag.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'Hunting Tag'
+    },
+    ['bearspray'] = {
+        ['name'] = 'bearspray',
+        ['label'] = 'Bear Spray',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'bearspray.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'Bear Spray'
+    }
+    ```
+  </Tab>
+  <Tab>
+    <Callout type="warning" emoji={<Warning className="pt-1" />}>
+    If you are running `qs-inventory` on QBCore you should add the items to `qb-core/shared/items.lua`
+    </Callout>
+    ```lua filename="qs-inventory/shared/items.lua" copy
+    ['scentremover'] = {
+        ['name'] = 'scentremover',
+        ['label'] = 'Scent Remover',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'scentremover.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'Removes Your Scent'
+    },
+    ['poorpeltsmall'] = {
+        ['name'] = 'poorpeltsmall',
+        ['label'] = 'Poor Small Pelt',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'poorpeltsmall.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Small Pelt in Bad Quality'
+    },
+    ['poorpeltmedium'] = {
+        ['name'] = 'poorpeltmedium',
+        ['label'] = 'Poor Medium Pelt',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'poorpeltmedium.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Medium Pelt in Bad Quality'
+    },
+    ['poorpeltlarge'] = {
+        ['name'] = 'poorpeltlarge',
+        ['label'] = 'Poor Large Pelt',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'poorpeltlarge.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Large Pelt in Bad Quality'
+    },
+    ['peltsmall'] = {
+        ['name'] = 'peltsmall',
+        ['label'] = 'Small Pelt',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'peltsmall.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Small Pelt'
+    },
+    ['peltmedium'] = {
+        ['name'] = 'peltmedium',
+        ['label'] = 'Medium Pelt',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'peltmedium.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Medium Pelt'
+    },
+    ['peltlarge'] = {
+        ['name'] = 'peltlarge',
+        ['label'] = 'Large Pelt',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'peltlarge.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Large Pelt'
+    },
+    ['goodpeltsmall'] = {
+        ['name'] = 'goodpeltsmall',
+        ['label'] = 'Exceptional Small Pelt',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'goodpeltsmall.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Small Pelt in Exceptional Quality'
+    },
+    ['goodpeltmedium'] = {
+        ['name'] = 'goodpeltmedium',
+        ['label'] = 'Exceptional Medium Pelt',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'goodpeltmedium.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Medium Pelt in Exceptional Quality'
+    },
+    ['goodpeltlarge'] = {
+        ['name'] = 'goodpeltlarge',
+        ['label'] = 'Exceptional Large Pelt',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'goodpeltlarge.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Large Pelt in Exceptional Quality'
+    },
+    ['poorbirdcarcass'] = {
+        ['name'] = 'poorbirdcarcass',
+        ['label'] = 'Poor Bird Carcass',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'poorbirdcarcass.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Bird Carcass in Bad Quality'
+    },
+    ['birdcarcass'] = {
+        ['name'] = 'birdcarcass',
+        ['label'] = 'Bird Carcass',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'birdcarcass.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Bird Carcass'
+    },
+    ['goodbirdcarcass'] = {
+        ['name'] = 'goodbirdcarcass',
+        ['label'] = 'Exceptional Bird Carcass',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'goodbirdcarcass.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Bird Carcass in Exceptional Quality'
+    },
+    ['meat'] = {
+        ['name'] = 'meat',
+        ['label'] = 'Meat',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'meat.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'Meat'
+    },
+    ['huntingbrochure'] = {
+        ['name'] = 'huntingbrochure',
+        ['label'] = 'Hunting Brochure',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'huntingbrochure.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Hunting Brochure'
+    },
+    ['hbait'] = {
+        ['name'] = 'hbait',
+        ['label'] = 'Herbivore Bait',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'hbait.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'Herbivore Bait'
+    },
+    ['deercall'] = {
+        ['name'] = 'deercall',
+        ['label'] = 'Deer Call',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'deercall.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Deer Call'
+    },
+    ['birdcall'] = {
+        ['name'] = 'birdcall',
+        ['label'] = 'Bird Call',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'birdcall.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Bird Call'
+    },
+    ['boarcall'] = {
+        ['name'] = 'boarcall',
+        ['label'] = 'Boar Call',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'boarcall.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Boar Call'
+    },
+    ['cbait'] = {
+        ['name'] = 'cbait',
+        ['label'] = 'Carnivore Bait',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'cbait.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'Carnivore Bait'
+    },
+    ['animaltag'] = {
+        ['name'] = 'animaltag',
+        ['label'] = 'Hunting Tag',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'animaltag.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'Hunting Tag'
+    },
+    ['bearspray'] = {
+        ['name'] = 'bearspray',
+        ['label'] = 'Bear Spray',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'bearspray.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'Bear Spray'
+    }
+    ```
+  </Tab>
+  <Tab>
+    ```lua filename="ox_inventory/data/items.lua" copy
+    ['scentremover'] = {
+        label = 'Scent Remover',
+        weight = 0,
+        stack = true,
+        close = true,
+        description = 'Removes Your Scent'
+    },
+    ['poorpeltsmall'] = {
+        label = 'Poor Small Pelt',
+        weight = 0,
+        stack = true,
+        close = true,
+        description = 'A Small Pelt in Bad Quality'
+    },
+    ['poorpeltmedium'] = {
+        label = 'Poor Medium Pelt',
+        weight = 0,
+        stack = true,
+        close = true,
+        description = 'A Medium Pelt in Bad Quality'
+    },
+    ['poorpeltlarge'] = {
+        label = 'Poor Large Pelt',
+        weight = 0,
+        stack = true,
+        close = true,
+        description = 'A Large Pelt in Bad Quality'
+    },
+    ['peltsmall'] = {
+        label = 'Small Pelt',
+        weight = 0,
+        stack = true,
+        close = true,
+        description = 'A Small Pelt'
+    },
+    ['peltmedium'] = {
+        label = 'Medium Pelt',
+        weight = 0,
+        stack = true,
+        close = true,
+        description = 'A Medium Pelt'
+    },
+    ['peltlarge'] = {
+        label = 'Large Pelt',
+        weight = 0,
+        stack = true,
+        close = true,
+        description = 'A Large Pelt'
+    },
+    ['goodpeltsmall'] = {
+        label = 'Exceptional Small Pelt',
+        weight = 0,
+        stack = true,
+        close = true,
+        description = 'A Small Pelt in Exceptional Quality'
+    },
+    ['goodpeltmedium'] = {
+        label = 'Exceptional Medium Pelt',
+        weight = 0,
+        stack = true,
+        close = true,
+        description = 'A Medium Pelt in Exceptional Quality'
+    },
+    ['goodpeltlarge'] = {
+        label = 'Exceptional Large Pelt',
+        weight = 0,
+        stack = true,
+        close = true,
+        description = 'A Large Pelt in Exceptional Quality'
+    },
+    ['poorbirdcarcass'] = {
+        label = 'Poor Bird Carcass',
+        weight = 0,
+        stack = true,
+        close = true,
+        description = 'A Bird Carcass in Bad Quality'
+    },
+    ['birdcarcass'] = {
+        label = 'Bird Carcass',
+        weight = 0,
+        stack = true,
+        close = true,
+        description = 'A Bird Carcass'
+    },
+    ['goodbirdcarcass'] = {
+        label = 'Exceptional Bird Carcass',
+        weight = 0,
+        stack = true,
+        close = true,
+        description = 'A Bird Carcass in Exceptional Quality'
+    },
+    ['meat'] = {
+        label = 'Meat',
+        weight = 0,
+        stack = true,
+        close = true,
+        description = 'Meat'
+    },
+    ['huntingbrochure'] = {
+        label = 'Hunting Brochure',
+        weight = 0,
+        stack = true,
+        close = true,
+        description = 'A Hunting Brochure'
+    },
+    ['hbait'] = {
+        label = 'Herbivore Bait',
+        weight = 0,
+        stack = true,
+        close = true,
+        description = 'Herbivore Bait'
+    },
+    ['deercall'] = {
+        label = 'Deer Call',
+        weight = 0,
+        stack = true,
+        close = true,
+        description = 'A Deer Call'
+    },
+    ['birdcall'] = {
+        label = 'Bird Call',
+        weight = 0,
+        stack = true,
+        close = true,
+        description = 'A Bird Call'
+    },
+    ['boarcall'] = {
+        label = 'Boar Call',
+        weight = 0,
+        stack = true,
+        close = true,
+        description = 'A Boar Call'
+    },
+    ['cbait'] = {
+        label = 'Carnivore Bait',
+        weight = 0,
+        stack = true,
+        close = true,
+        description = 'Carnivore Bait'
+    },
+    ['animaltag'] = {
+        label = 'Hunting Tag',
+        weight = 0,
+        stack = true,
+        close = true,
+        description = 'Hunting Tag'
+    },
+    ['bearspray'] = {
+        label = 'Bear Spray',
+        weight = 0,
+        stack = true,
+        close = true,
+        description = 'Bear Spray'
+    }
+    ```
+  </Tab>
+</Tabs>
+
+### Add Images
+<Tabs items={['qb-inventory', 'qs-inventory', 'ox_inventory']}>
+  <Tab>
+  `qb-inventory/html/images/`
+  </Tab>
+  
+  <Tab>
+  `qs-inventory/html/images/`
+  </Tab>
+  <Tab>
+  `ox_inventory/web/images/`
+  </Tab>
+</Tabs>
+
+Once you've added the items to your inventory, the next step is to drag and drop the images into the path mentioned above. 
+You can find these images in the resource you downloaded from Keymaster inside the `images` folder.
+
+</Steps>

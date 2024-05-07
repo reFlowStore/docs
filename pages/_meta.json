@@ -4,6 +4,11 @@
     "href": "https://reflow-store.com/",
     "newWindow": true
   },
+  "discord": {
+    "title": "Discord",
+    "href": "https://discord.gg/reflow",
+    "newWindow": true
+  },
   "index": {
     "title": "Welcome",
     "theme": {
@@ -11,6 +16,12 @@
     }
   },
   "---": {
+    "type": "separator"
+  },
+  "bridge": {
+    "title": "Bridge"
+  },
+  "----": {
     "type": "separator"
   },
   "vanillau": {
@@ -21,5 +32,11 @@
   },
   "dialog": {
     "title": "Dialog"
+  },
+  "reflowos": {
+    "title": "reFlowOS"
+  },
+  "hunting": {
+    "title": "Hunting"
   }
 }

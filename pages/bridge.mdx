@@ -1,0 +1,60 @@
+---
+title: Bridge
+---
+
+import { Logo } from '@components/Logo';
+import Image from 'next/image'
+import { Callout } from 'nextra-theme-docs';
+import { Tab, Tabs } from 'nextra-theme-docs';
+import { Warning } from '@components/Icons';
+import { Steps } from 'nextra/components'
+import { Cards, Card } from 'nextra/components'
+import { DocumentationIcon } from '@components/Icons';
+
+<br />
+<Image src="/static/bridge_banner.png" alt="Hello" width={1248} height={0} style={{ borderRadius: '8px' }} />
+<br />
+
+# {Logo} Bridge
+
+
+Introducing reFlow Bridge, the innovative solution revolutionizing FiveM development workflows.
+
+With its advanced capabilities, reFlow Bridge takes the hassle out of detecting frameworks, inventory, and targets, all automatically. Guarenteed to noticably shorten development time, and streamline supporting all the different frameworks by only having to update & maintain a **SINGLE** version. 
+Trusted by numerous developers across the FiveM Scene, reFlow Bridge is the cornerstone of efficient development, supported by our robust software license agreement.<br />
+
+[Discover the future of development with reFlow Bridge.](https://www.reflow-store.com/package/5975154)
+<br />
+<Card icon={DocumentationIcon} title="Bridge Documentation"  href="https://dev.reflow-store.com/bridge" />
+<br />
+
+# Installation
+
+<Steps>
+### Download Resource
+ 
+To get started first download the bridge, it's included with any asset purchased from [reflow-store.com](https://reflow-store.com/) login into [keymaster](keymaster.fivem.net) and you will find the bridge under the option **Granted Assets**
+ 
+### Installation
+ 
+Open the downloaded resource zip file and drag the folder into your servers resources folder
+
+### Starting Order
+
+<Callout type="warning" emoji={<Warning className="pt-1" />}>
+In order for the bridge to detect your resources and start correctly, you must start the resources before running the script
+</Callout>
+
+```lua
+-- Any Supported Framework, Inventory, Target
+ensure framework
+ensure inventory
+ensure target
+
+-- Start Bridge After
+ensure reFlow-Bridge
+
+-- Start Script After Bridge
+ensure reFlow-ScriptName
+```
+</Steps>
