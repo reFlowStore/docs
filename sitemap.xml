@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://docs.reflow-store.com</loc><lastmod>2024-05-07T23:28:15.096Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.reflow-store.com/bridge</loc><lastmod>2024-05-07T23:28:15.096Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.reflow-store.com/dialog/howtouse</loc><lastmod>2024-05-07T23:28:15.096Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.reflow-store.com/dialog/installation</loc><lastmod>2024-05-07T23:28:15.096Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.reflow-store.com/dialog/preview</loc><lastmod>2024-05-07T23:28:15.096Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.reflow-store.com/hunting</loc><lastmod>2024-05-07T23:28:15.096Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.reflow-store.com/hunting/config</loc><lastmod>2024-05-07T23:28:15.096Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.reflow-store.com/hunting/installation</loc><lastmod>2024-05-07T23:28:15.096Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.reflow-store.com/pizzaria/installation</loc><lastmod>2024-05-07T23:28:15.096Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.reflow-store.com/pizzaria/preview</loc><lastmod>2024-05-07T23:28:15.096Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.reflow-store.com/vanillau/installation</loc><lastmod>2024-05-07T23:28:15.096Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://docs.reflow-store.com/vanillau/preview</loc><lastmod>2024-05-07T23:28:15.096Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.reflow-store.com</loc><lastmod>2024-05-07T23:31:21.712Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.reflow-store.com/bridge</loc><lastmod>2024-05-07T23:31:21.712Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.reflow-store.com/dialog/howtouse</loc><lastmod>2024-05-07T23:31:21.712Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.reflow-store.com/dialog/installation</loc><lastmod>2024-05-07T23:31:21.712Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.reflow-store.com/dialog/preview</loc><lastmod>2024-05-07T23:31:21.712Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.reflow-store.com/hunting</loc><lastmod>2024-05-07T23:31:21.712Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.reflow-store.com/hunting/config</loc><lastmod>2024-05-07T23:31:21.712Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.reflow-store.com/hunting/installation</loc><lastmod>2024-05-07T23:31:21.712Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.reflow-store.com/pizzaria/installation</loc><lastmod>2024-05-07T23:31:21.712Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.reflow-store.com/pizzaria/preview</loc><lastmod>2024-05-07T23:31:21.712Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.reflow-store.com/vanillau/installation</loc><lastmod>2024-05-07T23:31:21.712Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.reflow-store.com/vanillau/preview</loc><lastmod>2024-05-07T23:31:21.712Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>
