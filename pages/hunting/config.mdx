@@ -24,10 +24,11 @@ This items are framework/inventory specific make sure to change them to what you
 ```lua
 Config = {}
 
-Config.SellerBlip = true -- If false, no blip for HUNTING SHOP
+Config.SellerBlip = true                    -- If false, no blip for HUNTING SHOP
 
 Config.AimProtect = true                    -- If true, you CAN NOT SHOOT PLAYERS WITH THE SNIPER RIFLE
 Config.HuntingWeapon = `WEAPON_SNIPERRIFLE` -- The weapon which you will only be able to shoot animals with
+
 
 -- Hunting Zones (Areas, The Animals Table is what animals CAN spawn inside that specific zone)
 Config.Zones = {
@@ -95,35 +96,35 @@ Config.Zones = {
 
 -- Animals here, if adding custom just follow same format.
 Config.Animals = {
-    ['bear'] = { Model = `BrnBear`, Size = 1, Tracks = `bear_track`, HeadingOffset = 270, Sound = 'default.ogg', MinWeight = 500, MaxWeight = 1500 },
-    ['boar'] = { Model = `a_c_boar`, Size = 2, Tracks = `boar_track`, HeadingOffset = 90, Call = 'boarcall.mp3', Sound = 'boarreply.mp3', MinWeight = 200, MaxWeight = 450 },
-    ['deer'] = { Model = `a_c_deer`, Size = 2, Tracks = `deer_track`, HeadingOffset = 270, Call = 'deercall.wav', Sound = 'deerreply.wav', MinWeight = 80, MaxWeight = 160 },
-    ['lion'] = { Model = `a_c_mtlion`, Size = 2, Tracks = `deer_track`, HeadingOffset = 270, Sound = 'default.ogg', MinWeight = 90, MaxWeight = 175 },
-    ['panther'] = { Model = `a_c_panther`, Size = 2, Tracks = `deer_track`, HeadingOffset = 270, Sound = 'default.ogg', MinWeight = 90, MaxWeight = 175 },
-    ['rabbit'] = { Model = `a_c_rabbit_01`, Size = 3, Tracks = `rabbit_track`, HeadingOffset = 270, Sound = 'default.ogg', MinWeight = 4, MaxWeight = 15 },
-    ['coyote'] = { Model = `a_c_coyote`, Size = 3, Tracks = `rabbit_track`, HeadingOffset = 270, Sound = 'default.ogg', MinWeight = 15, MaxWeight = 46 },
-    ['skunk'] = { Model = `Skunk`, Size = 3, Tracks = `skunk_track`, HeadingOffset = 270, Sound = 'default.ogg', MinWeight = 3, MaxWeight = 12 },
-    ['cormorant'] = { Model = `a_c_cormorant`, Size = 4, Tracks = nil, HeadingOffset = 270, Call = 'birdcall.mp3', Sound = 'birdcall.mp3', MinWeight = 2, MaxWeight = 6 },
+    ['bear'] = { Model = `BrnBear`, Size = 1, Tracks = `bear_track`, HeadingOffset = 270, Sound = 'default.ogg', CanPickup = false, MinWeight = 500, MaxWeight = 1500 },
+    ['boar'] = { Model = `a_c_boar`, Size = 2, Tracks = `boar_track`, HeadingOffset = 90, Call = 'boarcall.mp3', Sound = 'boarreply.mp3', CanPickup = true, MinWeight = 200, MaxWeight = 450, CarryCoords = { X = -0.25, Y = 0.05, Z = 0.23, XX = -11.29, YY = 290.57, ZZ = 0.54 }, VehCoords = { X = 0.1, Y = -2.2, Z = 0.48, XX = 0.0, YY = 0.0, ZZ = 100.0 } },
+    ['deer'] = { Model = `a_c_deer`, Size = 2, Tracks = `deer_track`, HeadingOffset = 270, Call = 'deercall.wav', Sound = 'deerreply.wav', CanPickup = true, MinWeight = 80, MaxWeight = 160, CarryCoords = { X = -0.4, Y = 0.15, Z = 1.08, XX = -11.29, YY = 290.57, ZZ = 0.54 }, VehCoords = { X = 0.3, Y = -2.2, Z = 1.33, XX = 0.0, YY = 0.0, ZZ = 100.0 } },
+    ['lion'] = { Model = `a_c_mtlion`, Size = 2, Tracks = `deer_track`, HeadingOffset = 270, Sound = 'default.ogg', CanPickup = false, MinWeight = 90, MaxWeight = 175 },
+    ['panther'] = { Model = `a_c_panther`, Size = 2, Tracks = `deer_track`, HeadingOffset = 270, Sound = 'default.ogg', CanPickup = false, MinWeight = 90, MaxWeight = 175 },
+    ['rabbit'] = { Model = `a_c_rabbit_01`, Size = 3, Tracks = `rabbit_track`, HeadingOffset = 270, Sound = 'default.ogg', CanPickup = false, MinWeight = 4, MaxWeight = 15 },
+    ['coyote'] = { Model = `a_c_coyote`, Size = 3, Tracks = `rabbit_track`, HeadingOffset = 270, Sound = 'default.ogg', CanPickup = false, MinWeight = 15, MaxWeight = 46 },
+    ['skunk'] = { Model = `Skunk`, Size = 3, Tracks = `skunk_track`, HeadingOffset = 270, Sound = 'default.ogg', CanPickup = false, MinWeight = 3, MaxWeight = 12 },
+    ['cormorant'] = { Model = `a_c_cormorant`, Size = 4, Tracks = nil, HeadingOffset = 270, Call = 'birdcall.mp3', Sound = 'birdcall.mp3', CanPickup = false, MinWeight = 2, MaxWeight = 6 },
 }
 
 -- Where the Shop Keeper is located
 Config.NPCLocation = vector4(-1117.2538, 2692.1638, 17.5542, 312.5643)
+Config.ButcherLocation = vector4(960.44, -2189.05, 29.51, 92.56)
 -- The Shop Keeper & His Inventory/Prices
 Config.NPCShop = {
-    { name = 'animaltag',       price = 25 }, -- You can add ",count = 100" after price to make it so only 100 will be sold, can change the number and add to all
-    { name = 'scentremover',    price = 50 },
-    { name = 'huntingbrochure', price = 75 },
-    { name = 'bearspray',       price = 100 },
-    { name = 'hbait',           price = 250 },
-    { name = 'cbait',           price = 300 },
+    { name = 'animaltag',          price = 25 }, -- You can add ",count = 100" after price to make it so only 100 will be sold, can change the number and add to all
+    { name = 'scentremover',       price = 50 },
+    { name = 'huntingbrochure',    price = 75 },
+    { name = 'bearspray',          price = 100 },
+    { name = 'hbait',              price = 250 },
+    { name = 'cbait',              price = 300 },
 
-    { name = 'deercall',        price = 450 },
-    { name = 'boarcall',        price = 500 },
-    { name = 'birdcall',        price = 500 },
-    { name = 'ammo-sniper',     price = 10 },
-
-
+    { name = 'deercall',           price = 450 },
+    { name = 'boarcall',           price = 500 },
+    { name = 'birdcall',           price = 500 },
+    { name = 'ammo-sniper',        price = 10 },
     { name = 'WEAPON_SNIPERRIFLE', price = 1000 }, -- MAKE SURE TO CHANGE THIS IF YOU USE A DIFFERENT WEAPON
+
 
 }
 -- How much the items sell for
@@ -224,6 +225,25 @@ Config.Brochure = {
     },
 
     -- Add more entries as needed like maybe Sloppy's Bedroom if you want to hunt a tiger, or Serraz Closet if you're looking for an emu
+}
+
+Config.DefaultVehCoords = {
+
+    [`a_c_boar`] = { X = -0.22, Y = -2.08, Z = -0.57, XX = -92.0, YY = -83.9, ZZ = 2.03 },
+    [`a_c_deer`] = { X = 0.0, Y = -2.0, Z = 0.49, XX = -92.0, YY = -83.9, ZZ = 2.03 },
+
+}
+
+Config.VehicleAttachement = {
+    --[`VEHICLEMODEL`] = {xPos, yPos, zPos, xRot, yRot, zRot, VEHICLEBONE}
+    [`REBEL`] = {
+        [`a_c_deer`] = { X = -0.01, Y = -1.6, Z = 1.22, XX = 0.0, YY = 0.0, ZZ = 0.0 },
+        [`a_c_boar`] = { X = -0.69, Y = -1.69, Z = 0.7, XX = 0.0, YY = 0.0, ZZ = 0.0 },
+    },
+    [`RUMPO3`] = {
+        [`a_c_deer`] = { X = 0.2, Y = -0.6, Z = 1.99, XX = 0.0, YY = 0.0, ZZ = 0.0 },
+        [`a_c_boar`] = { X = -0.5, Y = -0.6, Z = 1.70, XX = 0.0, YY = 0.0, ZZ = 0.0 },
+    }
 }
 
 ```
