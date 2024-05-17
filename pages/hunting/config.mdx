@@ -29,6 +29,8 @@ Config.SellerBlip = true                    -- If false, no blip for HUNTING SHO
 Config.AimProtect = true                    -- If true, you CAN NOT SHOOT PLAYERS WITH THE SNIPER RIFLE
 Config.HuntingWeapon = `WEAPON_SNIPERRIFLE` -- The weapon which you will only be able to shoot animals with
 
+Config.SDMenuVersion = 'ox'
+Config.SDInputVersion = 'ox'
 
 -- Hunting Zones (Areas, The Animals Table is what animals CAN spawn inside that specific zone)
 Config.Zones = {
@@ -112,18 +114,23 @@ Config.NPCLocation = vector4(-1117.2538, 2692.1638, 17.5542, 312.5643)
 Config.ButcherLocation = vector4(960.44, -2189.05, 29.51, 92.56)
 -- The Shop Keeper & His Inventory/Prices
 Config.NPCShop = {
-    { name = 'animaltag',          price = 25 }, -- You can add ",count = 100" after price to make it so only 100 will be sold, can change the number and add to all
-    { name = 'scentremover',       price = 50 },
-    { name = 'huntingbrochure',    price = 75 },
-    { name = 'bearspray',          price = 100 },
-    { name = 'hbait',              price = 250 },
-    { name = 'cbait',              price = 300 },
+    { name = 'ammo-sniper',        price = 10,   count = 10000 },
+    { name = 'ammo-dartgun',       price = 10,   count = 10000 },
+    { name = 'animaltag',          price = 25,   count = 10000 }, -- You can add ",count = 100" after price to make it so only 100 will be sold, can change the number and add to all
+    { name = 'scentremover',       price = 50,   count = 1000 },
+    { name = 'huntingbrochure',    price = 75,   count = 1000 },
+    { name = 'bearspray',          price = 100,  count = 1000 },
+    { name = 'hbait',              price = 250,  count = 1000 },
+    { name = 'cbait',              price = 300,  count = 1000 },
+    { name = 'huntingcamera',      price = 350,  count = 1000 },
+    { name = 'deercall',           price = 450,  count = 1000 },
+    { name = 'boarcall',           price = 500,  count = 1000 },
+    { name = 'birdcall',           price = 500,  count = 1000 },
 
-    { name = 'deercall',           price = 450 },
-    { name = 'boarcall',           price = 500 },
-    { name = 'birdcall',           price = 500 },
-    { name = 'ammo-sniper',        price = 10 },
-    { name = 'WEAPON_SNIPERRIFLE', price = 1000 }, -- MAKE SURE TO CHANGE THIS IF YOU USE A DIFFERENT WEAPON
+    { name = 'WEAPON_SNIPERRIFLE', price = 1000, count = 1000 }, -- MAKE SURE TO CHANGE THIS IF YOU USE A DIFFERENT WEAPON
+    { name = 'WEAPON_DARTGUN',     price = 1500, count = 1000 },
+
+
 
 
 }
@@ -235,7 +242,7 @@ Config.DefaultVehCoords = {
 }
 
 Config.VehicleAttachement = {
-    --[`VEHICLEMODEL`] = {xPos, yPos, zPos, xRot, yRot, zRot, VEHICLEBONE}
+    --[`VEHICLEMODEL`] = {xPos, yPos, zPos, xRot, yRot, zRot}
     [`REBEL`] = {
         [`a_c_deer`] = { X = -0.01, Y = -1.6, Z = 1.22, XX = 0.0, YY = 0.0, ZZ = 0.0 },
         [`a_c_boar`] = { X = -0.69, Y = -1.69, Z = 0.7, XX = 0.0, YY = 0.0, ZZ = 0.0 },
@@ -246,4 +253,92 @@ Config.VehicleAttachement = {
     }
 }
 
+
+-- Mission Stuff Below
+
+Config.MissionCooldown = 30 -- Every 30 Minutes missions will regenerate (If you are on a mission, you can finish even if it regenerates)
+
+Config.MissionRewards = {
+    { item = 'money', amount = 400 },
+    -- {item = '', amount = 1, metadata = {}},
+
+
+}
+
+Config.MissionXP = 15
+
+Config.Missions = {
+
+    {
+        MissionType = "tranq",
+        Title = "Tranq An Animal",
+        Description = "Tranq & Bring Back an Animal so we can GPS Tag it to learn more information about it's habits.",
+        AnimalModels = { `a_c_deer`, `a_c_boar` },
+        AnimalAmount = 1,
+        SpawnRadius = 50,
+        Locations = {
+            vector3(504.0250, 5549.3916, 779.9579),  -- Top of Chiliad
+            vector3(1853.4171, 4914.4277, 45.1404),  -- Sandy Farm
+            vector3(2477.0129, 3795.5107, 40.8653),  -- Hippy Area
+            vector3(2262.7939, 2031.0077, 129.6991), -- Windmill Farm
+        }
+
+    },
+    {
+        MissionType = "cull",
+        Title = "Cull A Few Animals",
+        Description = "These Animals are reproducing like crazy, cut down some to reduce the population.",
+        AnimalModels = { `a_c_boar` },
+        AnimalAmount = 5,
+        SpawnRadius = 100,
+        Locations = {
+            vector3(504.0250, 5549.3916, 779.9579),  -- Top of Chiliad
+            vector3(1853.4171, 4914.4277, 45.1404),  -- Sandy Farm
+            vector3(2477.0129, 3795.5107, 40.8653),  -- Hippy Area
+            vector3(2262.7939, 2031.0077, 129.6991), -- Windmill Farm
+        }
+
+    },
+    {
+        MissionType = "kill",
+        Title = "Exterminate A Problem Animal",
+        Description = "Folks are complaining about an Aggressive Animal, take it out and report back to me.",
+        AnimalModels = { `a_c_mtlion`, `BrnBear`, `a_c_panther`, `a_c_boar` },
+        AnimalAmount = 1,
+        SpawnRadius = 50,
+        Locations = {
+            vector3(504.0250, 5549.3916, 779.9579),  -- Top of Chiliad
+            vector3(1853.4171, 4914.4277, 45.1404),  -- Sandy Farm
+            vector3(2477.0129, 3795.5107, 40.8653),  -- Hippy Area
+            vector3(2262.7939, 2031.0077, 129.6991), -- Windmill Farm
+        }
+
+    },
+    {
+        MissionType = "fetch",
+        Title = "Fetch Some Materials",
+        Description = "Bring me a few materials and I'll reward you for it.",
+        AnimalModels = { `a_c_mtlion`, `BrnBear`, `a_c_panther`, `a_c_boar` },
+        ItemChoice = { 'poorpeltsmall', 'poorpeltmedium', 'poorpeltlarge', 'peltsmall', 'peltmedium', 'peltlarge', 'goodpeltsmall', 'goodpeltmedium', 'goodpeltlarge', 'birdcarcass' },
+        ItemAmount = 5,
+        SpawnRadius = 0,
+        Location = vector3(0, 0, 0),
+
+    },
+    {
+        MissionType = "photo",
+        Title = "Photograph an Animal",
+        Description = "Bring me a photo of this Animal in the Wild.",
+        AnimalModels = { `a_c_mtlion`, `a_c_deer`, `a_c_panther`, `a_c_boar`, `Skunk`, `a_c_deer` },
+        AnimalAmount = 1,
+        SpawnRadius = 50,
+        Locations = {
+            vector3(504.0250, 5549.3916, 779.9579),  -- Top of Chiliad
+            vector3(1853.4171, 4914.4277, 45.1404),  -- Sandy Farm
+            vector3(2477.0129, 3795.5107, 40.8653),  -- Hippy Area
+            vector3(2262.7939, 2031.0077, 129.6991), -- Windmill Farm
+        }
+
+    },
+}
 ```
