@@ -1095,7 +1095,7 @@ ensure reFlow-Hunting
 <Tabs items={['qb-inventory', 'qs-inventory', 'ox_inventory', 'codem-inventory']}>
   <Tab>
     <Callout type="info" emoji="ℹ️">
-        Also Add `weapon_dartgun` to `DurabilityMultiplier` or `DurabilityBlockedWeapons` depending on whats prefered for your server in the 'qb-weapons/config.lua'
+        Also Add `weapon_dartgun` to `DurabilityMultiplier` or `DurabilityBlockedWeapons` depending on whats prefered for your server in the `qb-weapons/config.lua`
     </Callout>
 
     ```lua filename="qb-core/shared/items.lua" copy
@@ -1131,7 +1131,7 @@ ensure reFlow-Hunting
   </Tab>
   <Tab>
     <Callout type="info" emoji="ℹ️">
-        Also Add `weapon_dartgun` to `DurabilityMultiplier` or `DurabilityBlockedWeapons` depending on whats prefered for your server in the codem-inventory/config/durability.lua
+        Also Add `weapon_dartgun` to `DurabilityMultiplier` or `DurabilityBlockedWeapons` depending on whats prefered for your server in the `codem-inventory/config/durability.lua`
     </Callout>
 
     ```lua filename="codem-inventory/config/itemlist.lua" copy
@@ -1204,6 +1204,9 @@ ensure reFlow-Hunting
   </Tab>
 </Tabs>
 
+Once you've added the items to your inventory, the next step is to drag and drop the images into the path mentioned above. 
+You can find these images in the resource you downloaded from Keymaster inside the `images` folder.
+
 ### Add Shop
 
 <Callout type="warning" emoji="⚠️">
@@ -1243,8 +1246,5 @@ This step is only required for `codem-inventory`
   ```
   </Tab>
 </Tabs>
-
-Once you've added the items to your inventory, the next step is to drag and drop the images into the path mentioned above. 
-You can find these images in the resource you downloaded from Keymaster inside the `images` folder.
 
 </Steps>
