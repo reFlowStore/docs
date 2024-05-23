@@ -37,7 +37,7 @@ ensure reFlow-Hunting
 
 ### Add Items
 
-<Tabs items={['qb-inventory', 'qs-inventory', 'ox_inventory']}>
+<Tabs items={['qb-inventory', 'qs-inventory', 'ox_inventory', 'codem-inventory']}>
   <Tab>
     ```lua filename="qb-core/shared/items.lua" copy
     ['scentremover'] = {
@@ -797,19 +797,450 @@ ensure reFlow-Hunting
     },
     ```
   </Tab>
+  <Tab>
+    ```lua filename="codem-inventory/config/itemlist.lua" copy
+    ['scentremover'] = {
+        ['name'] = 'scentremover',
+        ['label'] = 'Scent Remover',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'scentremover.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'Removes Your Scent'
+    },
+    ['poorpeltsmall'] = {
+        ['name'] = 'poorpeltsmall',
+        ['label'] = 'Poor Small Pelt',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'poorpeltsmall.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Small Pelt in Bad Quality'
+    },
+    ['poorpeltmedium'] = {
+        ['name'] = 'poorpeltmedium',
+        ['label'] = 'Poor Medium Pelt',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'poorpeltmedium.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Medium Pelt in Bad Quality'
+    },
+    ['poorpeltlarge'] = {
+        ['name'] = 'poorpeltlarge',
+        ['label'] = 'Poor Large Pelt',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'poorpeltlarge.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Large Pelt in Bad Quality'
+    },
+    ['peltsmall'] = {
+        ['name'] = 'peltsmall',
+        ['label'] = 'Small Pelt',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'peltsmall.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Small Pelt'
+    },
+    ['peltmedium'] = {
+        ['name'] = 'peltmedium',
+        ['label'] = 'Medium Pelt',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'peltmedium.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Medium Pelt'
+    },
+    ['peltlarge'] = {
+        ['name'] = 'peltlarge',
+        ['label'] = 'Large Pelt',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'peltlarge.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Large Pelt'
+    },
+    ['goodpeltsmall'] = {
+        ['name'] = 'goodpeltsmall',
+        ['label'] = 'Exceptional Small Pelt',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'goodpeltsmall.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Small Pelt in Exceptional Quality'
+    },
+    ['goodpeltmedium'] = {
+        ['name'] = 'goodpeltmedium',
+        ['label'] = 'Exceptional Medium Pelt',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'goodpeltmedium.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Medium Pelt in Exceptional Quality'
+    },
+    ['goodpeltlarge'] = {
+        ['name'] = 'goodpeltlarge',
+        ['label'] = 'Exceptional Large Pelt',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'goodpeltlarge.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Large Pelt in Exceptional Quality'
+    },
+    ['poorbirdcarcass'] = {
+        ['name'] = 'poorbirdcarcass',
+        ['label'] = 'Poor Bird Carcass',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'poorbirdcarcass.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Bird Carcass in Bad Quality'
+    },
+    ['birdcarcass'] = {
+        ['name'] = 'birdcarcass',
+        ['label'] = 'Bird Carcass',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'birdcarcass.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Bird Carcass'
+    },
+    ['goodbirdcarcass'] = {
+        ['name'] = 'goodbirdcarcass',
+        ['label'] = 'Exceptional Bird Carcass',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'goodbirdcarcass.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Bird Carcass in Exceptional Quality'
+    },
+    ['meat'] = {
+        ['name'] = 'meat',
+        ['label'] = 'Meat',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'meat.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'Meat'
+    },
+    ['huntingbrochure'] = {
+        ['name'] = 'huntingbrochure',
+        ['label'] = 'Hunting Brochure',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'huntingbrochure.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Hunting Brochure'
+    },
+    ['hbait'] = {
+        ['name'] = 'hbait',
+        ['label'] = 'Herbivore Bait',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'hbait.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'Herbivore Bait'
+    },
+    ['deercall'] = {
+        ['name'] = 'deercall',
+        ['label'] = 'Deer Call',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'deercall.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Deer Call'
+    },
+    ['birdcall'] = {
+        ['name'] = 'birdcall',
+        ['label'] = 'Bird Call',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'birdcall.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Bird Call'
+    },
+    ['boarcall'] = {
+        ['name'] = 'boarcall',
+        ['label'] = 'Boar Call',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'boarcall.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'A Boar Call'
+    },
+    ['cbait'] = {
+        ['name'] = 'cbait',
+        ['label'] = 'Carnivore Bait',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'cbait.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'Carnivore Bait'
+    },
+    ['animaltag'] = {
+        ['name'] = 'animaltag',
+        ['label'] = 'Hunting Tag',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'animaltag.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'Hunting Tag'
+    },
+    ['bearspray'] = {
+        ['name'] = 'bearspray',
+        ['label'] = 'Bear Spray',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'bearspray.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'Bear Spray'
+    },
+    ['huntingcamera'] = { 
+        ['label'] = 'Wildlife Camera', 
+        ['weight'] = 160,
+        ['type'] = 'item',
+        ['image'] = 'huntingcamera.png',
+        ['unique'] = true,
+        ['useable'] = true,
+        ['shouldClose'] = true, 
+        ['combinable'] = nil,
+        ['description'] = 'An Wildlife Camera' 
+    },
+    ['huntingpicture'] = { 
+        ['label'] = 'Animal Picture', 
+        ['weight'] = 5,
+        ['type'] = 'item',
+        ['image'] = 'huntingpicture.png',
+        ['unique'] = false,
+        ['useable'] = true,
+        ['shouldClose'] = true, 
+        ['combinable'] = nil,
+        ['description'] = 'An Picture Of An Animal ' 
+    }
+    ```
+  </Tab>
+</Tabs>
+
+### Setup Weapon
+
+#### Add Weapon
+<Tabs items={['qb-inventory', 'qs-inventory', 'ox_inventory', 'codem-inventory']}>
+  <Tab>
+    <Callout type="info" emoji="ℹ️">
+        Also Add `weapon_dartgun` to `DurabilityMultiplier` or `DurabilityBlockedWeapons` depending on whats prefered for your server in the 'qb-weapons/config.lua'
+    </Callout>
+
+    ```lua filename="qb-core/shared/items.lua" copy
+    weapon_dartgun = { name = 'weapon_dartgun', label = 'Dart Gun', weight = 1000, type = 'weapon', ammotype = "AMMO_DART", image = 'WEAPON_DARTGUN.png', unique = true, useable = false, description = 'A Dart Gun That Shoots Tranquilizer Darts' },
+    ```
+
+    ```lua filename="qb-core/shared/weapons.lua" copy
+    [`weapon_dartgun`]= { name = 'weapon_dartgun', label = 'Dart Gun', weapontype = 'Pistol', ammotype = 'AMMO_DART', damagereason = 'Tranquilized' },
+    ```
+  </Tab>
+  <Tab>
+
+    <Callout type="info" emoji="ℹ️">
+        Also Add `weapon_dartgun` to `DurabilityMultiplier` or `DurabilityBlockedWeapons` depending on whats prefered for your server in the `qs-inventory/config/weapons.lua`
+    </Callout>
+
+    ```lua filename="qs-inventory/shared/items.lua" copy
+    weapon_dartgun = { name = 'weapon_dartgun', label = 'Dart Gun', weight = 1000, type = 'weapon', ammotype = "AMMO_DART", image = 'WEAPON_DARTGUN.png', unique = true, useable = false, description = 'A Dart Gun That Shoots Tranquilizer Darts' },
+    ```
+
+    ```lua filename="qs-inventory/shared/weapons.lua" copy
+    [`weapon_dartgun`] = { name = 'weapon_dartgun', label = 'Dart Gun', weapontype = 'Pistol', ammotype = 'AMMO_DART', damagereason = 'Tranquilized' },
+    ```
+  </Tab>
+  <Tab>
+    ```lua filename="ox_inventory/data/weapons.lua" copy
+    ['WEAPON_DARTGUN'] = { 
+        label = 'Dart Gun', 
+        weight = 1000, 
+        ammoname = "ammo-dart"
+    },
+    ```
+  </Tab>
+  <Tab>
+    <Callout type="info" emoji="ℹ️">
+        Also Add `weapon_dartgun` to `DurabilityMultiplier` or `DurabilityBlockedWeapons` depending on whats prefered for your server in the codem-inventory/config/durability.lua
+    </Callout>
+
+    ```lua filename="codem-inventory/config/itemlist.lua" copy
+    weapon_dartgun = { name = 'weapon_dartgun', label = 'Dart Gun', weight = 1000, type = 'weapon', ammotype = "AMMO_DART", image = 'WEAPON_DARTGUN.png', unique = true, useable = false, description = 'A Dart Gun That Shoots Tranquilizer Darts' },
+    ```
+  </Tab>
+</Tabs>
+
+#### Add Ammo
+
+<Tabs items={['qb-inventory', 'qs-inventory', 'ox_inventory', 'codem-inventory']}>
+  <Tab>
+    
+    <Callout type="warning" emoji="⚠️">
+        Make sure to double check the `qb-weapons:client:AddAmmo` event in other ammo as your version might be different
+    </Callout>
+    
+    ```lua filename="qb-core/shared/items.lua" copy
+    dart_ammo = { name = 'dart_ammo', label = 'Dart Ammo', weight = 200, type = 'item', image = 'ammo-dartgun.png', unique = false, useable = true, shouldClose = true, combinable = nil, description = 'Tranquilizer Darts For A Dart Gun' },
+    ```
+    ```lua filename="qb-weapons/server/main.lua" copy
+    QBCore.Functions.CreateUseableItem('dart_ammo', function(source, item)
+        TriggerClientEvent('qb-weapons:client:AddAmmo', source, 'AMMO_DART', 1, item)
+    end)
+    ```
+  </Tab>
+  <Tab>
+    ```lua filename="qs-inventory/shared/items.lua" copy
+    dart_ammo = { name = 'dart_ammo', label = 'Dart Ammo', weight = 200, type = 'item', image = 'ammo-dartgun.png', unique = false, useable = true, shouldClose = true, combinable = nil, description = 'Tranquilizer Darts For A Dart Gun' },
+    ```
+    
+    ```lua filename="qs-inventory/server/custom/misc/CreateUsableItem.lua.lua" copy
+    CreateUsableItem('dart_ammo', function(source, item)
+        TriggerClientEvent('weapons:client:AddAmmo', source, 'AMMO_DART', 1, item)
+    end)
+    ``` 
+  </Tab>
+  <Tab>
+    ```lua filename="ox_inventory/data/weapons.lua" copy
+    ['ammo-dart'] = {
+		label = 'Dart Ammo',
+		weight = 200,
+	},
+    ```
+  </Tab>
+  <Tab>
+    ```lua filename="codem-inventory/config/itemlist.lua" copy
+    dart_ammo = { name = 'dart_ammo', label = 'Dart Ammo', weight = 200, type = 'item', image = 'ammo-dartgun.png', unique = false, useable = true, shouldClose = true, combinable = nil, description = 'Tranquilizer Darts For A Dart Gun' },
+    ```
+
+    ```lua filename="codem-inventory/server/weapon_server.lua" copy
+    { item = 'dart_ammo', ammoType = 'AMMO_DART', amount = 1 },
+    ```
+  </Tab>
 </Tabs>
 
 ### Add Images
-<Tabs items={['qb-inventory', 'qs-inventory', 'ox_inventory']}>
+<Tabs items={['qb-inventory', 'qs-inventory', 'ox_inventory', 'codem-inventory']}>
   <Tab>
   `qb-inventory/html/images/`
   </Tab>
-  
   <Tab>
   `qs-inventory/html/images/`
   </Tab>
   <Tab>
   `ox_inventory/web/images/`
+  </Tab>
+  <Tab>
+  `codem-inventory/html/itemimages/`
+  </Tab>
+</Tabs>
+
+### Add Shop
+
+<Callout type="warning" emoji="⚠️">
+This step is only required for `codem-inventory`
+</Callout>
+
+<Tabs items={['codem-inventory']}>
+  <Tab>
+  ```lua filename="codem-inventory/config/shops.lua" copy
+  ["huntingsupplies"] = {
+    label = "Hunting",
+    job = 'all',
+    items = {
+        ["1"] = { name = "snp_ammo", price = 10 },
+        ["2"] = { name = "dart_ammo", price = 10 },
+        ["3"] = { name = "animaltag", price = 25 },
+        ["4"] = { name = "scentremover", price = 50 },
+        ["5"] = { name = "huntingbrochure", price = 75 },
+        ["6"] = { name = "bearspray", price = 100 },
+        ["7"] = { name = "hbait", price = 250 },
+        ["8"] = { name = "cbait", price = 300 },
+        ["9"] = { name = "huntingcamera", price = 350 },
+        ["10"] = { name = "deercall", price = 450 },
+        ["11"] = { name = "boarcall", price = 500 },
+        ["12"] = { name = "birdcall", price = 500 },
+        ["13"] = { name = "weapon_sniperrifle", price = 1000 },
+        ["14"] = { name = "weapon_dartgun", price = 1500 },
+    },
+    coords = vector3(-1117.2538, 2692.1638, 17.5542),
+    Blip = {
+        enable = false,
+        id = 52,
+        scale = 0.5,
+        color = 5,
+    },
+}
+  ```
   </Tab>
 </Tabs>
 
