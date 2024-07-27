@@ -85,7 +85,7 @@ const config: DocsThemeConfig = {
     ),
   },
   */
-  docsRepositoryBase: 'https://github.com/reFlowOrg/docs/tree/main',
+  docsRepositoryBase: 'https://github.com/reFlowStore/docs/tree/main',
   feedback: {
     content: null
   },
