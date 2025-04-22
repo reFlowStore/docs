@@ -192,7 +192,7 @@ const config: DocsThemeConfig = {
           </>
         );
       }
-      if (title === 'TrapPhone') {
+      if (title === 'Trap Phone') {
         return (
           <>
             <div style={{ display: 'flex' }}>
