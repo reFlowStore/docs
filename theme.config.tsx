@@ -1,7 +1,7 @@
 import React from 'react';
 import { DocsThemeConfig, useConfig } from 'nextra-theme-docs';
 import { useRouter } from 'next/router';
-import { StoreIcon, AboutIcon, Unicorn, Pizza, Dialog, Discord, reFlowOS, Hunting, BridgeIcon } from '@components/Icons';
+import { StoreIcon, AboutIcon, Unicorn, Pizza, Dialog, Discord, reFlowOS, Hunting, TrapPhone, BridgeIcon } from '@components/Icons';
 
 function useHead() {
   const { asPath } = useRouter();
