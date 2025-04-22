@@ -192,7 +192,16 @@ const config: DocsThemeConfig = {
           </>
         );
       }
-
+      if (title === 'TrapPhone') {
+        return (
+          <>
+            <div style={{ display: 'flex' }}>
+              <span>{TrapPhone}</span>
+              <span style={{ marginLeft: '1em' }}>{title}</span>
+            </div>
+          </>
+        );
+      }
       /*
       if (title === 'reFlowOS') {
         return (
