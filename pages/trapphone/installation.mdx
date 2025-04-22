@@ -1,0 +1,149 @@
+---
+title: Installation
+---
+
+import Image from 'next/image'
+import { Callout } from 'nextra-theme-docs';
+import { Tab, Tabs } from 'nextra-theme-docs';
+import { Warning } from '@components/Icons';
+import { Steps } from 'nextra/components'
+
+<br />
+# Installation
+
+<br />
+<Image src="/static/trapphone_banner.png" alt="Hello" width={1248} height={0} style={{ borderRadius: '8px' }} />
+<br />
+
+Guide to install reFlow Trap Phone.
+
+
+<Steps>
+### Download Resource
+ 
+To get started first download your asset previously purchased from [reflow-store.com](https://reflow-store.com/) login into [keymaster](keymaster.fivem.net) and you will find your resource under the option **Granted Assets**
+ 
+### Installation
+ 
+Open the downloaded resource zip file and drag the folder into your servers resources folder
+
+### Starting Order
+
+```lua
+ensure reFlow-Bridge
+
+ensure reFlow-DrugDealer
+```
+
+### Add Items
+
+<Tabs items={['qb-inventory', 'qs-inventory', 'ox_inventory', 'codem-inventory']}>
+  <Tab>
+    ```lua filename="qb-core/shared/items.lua" copy
+    ['dealerphone'] = {
+        ['name'] = 'dealerphone',
+        ['label'] = 'Old Phone',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'dealerphone.png',
+        ['unique'] = true,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'An Old Phone, I wonder what it's for'
+    },
+    ```
+  </Tab>
+  <Tab>
+    <Callout type="warning" emoji={<Warning className="pt-1" />}>
+    If you are running `qs-inventory` on QBCore you should add the items to `qb-core/shared/items.lua`
+    </Callout>
+    ```lua filename="qs-inventory/shared/items.lua" copy
+    ['dealerphone'] = {
+        ['name'] = 'dealerphone',
+        ['label'] = 'Old Phone',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'dealerphone.png',
+        ['unique'] = true,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'An Old Phone, I wonder what it's for'
+    },
+    ```
+  </Tab>
+  <Tab>
+    ```lua filename="ox_inventory/data/items.lua" copy
+    ['dealerphone'] = {
+        label = 'Old Phone',
+        weight = 0,
+        stack = false,
+        close = true,
+        description = 'An Old Phone, I wonder what it's for'
+    },
+    ```
+  </Tab>
+  <Tab>
+    ```lua filename="codem-inventory/config/itemlist.lua" copy
+    ['dealerphone'] = {
+        ['name'] = 'dealerphone',
+        ['label'] = 'Old Phone',
+        ['weight'] = 0,
+        ['type'] = 'item',
+        ['image'] = 'dealerphone.png',
+        ['unique'] = true,
+        ['useable'] = true,
+        ['shouldClose'] = true,
+        ['combinable'] = nil,
+        ['description'] = 'An Old Phone, I wonder what it's for'
+    },
+    ```
+  </Tab>
+</Tabs>
+
+### Add Images
+<Tabs items={['qb-inventory', 'qs-inventory', 'ox_inventory', 'codem-inventory']}>
+  <Tab>
+  `qb-inventory/html/images/`
+  </Tab>
+  <Tab>
+  `qs-inventory/html/images/`
+  </Tab>
+  <Tab>
+  `ox_inventory/web/images/`
+  </Tab>
+  <Tab>
+  `codem-inventory/html/itemimages/`
+  </Tab>
+</Tabs>
+
+### Add Shop
+
+<Callout type="warning" emoji="⚠️">
+This step is only required for `codem-inventory`
+</Callout>
+
+<Tabs items={['codem-inventory']}>
+  <Tab>
+  ```lua filename="codem-inventory/config/shops.lua" copy
+  ["bittersweet"] = {
+    label = "ShadyDealer",
+    job = 'all',
+    items = {
+        ["1"] = { name = "dealerphone", price = 10 },
+    
+    },
+    coords = vector3(48.8253, -1454.7623, 28.3109),
+    Blip = {
+        enable = false,
+        id = 480,
+        scale = 0.8,
+        color = 62,
+    },
+}
+  ```
+  </Tab>
+</Tabs>
+
+</Steps>

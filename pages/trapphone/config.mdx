@@ -1,0 +1,336 @@
+---
+title: Config
+---
+
+import Image from 'next/image'
+import { Callout } from 'nextra-theme-docs';
+
+<br />
+# Config Preview
+
+<br />
+<Image src="/static/hunting_banner.png" alt="Hello" width={1248} height={0} style={{ borderRadius: '8px' }} />
+<br />
+
+<Callout type="warning" emoji="⚠️">
+- **YOU NEED THIS ITEM - UNIQUE (Non Stackable)** 
+- **dealerphone**
+</Callout>
+
+<Callout type="info" emoji="ℹ️">
+This item IS NOT framework/inventory specific and unless you have the open source, it needs to be "dealerphone".
+</Callout>
+
+```lua
+Config = {}
+
+Config.SDMenuVersion = 'ox'
+Config.SDInputVersion = 'ox'
+
+Config.RepIncrease = 1
+
+Config.EnablePedShop = true
+
+Config.Blip = true
+Config.BlipText = 'Deal'
+Config.BlipSprite = 480
+
+Config.RequirePoliceToSell = false -- If true, you cannot sell until the below number of police are online, if false can sell ANYTIME
+Config.PoliceRequired = 2 -- If the above is enabled, you will not be able to sell unless two police are online
+Config.NotifyPolice = true 
+Config.NotifyChance = 2 -- 2 = 20% chance to notify police, SNITCHES will notify police at a rate of 3x the NotifyChance rate, so a rate of 2 (20%) will be 6 (60%) for anyone with snitch personality
+
+Config.Drugs = {
+  { drugLabel = 'weed', itemName = 'weed', minPrice = 8,  maxPrice = 14, minAmount = 4, maxAmount = 28, suffix = "g's"}, -- g so 28g Weed, etc
+  { drugLabel = 'meth', itemName = 'meth', minPrice = 14, maxPrice = 22, minAmount = 2, maxAmount = 18, suffix = "g's"}, 
+  { drugLabel = 'oxycontin', itemName = 'oxy', minPrice = 16,  maxPrice = 28, minAmount = 3, maxAmount = 14, suffix = 'pills'},
+  { drugLabel = 'cocaine', itemName = 'cocaine', minPrice = 25, maxPrice = 33, minAmount = 8, maxAmount = 22, suffix = "g's"},
+  --{drugLabel = 'Label', itemName = 'The Actual Item Name',minPrice = Minimum Price Per Item, maxPrice = Maximum Price Per Item, minAmount = Minimum Amount In An Offer, maxAmount = Maximum Amount In An Offer, suffix = 'Ending Label'},
+}
+
+Config.DrugsHaveMetadata = false
+-- If your drugs have some sort of METADATA that you want to use to sell drugs instead, use the table below and enable this option
+Config.DrugsWithData = {
+  ['weed'] = {
+    metadata = "quality",
+    options = {
+      ['low'] = 0.3, -- lowest
+      ['mid'] = 0.5, -- medium
+      ['high'] = 0.7 -- highest
+    } 
+  },
+  ['meth'] = {
+    metadata = "quality",
+    options = {
+      ['low'] = 0.3, -- lowest
+      ['high'] = 0.7 -- highest
+    } 
+  },
+}
+
+Config.PersonalityTolerance = {
+  -- The Descriptions below don't actually do anything, these are more for reference
+  ["snitch"] = {
+    tolerance = 2, -- Very low standards
+    description = "Will take almost anything, just needs wants to snitch"
+  },
+  ["addict"] = {
+    tolerance = 2, -- Very low standards
+    description = "Will take almost anything, just needs a fix"
+  },
+  ["greedy"] = {
+    tolerance = 5, -- Medium tolerance
+    description = "Wants a deal but won’t flip over a few weak ones"
+  },
+  ["loyal"] = {
+    tolerance = 4, -- Slightly below average standards
+    description = "Values the relationship, gives some leeway"
+  },
+  ["hardliner"] = {
+    tolerance = 8, -- High standards
+    description = "Doesn’t tolerate junk—expects top quality"
+  },
+  ["pushOver"] = {
+    tolerance = 3, -- Low standards
+    description = "Won’t complain much, just glad to get something"
+  },
+}
+
+Config.MinDealTimer = 90000 -- One Minute & Thirty Seconds (This is only used when contact REP is really negative, so the deal does not expire instantly)
+
+Config.OfferTimes = {
+  minTime = 2 --[[Two Minutes, --]], maxTime = 4 --[[Four Minutes ]]
+}
+
+Config.StartingContacts = 5 -- How many contacts a new phone starts with
+Config.PhoneSeller = {
+  model = `s_m_y_dealer_01`, coords = vector4(48.8253, -1454.7623, 28.3109, 45.6654), blip = true, blipText = 'Shady Dealer'
+}
+
+Config.PhoneExpansion = {
+  [1] = {maxContacts = 15, price = 350},
+  [2] = {maxContacts = 20, price = 400},
+  [3] = {maxContacts = 30, price = 800}
+}
+
+-- Leave the Models as Strings :)
+Config.ContactNames = {
+  { name = "Harry",    model = "a_m_m_paparazzi_01" },
+  { name = "Sal",      model = "a_m_m_mexlabor_01" },
+  { name = "Diego",    model = "a_m_m_polynesian_01" },
+  { name = "Lenny",    model = "a_m_m_salton_03" },
+  { name = "Fat Tony", model = "a_m_m_fatlatin_01" },
+  { name = "Giovanni", model = "g_m_m_armgoon_01" },
+  { name = "Mickey",   model = "a_m_m_golfer_01" },
+  { name = "Slim",     model = "a_m_m_malibu_01" },
+  { name = "Dom",      model = "a_m_m_salton_02" },
+  { name = "Benny",    model = "a_m_y_vinewood_02" },
+  { name = "Rocky",    model = "a_m_y_stwhi_01" },
+  { name = "Vince",    model = "a_m_y_salton_01" },
+  { name = "Frankie",  model = "a_m_m_og_boss_01" },
+  { name = "Joey",     model = "a_m_m_soucent_02" },
+  { name = "Marco",    model = "a_m_m_ktown_01" },
+  { name = "Tony",     model = "a_m_m_eastsa_01" },
+  { name = "Angelo",   model = "a_m_m_genfat_01" },
+  { name = "Rico",     model = "a_m_m_mexcntry_01" },
+  { name = "Carlos",   model = "a_m_m_soucent_03" },
+  { name = "Pedro",    model = "a_m_m_farmer_01" },
+
+  -- Female Contacts
+  { name = "Lola",     model = "a_f_m_salton_01" },
+  { name = "Jasmine",  model = "a_f_o_soucent_02" },
+  { name = "Miranda",  model = "a_f_m_trampbeac_01" },
+  { name = "Jackie",   model = "a_f_y_hipster_02" },
+  { name = "Roxy",     model = "a_f_y_clubcust_01" },
+  { name = "Jade",     model = "a_f_y_bevhills_02" },
+  { name = "Marisol",  model = "a_f_m_tramp_01" },
+  { name = "Nina",     model = "g_f_y_ballas_01" },
+  { name = "Yasmin",   model = "csb_screen_writer" },
+  { name = "Natasha",  model = "a_f_m_fatwhite_01" },
+  { name = "Brenda",   model = "a_f_m_soucentmc_01" },
+  { name = "Vanessa",  model = "a_f_y_eastsa_01" },
+  { name = "Zara",     model = "a_f_y_business_04" },
+  { name = "Maya",     model = "a_f_m_fatbla_01" },
+  { name = "Sasha",    model = "g_f_y_vagos_01" },
+  { name = "Carmen",   model = "a_f_m_skidrow_01" },
+  { name = "Tanya",    model = "csb_tonya" },
+  { name = "Brielle",  model = "csb_denise_friend" },
+  { name = "Lexi",     model = "a_f_o_genstreet_01" },
+  { name = "Jaz",      model = "a_f_y_juggalo_01" },
+  { name = "Sky",      model = "a_f_y_rurmeth_01" },
+  { name = "Gigi",     model = "a_f_m_ktown_02" },
+  { name = "Serena",   model = "a_f_y_soucent_02" },
+  { name = "Talia",    model = "g_f_y_families_01" },
+  { name = "Kiara",    model = "a_f_y_vinewood_02" },
+  { name = "Monica",   model = "a_f_y_vinewood_03" },
+  { name = "Aisha",    model = "a_f_y_vinewood_04" },
+  { name = "Felicia",  model = "a_f_y_tourist_01" },
+  { name = "Elena",    model = "a_f_y_soucent_01" },
+  --{name = "", model = ""}
+}
+
+Config.DealLocations = {
+  vector4(-59.2753, -1530.6963, 33.2352, 55.9688),
+  vector4(-65.0146, -1512.8331, 32.4361, 142.3163),
+  vector4(165.1605, -1648.2014, 28.2917, 208.0988),
+  vector4(210.5050, -1691.8113, 28.5351, 93.8590),
+  vector4(167.1066, -1704.8730, 28.2917, 247.0999),
+  vector4(229.3269, -1761.8776, 27.6849, 219.4460),
+  vector4(251.6644, -1744.9768, 28.3128, 149.7825),
+  vector4(217.6183, -1855.4590, 26.0181, 236.5979),
+  vector4(137.4857, -1896.0648, 22.4184, 353.3293),
+  vector4(-238.5407, -2010.0674, 28.9460, 41.3883),
+  vector4(-417.4673, -1983.9091, 26.7557, 128.5757),
+  vector4(-424.1529, -1697.9995, 18.0740, 122.7949),
+  vector4(-357.8285, -1645.8865, 4.4122, 42.9840),
+  vector4(-357.0192, -1569.0804, 24.0611, 147.1047),
+  vector4(-354.6697, -1491.2440, 29.2310, 165.3350),
+  vector4(-202.4658, -1569.0341, 34.2380, 244.8320),
+  vector4(-337.5994, -1062.4946, 28.3836, 250.3386),
+  vector4(-837.3743, -609.7723, 28.0270, 130.4641),
+  vector4(-1082.0864, -923.1818, 2.3611, 4.7278),
+  vector4(-1122.2236, -956.2640, 1.1502, 211.1501),
+  vector4(-1165.0127, -1116.2932, 1.2864, 81.6575),
+  vector4(-1235.9185, -1315.0972, 2.9166, 86.8174),
+  vector4(-1223.5841, -1468.2667, 3.3253, 43.4275),
+  vector4(456.1298, -929.3438, 27.4959, 84.7921),
+  vector4(464.6863, -869.6165, 25.9164, 6.7411),
+  vector4(-395.0044, 208.1900, 83.5970, 31.8581),
+  vector4(987.9942, -1380.6866, 30.5480, 349.8950),
+  vector4(1220.3762, -1269.9990, 34.3598, 85.6958),
+  vector4(1135.3433, -996.9239, 44.4263, 201.0011),
+  vector4(1129.9082, -989.4095, 44.9672, 110.8952),
+  vector4(1334.3717, -696.6903, 65.8720, 251.2773),
+  vector4(1265.5258, -647.8453, 66.9213, 349.3135),
+  vector4(1322.9479, -527.0300, 71.1208, 150.6028),
+  vector4(-855.3513, -244.8932, 38.4800, 102.2155),
+  vector4(-860.1443, -330.8188, 37.6268, 301.1270),
+  vector4(-462.0857, 416.7620, 103.1219, 163.3999),
+  vector4(-580.4146, 395.6417, 100.7901, 290.1598),
+  vector4(-635.3025, 396.4937, 101.2278, 5.5446),
+  vector4(-699.9026, 522.5608, 110.6203, 131.3004),
+  vector4(-992.1081, 187.9891, 65.4285, 137.4974),
+  vector4(-985.2323, 10.0292, 48.7815, 356.7631),
+  vector4(253.7246, -666.2621, 38.1748, 68.3311),
+  vector4(257.2367, -785.9179, 30.4622, 60.3754),
+  vector4(82.7135, -851.2513, 30.8225, 84.4511),
+  vector4(-224.1695, -635.5693, 33.4347, 125.0300),
+  vector4(-443.9202, -783.8826, 30.5387, 178.8406),
+  vector4(-145.2903, -846.9258, 30.5422, 137.2018),
+  
+}
+
+Config.Messages = {
+  ['Accept'] = {
+    { text = "Sweet. I'll send the GPS coords in a bit.", sendGPS = true },
+    { text = "Awesome. I'll be in contact soon.", sendGPS = true },
+    { text = "Okay. Keep your phone close.", sendGPS = true },
+    { text = "Bet. Meet me soon.", sendGPS = true },
+    { text = "Say less. I’ll drop the location.", sendGPS = true },
+    { text = "Deal. Sending the spot shortly.", sendGPS = true },
+    { text = "Cool, I’ll let you know where.", sendGPS = true },
+    { text = "We’re locked in. Hang tight.", sendGPS = true },
+    { text = "Aight. I’ll be hitting you up.", sendGPS = true },
+    { text = "Fair enough. Wait for the ping.", sendGPS = true }
+  },
+  ['Decline'] = {
+    { text = "I knew you were a flake.", sendGPS = false },
+    { text = "You're a bum.", sendGPS = false },
+    { text = "Nah, don’t waste my time.", sendGPS = false },
+    { text = "Figures. I’ll find someone else.", sendGPS = false },
+    { text = "Weak. I expected more.", sendGPS = false },
+    { text = "Forget it. Not worth it.", sendGPS = false },
+    { text = "Lame. I had better offers anyway.", sendGPS = false },
+    { text = "Tsk. You ain’t serious.", sendGPS = false },
+    { text = "You just lost a good deal.", sendGPS = false },
+    { text = "Peace. Don’t hit me back.", sendGPS = false }
+  },
+  ['Negotiate'] = {
+    { text = "We’ll see what you’re offering.", sendGPS = false },
+    { text = "Depends on the price.", sendGPS = false },
+    { text = "Let’s hear your number.", sendGPS = false },
+    { text = "Shoot your shot, I’ll consider.", sendGPS = false },
+    { text = "Maybe. Talk to me.", sendGPS = false },
+    { text = "Convince me.", sendGPS = false },
+    { text = "Go ahead. I’m listening.", sendGPS = false },
+    { text = "You better make it worth it.", sendGPS = false },
+    { text = "Name your price. Might work.", sendGPS = false },
+    { text = "I’m not closed off. Let’s talk.", sendGPS = false }
+  },
+  ['Offer'] = {
+    { text = "Ayo bro let me get ", sendGPS = false },
+    { text = "I got some money, you got ", sendGPS = false },
+    { text = "Yo slide me ", sendGPS = false },
+    { text = "Need a quick pickup — gimme ", sendGPS = false },
+    { text = "You still got ", sendGPS = false },
+    { text = "I'm tryna grab ", sendGPS = false },
+    { text = "Hook me up with ", sendGPS = false },
+    { text = "Lemme cop ", sendGPS = false },
+  },
+  ['Timeout'] = {
+    { text = "You're wasting my time.", sendGPS = false },
+    { text = "Clock’s up. Deal’s off.", sendGPS = false },
+    { text = "You had your chance.", sendGPS = false },
+    { text = "Too slow. I moved on.", sendGPS = false },
+    { text = "Should’ve been quicker.", sendGPS = false },
+    { text = "No time for flakes.", sendGPS = false },
+    { text = "You snooze, you lose.", sendGPS = false },
+    { text = "Tick tock. I'm gone.", sendGPS = false },
+    { text = "Lost my patience. Bye.", sendGPS = false },
+    { text = "Not waiting around all day.", sendGPS = false }
+  }
+}
+
+
+Config.DefaultEmails = {
+  {
+      from = "shadydealer421@reflow.com",
+      subject = "Wanna Eat? Tap in",
+      body = [[If you tryna run these streets, Link app's where it starts.
+      Deals don’t wait, homie. Time moves fast — miss one, and someone else snags it.
+      
+      People out here want all kinds of product:
+      • Pills
+      • Powder
+      • Whatever hits
+      
+      Not every offer’s worth a fight. Sometimes it’s smarter to take it, move on, and stack up.
+      
+      Run it smart, not loud.
+      – D]]
+  },
+  {
+      from = "shadydealer421@reflow.com",
+      subject = "Streets don’t sleep. Neither should you.",
+      body = [[Yo,
+      Every block got its characters. Ain’t just what they say—it's how they move, how they look at you, how they smell when they walk up. You feel me?
+
+      Not everyone's built the same. Some folks out here are:
+      • Greedy – Always want more. Push ‘em and they’ll still ask for extra.
+      • Loyal – Solid. Treat ‘em right, they ride with you.
+      • Addicts – Can’t wait, won’t wait. They hit you up more, need more, fast.
+      • Hardliners – Tough nuts. Barely budge on deals.
+      • Pushovers – Easy come, easy go. Say the right thing and it’s a wrap.
+
+      Each one walks different. Talks different. Some keep their eyes low. Some get twitchy. Some smell like desperation, some like danger.
+
+      Pay attention.
+
+      —D]]
+  },
+  {
+      from = "notascam@normalemail.com",
+      subject = "Girls Girls Girls!",
+      body = [[Wanna meet girls in your area RIGHT NOW???
+      Big ones. Small ones. Some so tall they need custom doors.
+      It’s wild out here 😳
+
+      Just send us your 85-digit citizen-hood-ship code, social vibes, favorite pizza topping, and 3 embarrassing secrets.
+
+      Totally normal. 100% legit. Definitely not a scam.
+      Click nothing. Do not respond. You've been warned.
+
+      – The Not A Scam Team™]]
+  }
+}
+```
