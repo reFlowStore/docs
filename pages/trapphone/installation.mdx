@@ -33,6 +33,25 @@ ensure reFlow-Bridge
 ensure reFlow-DrugDealer
 ```
 
+### SQL
+
+<Tab>
+CREATE TABLE IF NOT EXISTS `reflow_dealerphone` (
+  `phone_id` varchar(64) NOT NULL,
+  `xp` int(11) DEFAULT 0,
+  `max_contacts` int(11) NOT NULL DEFAULT 10,
+  `contacts` longtext DEFAULT NULL,
+  `messages` longtext DEFAULT NULL,
+  `wallpaper` longtext DEFAULT NULL,
+  `notification` longtext DEFAULT 'default',
+  `notes` longtext DEFAULT NULL,
+  `emails` longtext DEFAULT NULL,
+  PRIMARY KEY (`phone_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+
+
+</Tab>
+
 ### Add Items
 
 <Tabs items={['qb-inventory', 'qs-inventory', 'ox_inventory', 'codem-inventory']}>
