@@ -35,7 +35,7 @@ ensure reFlow-DrugDealer
 
 ### SQL
 
-<Tab>
+```sql copy
 CREATE TABLE IF NOT EXISTS `reflow_dealerphone` (
   `phone_id` varchar(64) NOT NULL,
   `xp` int(11) DEFAULT 0,
@@ -48,9 +48,7 @@ CREATE TABLE IF NOT EXISTS `reflow_dealerphone` (
   `emails` longtext DEFAULT NULL,
   PRIMARY KEY (`phone_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
-
-
-</Tab>
+```
 
 ### Add Items
 
